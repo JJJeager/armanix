@@ -47,7 +47,7 @@ footer{padding:2rem 0 3rem;color:var(--muted);border-top:1px solid var(--line);f
 <footer>Armanix, depuis la première partie ensemble.</footer></div>
 <script>
 const GAMES={
- lol:{n:"League of Legends",f:["Rang","Victoires (%)","KDA (10 dernières)","Champion favori"],trend:"Évolution du rang"},
+ lol:{n:"League of Legends",f:["Rang Solo/Duo","Rang Flex","Victoires solo (%)","KDA (10 dernières)","Champion favori"],trend:"Évolution du rang"},
  cs:{n:"Counter-Strike 2",f:["Premier","Victoires (%)","Headshots (%)","Matchs"],trend:"Évolution Premier"},
  rl:{n:"Rocket League",f:["Rang","Victoires","Buts par match","Mode favori"]},
  bf:{n:"Battlefield 6",f:["Niveau","K/D","Victoires (%)","Classe favorite"]}};
@@ -65,7 +65,7 @@ function render(){
  $("thead").replaceChildren(h("tr",{},h("th",{},"Joueur"),...g.f.map(x=>h("th",{},x)),g.trend?h("th",{},g.trend):"",h("th",{},"Profil")));
  const rows=stats.players.filter(p=>p.games[game]);
  $("tbody").replaceChildren(...rows.map(p=>{const e=p.games[game],l=ok(e.link);
-  return h("tr",{},h("td",{},p.name),...e.f.map(x=>h("td",{},x)),g.trend?h("td",{},spark((hist[p.name]||{})[game])):"",h("td",{},l?h("a",{href:l,target:"_blank",rel:"noopener"},"Voir"):"—"))}));
+  return h("tr",{},h("td",{},p.name),...g.f.map((_,k)=>h("td",{},e.f[k]||"—")),g.trend?h("td",{},spark((hist[p.name]||{})[game])):"",h("td",{},l?h("a",{href:l,target:"_blank",rel:"noopener"},"Voir"):"—"))}));
  const errs=rows.filter(p=>p.games[game].error).map(p=>p.name);
  const when=stats.updatedAt?new Date(stats.updatedAt).toLocaleString("fr-FR"):"jamais";
  $("note").replaceChildren("Dernière mise à jour : "+when+". ",errs.length?h("span",{class:"err"},"Échec de mise à jour : "+errs.join(", ")):"");
