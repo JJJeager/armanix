@@ -40,14 +40,15 @@ async function lol(p, cache) {
   }
   const kda = ids.length ? ((k + a) / Math.max(d, 1)).toFixed(2) : null;
   const top = Object.entries(champs).sort((x, y) => y[1] - x[1])[0]?.[0];
-  let rank = "Non classé", wr = null, score = null;
+  const rankText = e => { if (!e) return "Non classé"; const [fr] = TIERS[e.tier] || [e.tier]; return `${fr}${["MASTER", "GRANDMASTER", "CHALLENGER"].includes(e.tier) ? "" : " " + e.rank} (${e.leaguePoints} LP)`; };
+  const flex = entries.find(e => e.queueType === "RANKED_FLEX_SR");
+  const rank = rankText(solo); let wr = null, score = null;
   if (solo) {
-    const [fr, base] = TIERS[solo.tier] || [solo.tier, 0];
-    rank = `${fr}${["MASTER", "GRANDMASTER", "CHALLENGER"].includes(solo.tier) ? "" : " " + solo.rank} (${solo.leaguePoints} LP)`;
+    const base = (TIERS[solo.tier] || [0, 0])[1];
     wr = Math.round(100 * solo.wins / (solo.wins + solo.losses));
     score = base + (DIV[solo.rank] || 0) + solo.leaguePoints;
   }
-  return { f: [rank, fmt(wr, " %"), fmt(kda), fmt(top)], score };
+  return { f: [rank, rankText(flex), fmt(wr, " %"), fmt(kda), fmt(top)], score };
 }
 
 async function cs(p) {
@@ -71,7 +72,7 @@ for (const p of config.players) {
   const games = {};
   for (const g of ["lol", "cs", "rl", "bf"]) {
     if (!p[g]) continue;
-    const entry = { ...(old[g] || { f: ["—", "—", "—", "—"] }) };
+    const entry = { ...(old[g] || { f: ["—", "—", "—", "—", "—"] }) };
     entry.link = p[g].link || (g === "lol" && !p.lol.riotId.endsWith("#TAG") ? `https://dpm.lol/${encodeURIComponent(p.lol.riotId.split("#")[0])}-${encodeURIComponent(p.lol.riotId.split("#")[1])}` : "");
     try {
       const r = g === "lol" ? await lol(p, cache) : g === "cs" ? await cs(p) : null;
