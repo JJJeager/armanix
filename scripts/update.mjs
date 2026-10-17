@@ -1,7 +1,8 @@
-// Met à jour data/stats.json et data/history.json (Node 20+, aucune dépendance)
+// Met à jour data/stats.json, data/history.json et data/matches.json (Node 20+, aucune dépendance)
 import { readFile, writeFile } from "node:fs/promises";
 const PLATFORM = process.env.RIOT_PLATFORM || "euw1", ROUTE = process.env.RIOT_ROUTE || "europe";
 const RIOT = process.env.RIOT_API_KEY, LEET = process.env.LEETIFY_API_KEY;
+const NMATCH = 20; // nombre de parties récentes prises en compte pour le KDA
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const readJson = async (p, d) => { try { return JSON.parse(await readFile(p, "utf8")); } catch { return d; } };
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -20,6 +21,41 @@ const riot = async u => { await sleep(1300); return getJson(u, { "X-Riot-Token":
 
 const TIERS = { IRON: ["Fer", 0], BRONZE: ["Bronze", 400], SILVER: ["Argent", 800], GOLD: ["Or", 1200], PLATINUM: ["Platine", 1600], EMERALD: ["Émeraude", 2000], DIAMOND: ["Diamant", 2400], MASTER: ["Maître", 2800], GRANDMASTER: ["Grand Maître", 2800], CHALLENGER: ["Challenger", 2800] };
 const DIV = { IV: 0, III: 100, II: 200, I: 300 };
+const rankText = e => { if (!e) return "Non classé"; const [fr] = TIERS[e.tier] || [e.tier]; return `${fr}${["MASTER", "GRANDMASTER", "CHALLENGER"].includes(e.tier) ? "" : " " + e.rank} (${e.leaguePoints} LP)`; };
+const wrOf = e => e ? Math.round(100 * e.wins / (e.wins + e.losses)) : null;
+
+// Noms et images des champions (Data Dragon, sans clé)
+const dd = { version: null, champs: {} };
+async function loadDDragon() {
+  try {
+    const v = (await getJson("https://ddragon.leagueoflegends.com/api/versions.json"))[0];
+    const c = await getJson(`https://ddragon.leagueoflegends.com/cdn/${v}/data/fr_FR/champion.json`);
+    for (const ch of Object.values(c.data)) dd.champs[ch.id.toLowerCase()] = { id: ch.id, name: ch.name };
+    dd.version = v;
+  } catch (e) { console.error("Data Dragon : " + e.message); }
+}
+
+// Les parties déjà lues sont gardées en cache : seules les nouvelles sont demandées à Riot
+const matchCache = await readJson("data/matches.json", {});
+const used = new Set();
+let lolErrors = 0;
+
+async function recent(puuid, queue, cache) {
+  const ids = await riot(`https://${ROUTE}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?queue=${queue}&count=${NMATCH}`);
+  const known = new Set(Object.values(cache));
+  let k = 0, dth = 0, a = 0, n = 0; const champs = {};
+  for (const id of ids) {
+    const key = `${id}|${puuid}`; used.add(key);
+    if (!matchCache[key]) {
+      const m = await riot(`https://${ROUTE}.api.riotgames.com/lol/match/v5/matches/${id}`);
+      for (const x of m.info.participants) if (known.has(x.puuid)) matchCache[`${id}|${x.puuid}`] = [x.kills, x.deaths, x.assists, x.championName];
+      if (!matchCache[key]) continue;
+    }
+    const [kk, dd2, aa, ch] = matchCache[key];
+    k += kk; dth += dd2; a += aa; n++; champs[ch] = (champs[ch] || 0) + 1;
+  }
+  return { kda: n ? ((k + a) / Math.max(dth, 1)).toFixed(2) : null, champs };
+}
 
 async function lol(p, cache) {
   const [name, tag] = p.lol.riotId.split("#");
@@ -29,29 +65,18 @@ async function lol(p, cache) {
     puuid = (await riot(`https://${ROUTE}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${encodeURIComponent(name)}/${encodeURIComponent(tag)}`)).puuid;
     cache[p.lol.riotId] = puuid;
   }
+  const summ = await riot(`https://${PLATFORM}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}`);
   const entries = await riot(`https://${PLATFORM}.api.riotgames.com/lol/league/v4/entries/by-puuid/${puuid}`);
   const solo = entries.find(e => e.queueType === "RANKED_SOLO_5x5");
-  const recent = async queue => {
-    const ids = await riot(`https://${ROUTE}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?queue=${queue}&count=10`);
-    let k = 0, d = 0, a = 0; const champs = {};
-    for (const id of ids) {
-      const m = await riot(`https://${ROUTE}.api.riotgames.com/lol/match/v5/matches/${id}`);
-      const me = m.info.participants.find(x => x.puuid === puuid); if (!me) continue;
-      k += me.kills; d += me.deaths; a += me.assists; champs[me.championName] = (champs[me.championName] || 0) + 1;
-    }
-    return { kda: ids.length ? ((k + a) / Math.max(d, 1)).toFixed(2) : null, top: Object.entries(champs).sort((x, y) => y[1] - x[1])[0]?.[0] };
-  };
-  const rankText = e => { if (!e) return "Non classé"; const [fr] = TIERS[e.tier] || [e.tier]; return `${fr}${["MASTER", "GRANDMASTER", "CHALLENGER"].includes(e.tier) ? "" : " " + e.rank} (${e.leaguePoints} LP)`; };
   const flex = entries.find(e => e.queueType === "RANKED_FLEX_SR");
-  const sol = await recent(420);
-  const flx = flex ? await recent(440) : { kda: null };
-  const rank = rankText(solo); let wr = null, score = null;
-  if (solo) {
-    const base = (TIERS[solo.tier] || [0, 0])[1];
-    wr = Math.round(100 * solo.wins / (solo.wins + solo.losses));
-    score = base + (DIV[solo.rank] || 0) + solo.leaguePoints;
-  }
-  return { f: [rank, rankText(flex), fmt(wr, " %"), fmt(sol.kda), fmt(flx.kda), fmt(sol.top)], score };
+  const s = await recent(puuid, 420, cache);
+  const f = flex ? await recent(puuid, 440, cache) : null;
+  const count = {};
+  for (const c of [s.champs, f ? f.champs : {}]) for (const k in c) count[k] = (count[k] || 0) + c[k];
+  const champs = Object.entries(count).sort((x, y) => y[1] - x[1]).slice(0, 3).map(([k, n]) => { const m = dd.champs[k.toLowerCase()]; return { id: m ? m.id : k, name: m ? m.name : k, n }; });
+  let score = null;
+  if (solo) score = (TIERS[solo.tier] || [0, 0])[1] + (DIV[solo.rank] || 0) + solo.leaguePoints;
+  return { score, d: { icon: summ.profileIconId, solo: { tier: solo ? solo.tier : null, rank: rankText(solo), wr: wrOf(solo), kda: s.kda }, flex: { tier: flex ? flex.tier : null, rank: rankText(flex), wr: wrOf(flex), kda: f ? f.kda : null }, champs } };
 }
 
 async function cs(p) {
@@ -69,26 +94,31 @@ const history = await readJson("data/history.json", {});
 const cache = await readJson("data/cache.json", {});
 const now = new Date().toISOString();
 const out = [];
+if (RIOT) await loadDDragon();
 
 for (const p of config.players) {
   const old = prev.players.find(x => x.name === p.name)?.games || {};
   const games = {};
   for (const g of ["lol", "cs", "rl", "bf"]) {
     if (!p[g]) continue;
-    const entry = { ...(old[g] || { f: ["—", "—", "—", "—", "—", "—"] }) };
+    const entry = { ...(old[g] || (g === "lol" ? {} : { f: ["—", "—", "—", "—"] })) };
+    if (g === "lol") delete entry.f;
     entry.link = p[g].link || (g === "lol" && !p.lol.riotId.endsWith("#TAG") ? `https://dpm.lol/${encodeURIComponent(p.lol.riotId.split("#")[0])}-${encodeURIComponent(p.lol.riotId.split("#")[1])}` : "");
     try {
       const r = g === "lol" ? await lol(p, cache) : g === "cs" ? await cs(p) : null;
       if (r) {
-        entry.f = r.f; entry.updated = now; delete entry.error;
+        if (r.f) entry.f = r.f; if (r.d) entry.d = r.d;
+        entry.updated = now; delete entry.error;
         if (r.score != null) { const h = ((history[p.name] ||= {})[g] ||= []); h.push([Date.now(), r.score]); if (h.length > 1500) h.shift(); }
       } else if (manual[p.name]?.[g]) { entry.f = manual[p.name][g]; entry.updated = now; entry.manual = true; }
-    } catch (e) { entry.error = String(e.message || e); console.error(`${p.name}/${g}: ${entry.error}`); }
+    } catch (e) { entry.error = String(e.message || e); if (g === "lol") lolErrors++; console.error(`${p.name}/${g}: ${entry.error}`); }
     games[g] = entry;
   }
   out.push({ name: p.name, games });
 }
-await writeFile("data/stats.json", JSON.stringify({ updatedAt: now, players: out }, null, 1));
+await writeFile("data/stats.json", JSON.stringify({ updatedAt: now, ddragon: dd.version || prev.ddragon || null, players: out }, null, 1));
 await writeFile("data/history.json", JSON.stringify(history));
 await writeFile("data/cache.json", JSON.stringify(cache, null, 1));
+const keep = (used.size && !lolErrors) ? Object.fromEntries(Object.entries(matchCache).filter(([k]) => used.has(k))) : matchCache;
+await writeFile("data/matches.json", JSON.stringify(keep));
 console.log(`OK : ${out.length} joueurs, ${now}`);
