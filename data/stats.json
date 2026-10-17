@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-17T13:43:59.191Z",
+ "updatedAt": "2026-10-17T14:13:03.035Z",
  "players": [
   {
    "name": "JJJeager",
@@ -226,7 +226,8 @@
       "—",
       "—"
      ],
-     "link": "https://leetify.com/app/profile/76561198002469129"
+     "link": "https://leetify.com/app/profile/76561198002469129",
+     "error": "ENOENT: no such file or directory, open 'data/raw/cs-mazelbob.json'"
     },
     "rl": {
      "f": [
@@ -258,7 +259,8 @@
       "—",
       "—"
      ],
-     "link": "https://leetify.com/app/profile/76561198097655934"
+     "link": "https://leetify.com/app/profile/76561198097655934",
+     "error": "ENOENT: no such file or directory, open 'data/raw/cs-frozhy.json'"
     },
     "rl": {
      "f": [
@@ -313,7 +315,8 @@
       "—",
       "—"
      ],
-     "link": "https://leetify.com/app/profile/76561198142568665"
+     "link": "https://leetify.com/app/profile/76561198142568665",
+     "error": "ENOENT: no such file or directory, open 'data/raw/cs-gorf.json'"
     },
     "rl": {
      "f": [
@@ -378,7 +381,8 @@
       "—",
       "—"
      ],
-     "link": "https://leetify.com/app/profile/76561198081776591"
+     "link": "https://leetify.com/app/profile/76561198081776591",
+     "error": "ENOENT: no such file or directory, open 'data/raw/cs-joker.json'"
     }
    }
   }
