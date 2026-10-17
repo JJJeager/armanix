@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Armanix</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1e1233;--surface:#2c1b4a;--text:#f3ecff;--muted:#b9a8d9;--accent:#ff4d8d;--accent-ink:#1e1233;--line:#45306b;color-scheme:dark}
+@media (prefers-color-scheme:light){:root{--bg:#f6f0ff;--surface:#ebe0ff;--text:#1e1233;--muted:#5d4a86;--accent:#d6246e;--accent-ink:#fff;--line:#cfbdf2;color-scheme:light}}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:1.0625rem;line-height:1.6}
+a{color:inherit}:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.5rem}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;gap:1rem;flex-wrap:wrap}
+nav b{font-weight:800;font-size:1.25rem}nav ul{display:flex;gap:1.5rem;list-style:none;margin:0;padding:0}nav a{text-decoration:none;color:var(--muted)}
+.hero{padding:clamp(2.5rem,9vw,5.5rem) 0 clamp(2.5rem,7vw,4rem)}
+h1{font-size:clamp(3.2rem,17vw,11rem);line-height:.9;font-weight:800;letter-spacing:-.05em;margin:0}
+h1 i{font-style:normal;color:var(--accent)}
+.tag{max-width:34rem;margin:1.5rem 0 0;font-size:1.3rem;color:var(--muted)}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(1.8rem,5vw,2.6rem);letter-spacing:-.03em;margin:0 0 1.25rem;font-weight:800;line-height:1.1}
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.tabs button{font:inherit;font-weight:600;background:var(--surface);color:var(--muted);border:0;padding:.6rem 1.1rem;border-radius:.5rem;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--accent);color:var(--accent-ink)}
+.scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:42rem}
+th,td{text-align:left;padding:.85rem .75rem;border-bottom:1px solid var(--line);white-space:nowrap}
+th{color:var(--muted);font-weight:600;font-size:.95rem}td:first-child{font-weight:800;font-size:1.1rem}
+svg.sp{width:6rem;height:1.7rem;stroke:var(--accent);fill:none;stroke-width:2}
+.note{color:var(--muted);font-size:.9rem;margin:1rem 0 0}.err{color:var(--accent)}
+.clips{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:1rem}
+.clip{background:var(--surface);border-radius:.6rem;padding:1rem;text-decoration:none}
+.clip b{display:block}.clip span{color:var(--muted);font-size:.9rem}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);font-weight:600;padding:.8rem 1.5rem;border-radius:.5rem;text-decoration:none}
+footer{padding:2rem 0 3rem;color:var(--muted);border-top:1px solid var(--line);font-size:.95rem}
+</style>
+</head>
+<body><div class="wrap">
+<nav><b>Armanix</b><ul><li><a href="#stats">Stats</a></li><li><a href="#clips">Clips</a></li><li><a href="#rejoindre">Nous rejoindre</a></li></ul></nav>
+<header class="hero"><h1>Arm<i>a</i>nix</h1><p class="tag">Une bande d’amis, un salon vocal, et une partie qui commence toujours « juste une dernière ».</p></header>
+<section id="stats"><h2>Stats des joueurs</h2><div class="tabs" id="tabs" role="tablist"></div>
+<div class="scroll"><table><thead id="thead"></thead><tbody id="tbody"></tbody></table></div><p class="note" id="note"></p></section>
+<section id="clips"><h2>Clips</h2><div class="clips" id="clipList"></div><p class="note" id="clipNote"></p></section>
+<section id="rejoindre"><h2>Nous rejoindre</h2><a class="btn" href="#">Ouvrir notre Discord</a></section>
+<footer>Armanix, depuis la première partie ensemble.</footer></div>
+<script>
+const GAMES={
+ lol:{n:"League of Legends",f:["Rang","Victoires (%)","KDA (10 dernières)","Champion favori"],trend:"Évolution du rang"},
+ cs:{n:"Counter-Strike 2",f:["Premier","Victoires (%)","Headshots (%)","Matchs"],trend:"Évolution Premier"},
+ rl:{n:"Rocket League",f:["Rang","Victoires","Buts par match","Mode favori"]},
+ bf:{n:"Battlefield 6",f:["Niveau","K/D","Victoires (%)","Classe favorite"]}};
+const $=id=>document.getElementById(id);
+const ok=u=>{try{return /^https?:$/.test(new URL(u).protocol)?u:""}catch(e){return ""}};
+function h(t,a,...k){const e=document.createElement(t);for(const x in a||{})e.setAttribute(x,a[x]);k.flat().forEach(c=>e.append(c instanceof Node?c:String(c==null?"":c)));return e}
+function spark(pts){if(!pts||pts.length<2)return"—";const v=pts.map(p=>p[1]),mn=Math.min(...v),mx=Math.max(...v)||1,r=(mx-mn)||1;
+ const d=v.map((y,i)=>(i/(v.length-1)*100).toFixed(1)+","+(26-(y-mn)/r*24).toFixed(1)).join(" ");
+ const s=document.createElementNS("http://www.w3.org/2000/svg","svg");s.setAttribute("viewBox","0 0 100 28");s.setAttribute("class","sp");s.setAttribute("preserveAspectRatio","none");
+ const l=document.createElementNS("http://www.w3.org/2000/svg","polyline");l.setAttribute("points",d);s.append(l);return s}
+let stats={players:[]},hist={},game="lol";
+function render(){
+ $("tabs").replaceChildren(...Object.keys(GAMES).map(k=>h("button",{role:"tab","aria-selected":k===game},GAMES[k].n)).map((b,i)=>(b.onclick=()=>{game=Object.keys(GAMES)[i];render()},b)));
+ const g=GAMES[game];
+ $("thead").replaceChildren(h("tr",{},h("th",{},"Joueur"),...g.f.map(x=>h("th",{},x)),g.trend?h("th",{},g.trend):"",h("th",{},"Profil")));
+ const rows=stats.players.filter(p=>p.games[game]);
+ $("tbody").replaceChildren(...rows.map(p=>{const e=p.games[game],l=ok(e.link);
+  return h("tr",{},h("td",{},p.name),...e.f.map(x=>h("td",{},x)),g.trend?h("td",{},spark((hist[p.name]||{})[game])):"",h("td",{},l?h("a",{href:l,target:"_blank",rel:"noopener"},"Voir"):"—"))}));
+ const errs=rows.filter(p=>p.games[game].error).map(p=>p.name);
+ const when=stats.updatedAt?new Date(stats.updatedAt).toLocaleString("fr-FR"):"jamais";
+ $("note").replaceChildren("Dernière mise à jour : "+when+". ",errs.length?h("span",{class:"err"},"Échec de mise à jour : "+errs.join(", ")):"");
+}
+async function load(){
+ try{stats=await (await fetch("data/stats.json",{cache:"no-cache"})).json();hist=await (await fetch("data/history.json",{cache:"no-cache"})).json()}catch(e){$("note").textContent="Impossible de charger les stats."}
+ render();
+ try{const c=await (await fetch("data/clips.json",{cache:"no-cache"})).json();
+  $("clipNote").textContent=c.length?"":"Aucun clip pour l’instant.";
+  $("clipList").replaceChildren(...c.map(x=>h("a",{class:"clip",href:ok(x.url)||"#",target:"_blank",rel:"noopener"},h("b",{},x.title||"Clip"),h("span",{},[x.player,(GAMES[x.game]||{}).n].filter(Boolean).join(" · ")))))}catch(e){}
+}
+load();
+</script></body></html>

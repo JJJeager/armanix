@@ -1,0 +1,157 @@
+{
+ "players": [
+  {
+   "name": "JJJeager",
+   "lol": {
+    "riotId": "Allo Central#TAG"
+   },
+   "rl": {
+    "link": "https://rocketleague.tracker.network/rocket-league/profile/epic/JJJeager/overview"
+   },
+   "bf": {
+    "link": "https://tracker.gg/bf6/profile/1007206584675/overview"
+   }
+  },
+  {
+   "name": "Hirrownie",
+   "lol": {
+    "riotId": "Biyul Seupain#TAG"
+   },
+   "rl": {
+    "link": "https://rocketleague.tracker.network/rocket-league/profile/epic/Hirrownie/overview"
+   },
+   "bf": {
+    "link": "https://tracker.gg/bf6/profile/2757598385/overview"
+   }
+  },
+  {
+   "name": "LucasLePlot",
+   "lol": {
+    "riotId": "LucasLePlot#TAG"
+   },
+   "rl": {
+    "link": "https://rocketleague.tracker.network/rocket-league/profile/steam/76561197985132210/overview"
+   },
+   "bf": {
+    "link": "https://tracker.gg/bf6/profile/2777881000/overview"
+   }
+  },
+  {
+   "name": "Aiiros",
+   "lol": {
+    "riotId": "Bords De Vienne#TAG"
+   },
+   "rl": {
+    "link": "https://rocketleague.tracker.network/rocket-league/profile/epic/Aiiros/overview"
+   },
+   "bf": {
+    "link": "https://tracker.gg/bf6/profile/1001977868474/overview"
+   }
+  },
+  {
+   "name": "RainBow",
+   "lol": {
+    "riotId": "Glorbo Florbo#TAG"
+   },
+   "bf": {
+    "link": "https://tracker.gg/bf6/profile/2646863224/overview"
+   }
+  },
+  {
+   "name": "Kikittitou",
+   "lol": {
+    "riotId": "Kikittitou#TAG"
+   },
+   "cs": {
+    "steam64": null,
+    "link": "https://leetify.com/@kikittitou"
+   },
+   "rl": {
+    "link": "https://rocketleague.tracker.network/rocket-league/profile/steam/Kikittitou/overview"
+   }
+  },
+  {
+   "name": "PL Couche",
+   "lol": {
+    "riotId": "Emmanuel Micron #TAG"
+   },
+   "rl": {
+    "link": "https://rocketleague.tracker.network/rocket-league/profile/steam/76561198084631582/overview"
+   }
+  },
+  {
+   "name": "MazelBob",
+   "lol": {
+    "riotId": "Mazelbob#TAG"
+   },
+   "cs": {
+    "steam64": "76561198002469129",
+    "link": "https://leetify.com/app/profile/76561198002469129"
+   },
+   "rl": {
+    "link": "https://rocketleague.tracker.network/rocket-league/profile/steam/76561198016835512/overview"
+   }
+  },
+  {
+   "name": "Frozhy",
+   "lol": {
+    "riotId": "FrozhY#TAG"
+   },
+   "cs": {
+    "steam64": "76561198097655934",
+    "link": "https://leetify.com/app/profile/76561198097655934"
+   },
+   "rl": {
+    "link": "https://rocketleague.tracker.network/rocket-league/profile/epic/FrozhY/overview"
+   }
+  },
+  {
+   "name": "Valkai",
+   "lol": {
+    "riotId": "Lécheur2culotte#TAG"
+   },
+   "cs": {
+    "steam64": null,
+    "link": "https://leetify.com/@valkai"
+   }
+  },
+  {
+   "name": "Gorf",
+   "lol": {
+    "riotId": "4FPS#TAG"
+   },
+   "cs": {
+    "steam64": "76561198142568665",
+    "link": "https://leetify.com/app/profile/76561198142568665"
+   },
+   "rl": {
+    "link": "https://rocketleague.tracker.network/rocket-league/profile/epic/ElfVision/overview"
+   }
+  },
+  {
+   "name": "Glonk",
+   "lol": {
+    "riotId": "Smorvix#TAG"
+   }
+  },
+  {
+   "name": "Piesang",
+   "lol": {
+    "riotId": "Piesang#TAG"
+   }
+  },
+  {
+   "name": "JibaxLaMenax",
+   "lol": {
+    "riotId": "JibaxLaMenax#TAG"
+   }
+  },
+  {
+   "name": "Joker",
+   "cs": {
+    "steam64": "76561198081776591",
+    "link": "https://leetify.com/app/profile/76561198081776591"
+   }
+  }
+ ]
+}
