@@ -29,6 +29,8 @@ h2{font-size:clamp(1.8rem,5vw,2.6rem);letter-spacing:-.03em;margin:0 0 1.25rem;f
 th,td{text-align:left;padding:.85rem .75rem;border-bottom:1px solid var(--line);white-space:nowrap}
 th{color:var(--muted);font-weight:600;font-size:.95rem}td:first-child{font-weight:800;font-size:1.1rem}
 svg.sp{width:6rem;height:1.7rem;stroke:var(--accent);fill:none;stroke-width:2}
+.who{display:flex;align-items:center;gap:.6rem}.who img{width:2rem;height:2rem;border-radius:50%}.champs{display:flex;gap:.35rem}.champs img{width:2rem;height:2rem;border-radius:.4rem}
+.rk{display:flex;align-items:center;gap:.5rem}.rk img,.rk svg{width:2rem;height:2rem;flex:none}
 .note{color:var(--muted);font-size:.9rem;margin:1rem 0 0}.err{color:var(--accent)}
 .clips{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:1rem}
 .clip{background:var(--surface);border-radius:.6rem;padding:1rem;text-decoration:none}
@@ -47,25 +49,50 @@ footer{padding:2rem 0 3rem;color:var(--muted);border-top:1px solid var(--line);f
 <footer>Armanix, depuis la première partie ensemble.</footer></div>
 <script>
 const GAMES={
- lol:{n:"League of Legends",f:["Rang Solo/Duo","Rang Flex","Victoires solo (%)","KDA Solo (10 dernières)","KDA Flex (10 dernières)","Champion favori"],trend:"Évolution du rang"},
+ lol:{n:"League of Legends",trend:"Évolution du rang"},
  cs:{n:"Counter-Strike 2",f:["Premier","Victoires (%)","Headshots (%)","Matchs"],trend:"Évolution Premier"},
  rl:{n:"Rocket League",f:["Rang","Victoires","Buts par match","Mode favori"]},
  bf:{n:"Battlefield 6",f:["Niveau","K/D","Victoires (%)","Classe favorite"]}};
 const $=id=>document.getElementById(id);
 const ok=u=>{try{return /^https?:$/.test(new URL(u).protocol)?u:""}catch(e){return ""}};
+const dash=x=>x==null||x===""?"—":x, pct=x=>x==null?"—":x+" %";
 function h(t,a,...k){const e=document.createElement(t);for(const x in a||{})e.setAttribute(x,a[x]);k.flat().forEach(c=>e.append(c instanceof Node?c:String(c==null?"":c)));return e}
 function spark(pts){if(!pts||pts.length<2)return"—";const v=pts.map(p=>p[1]),mn=Math.min(...v),mx=Math.max(...v)||1,r=(mx-mn)||1;
  const d=v.map((y,i)=>(i/(v.length-1)*100).toFixed(1)+","+(26-(y-mn)/r*24).toFixed(1)).join(" ");
  const s=document.createElementNS("http://www.w3.org/2000/svg","svg");s.setAttribute("viewBox","0 0 100 28");s.setAttribute("class","sp");s.setAttribute("preserveAspectRatio","none");
  const l=document.createElementNS("http://www.w3.org/2000/svg","polyline");l.setAttribute("points",d);s.append(l);return s}
 let stats={players:[]},hist={},game="lol";
+function img(kind,id,label){const v=stats.ddragon;if(!v||id==null)return"";
+ return h("img",{src:"https://ddragon.leagueoflegends.com/cdn/"+v+"/img/"+kind+"/"+id+".png",alt:label||"",title:label||"",width:32,height:32,loading:"lazy",onerror:"this.style.visibility='hidden'"})}
+function profil(e){const l=ok(e.link);return h("td",{},l?h("a",{href:l,target:"_blank",rel:"noopener"},"Voir"):"—")}
+const TCOL={IRON:"#6b5b55",BRONZE:"#a0673a",SILVER:"#9aa7b0",GOLD:"#e0b04b",PLATINUM:"#4fb0a8",EMERALD:"#2fbf71",DIAMOND:"#5b8def",MASTER:"#b05bd6",GRANDMASTER:"#d9534f",CHALLENGER:"#f0c75e"};
+function shield(tier){const ns="http://www.w3.org/2000/svg",s=document.createElementNS(ns,"svg");s.setAttribute("viewBox","0 0 24 24");
+ const p=document.createElementNS(ns,"path");p.setAttribute("d","M12 2 21 6v7c0 5-4.5 8.5-9 10-4.5-1.5-9-5-9-10V6z");p.setAttribute("fill",TCOL[tier]||"#7a7a8c");p.setAttribute("stroke","rgba(255,255,255,.6)");p.setAttribute("stroke-width","1.2");s.append(p);return s}
+function rankCell(r){const t=r&&r.tier,wrap=h("div",{class:"rk"});
+ if(t){const n=t.toLowerCase(),urls=["https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-shared-components/global/default/"+n+".png","https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-emblem/emblem-"+n+".png"];
+  const im=h("img",{alt:t,title:t,width:32,height:32,loading:"lazy",src:urls[0]});let k=0;
+  im.addEventListener("error",()=>{k++;if(k<urls.length)im.src=urls[k];else im.replaceWith(shield(t))});wrap.append(im)}
+ else wrap.append(shield(null));
+ wrap.append(dash(r&&r.rank));return h("td",{},wrap)}
+function lolTable(rows){
+ $("thead").replaceChildren(h("tr",{},...["Joueur","Rang solo/duo","Victoires solo (%)","KDA solo (20 dernières)","Rang flex","Victoires flex (%)","KDA flex (20 dernières)","Champions favoris","Évolution du rang","Profil"].map(x=>h("th",{},x))));
+ $("tbody").replaceChildren(...rows.map(p=>{const e=p.games.lol,d=e.d||{},s=d.solo||{},f=d.flex||{};
+  return h("tr",{},
+   h("td",{},h("div",{class:"who"},img("profileicon",d.icon,"Icône d’invocateur"),p.name)),
+   rankCell(s),h("td",{},pct(s.wr)),h("td",{},dash(s.kda)),
+   rankCell(f),h("td",{},pct(f.wr)),h("td",{},dash(f.kda)),
+   h("td",{},(d.champs&&d.champs.length)?h("div",{class:"champs"},...d.champs.map(c=>img("champion",c.id,c.name+" ("+c.n+" parties)"))):"—"),
+   h("td",{},spark((hist[p.name]||{}).lol)),profil(e))}));
+}
+function genericTable(g,rows){
+ $("thead").replaceChildren(h("tr",{},h("th",{},"Joueur"),...g.f.map(x=>h("th",{},x)),g.trend?h("th",{},g.trend):"",h("th",{},"Profil")));
+ $("tbody").replaceChildren(...rows.map(p=>{const e=p.games[game];
+  return h("tr",{},h("td",{},p.name),...g.f.map((_,k)=>h("td",{},(e.f||[])[k]||"—")),g.trend?h("td",{},spark((hist[p.name]||{})[game])):"",profil(e))}));
+}
 function render(){
  $("tabs").replaceChildren(...Object.keys(GAMES).map(k=>h("button",{role:"tab","aria-selected":k===game},GAMES[k].n)).map((b,i)=>(b.onclick=()=>{game=Object.keys(GAMES)[i];render()},b)));
- const g=GAMES[game];
- $("thead").replaceChildren(h("tr",{},h("th",{},"Joueur"),...g.f.map(x=>h("th",{},x)),g.trend?h("th",{},g.trend):"",h("th",{},"Profil")));
- const rows=stats.players.filter(p=>p.games[game]);
- $("tbody").replaceChildren(...rows.map(p=>{const e=p.games[game],l=ok(e.link);
-  return h("tr",{},h("td",{},p.name),...g.f.map((_,k)=>h("td",{},e.f[k]||"—")),g.trend?h("td",{},spark((hist[p.name]||{})[game])):"",h("td",{},l?h("a",{href:l,target:"_blank",rel:"noopener"},"Voir"):"—"))}));
+ const g=GAMES[game],rows=stats.players.filter(p=>p.games[game]);
+ if(game==="lol")lolTable(rows);else genericTable(g,rows);
  const errs=rows.filter(p=>p.games[game].error).map(p=>p.name);
  const when=stats.updatedAt?new Date(stats.updatedAt).toLocaleString("fr-FR"):"jamais";
  $("note").replaceChildren("Dernière mise à jour : "+when+". ",errs.length?h("span",{class:"err"},"Échec de mise à jour : "+errs.join(", ")):"");
