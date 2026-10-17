@@ -7,13 +7,13 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#1e1233;--surface:#2c1b4a;--text:#f3ecff;--muted:#b9a8d9;--accent:#ff4d8d;--accent-ink:#1e1233;--line:#45306b;color-scheme:dark}
-@media (prefers-color-scheme:light){:root{--bg:#f6f0ff;--surface:#ebe0ff;--text:#1e1233;--muted:#5d4a86;--accent:#d6246e;--accent-ink:#fff;--line:#cfbdf2;color-scheme:light}}
+:root{--bg:#1e1233;--surface:#2c1b4a;--text:#f3ecff;--muted:#b9a8d9;--accent:#ff4d8d;--accent-ink:#1e1233;--line:#45306b;--cl:66%;color-scheme:dark}
+@media (prefers-color-scheme:light){:root{--bg:#f6f0ff;--surface:#ebe0ff;--text:#1e1233;--muted:#5d4a86;--accent:#d6246e;--accent-ink:#fff;--line:#cfbdf2;--cl:32%;color-scheme:light}}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--text);font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:1.0625rem;line-height:1.6}
 a{color:inherit}:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-.wrap{max-width:62rem;margin:0 auto;padding:0 1.5rem}
+.wrap{max-width:84rem;margin:0 auto;padding:0 1.5rem}
 nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;gap:1rem;flex-wrap:wrap}
 nav b{font-weight:800;font-size:1.25rem}nav ul{display:flex;gap:1.5rem;list-style:none;margin:0;padding:0}nav a{text-decoration:none;color:var(--muted)}
 .hero{padding:clamp(2.5rem,9vw,5.5rem) 0 clamp(2.5rem,7vw,4rem)}
@@ -25,9 +25,10 @@ h2{font-size:clamp(1.8rem,5vw,2.6rem);letter-spacing:-.03em;margin:0 0 1.25rem;f
 .tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
 .tabs button{font:inherit;font-weight:600;background:var(--surface);color:var(--muted);border:0;padding:.6rem 1.1rem;border-radius:.5rem;cursor:pointer}
 .tabs button[aria-selected=true]{background:var(--accent);color:var(--accent-ink)}
-.scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:42rem}
-th,td{text-align:left;padding:.85rem .75rem;border-bottom:1px solid var(--line);white-space:nowrap}
-th{color:var(--muted);font-weight:600;font-size:.95rem}td:first-child{font-weight:800;font-size:1.1rem}
+.scroll{overflow-x:auto}table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:.7rem .5rem;border-bottom:1px solid var(--line);vertical-align:middle;font-size:.95rem}
+th{color:var(--muted);font-weight:600;font-size:.85rem;line-height:1.25}td:first-child{font-weight:800;font-size:1.05rem;white-space:nowrap}.cv{font-weight:800}
+@media (max-width:76rem){table,thead,tbody,tr,td{display:block}thead{display:none}tr{background:var(--surface);border-radius:.6rem;padding:.4rem .9rem;margin-bottom:1rem}td{display:flex;justify-content:space-between;align-items:center;gap:1rem;border:0;padding:.45rem 0;text-align:right}td::before{content:attr(data-label);color:var(--muted);font-size:.85rem;text-align:left}}
 svg.sp{width:6rem;height:1.7rem;stroke:var(--accent);fill:none;stroke-width:2}
 .who{display:flex;align-items:center;gap:.6rem}.who img{width:2rem;height:2rem;border-radius:50%}.champs{display:flex;gap:.35rem}.champs img{width:2rem;height:2rem;border-radius:.4rem}
 .rk{display:flex;align-items:center;gap:.5rem}.rk img,.rk svg{width:2rem;height:2rem;flex:none}
@@ -46,7 +47,7 @@ footer{padding:2rem 0 3rem;color:var(--muted);border-top:1px solid var(--line);f
 <div class="scroll"><table><thead id="thead"></thead><tbody id="tbody"></tbody></table></div><p class="note" id="note"></p></section>
 <section id="clips"><h2>Clips</h2><div class="clips" id="clipList"></div><p class="note" id="clipNote"></p></section>
 <section id="rejoindre"><h2>Nous rejoindre</h2><a class="btn" href="#">Ouvrir notre Discord</a></section>
-<footer>Armanix, depuis la première partie ensemble.</footer></div>
+<footer>Armanix, depuis la première partie ensemble. · Version 3 (tableau large)</footer></div>
 <script>
 const GAMES={
  lol:{n:"League of Legends",trend:"Évolution du rang"},
@@ -64,30 +65,40 @@ function spark(pts){if(!pts||pts.length<2)return"—";const v=pts.map(p=>p[1]),m
 let stats={players:[]},hist={},game="lol";
 function img(kind,id,label){const v=stats.ddragon;if(!v||id==null)return"";
  return h("img",{src:"https://ddragon.leagueoflegends.com/cdn/"+v+"/img/"+kind+"/"+id+".png",alt:label||"",title:label||"",width:32,height:32,loading:"lazy",onerror:"this.style.visibility='hidden'"})}
-function profil(e){const l=ok(e.link);return h("td",{},l?h("a",{href:l,target:"_blank",rel:"noopener"},"Voir"):"—")}
+function profil(e){const l=ok(e.link);return td("Profil",l?h("a",{href:l,target:"_blank",rel:"noopener"},"Voir"):"—")}
 const TCOL={IRON:"#6b5b55",BRONZE:"#a0673a",SILVER:"#9aa7b0",GOLD:"#e0b04b",PLATINUM:"#4fb0a8",EMERALD:"#2fbf71",DIAMOND:"#5b8def",MASTER:"#b05bd6",GRANDMASTER:"#d9534f",CHALLENGER:"#f0c75e"};
 function shield(tier){const ns="http://www.w3.org/2000/svg",s=document.createElementNS(ns,"svg");s.setAttribute("viewBox","0 0 24 24");
  const p=document.createElementNS(ns,"path");p.setAttribute("d","M12 2 21 6v7c0 5-4.5 8.5-9 10-4.5-1.5-9-5-9-10V6z");p.setAttribute("fill",TCOL[tier]||"#7a7a8c");p.setAttribute("stroke","rgba(255,255,255,.6)");p.setAttribute("stroke-width","1.2");s.append(p);return s}
-function rankCell(r){const t=r&&r.tier,wrap=h("div",{class:"rk"});
+function rankCell(r,label){const t=r&&r.tier,wrap=h("div",{class:"rk"});
  if(t){const n=t.toLowerCase(),urls=["https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-shared-components/global/default/"+n+".png","https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-emblem/emblem-"+n+".png"];
   const im=h("img",{alt:t,title:t,width:32,height:32,loading:"lazy",src:urls[0]});let k=0;
   im.addEventListener("error",()=>{k++;if(k<urls.length)im.src=urls[k];else im.replaceWith(shield(t))});wrap.append(im)}
  else wrap.append(shield(null));
- wrap.append(dash(r&&r.rank));return h("td",{},wrap)}
+ wrap.append(dash(r&&r.rank));return td(label,wrap)}
+// Couleurs : rouge (faible) > jaune (moyenne) > vert (au-dessus). Seuils [rouge, jaune, vert], à ajuster ici.
+const SC={wr:[40,50,60],kda:[1.5,2.5,3.5]};
+function hue(v,s){const lo=s[0],mid=s[1],hi=s[2];if(v<=lo)return 0;if(v<mid)return 55*(v-lo)/(mid-lo);if(v<hi)return 55+75*(v-mid)/(hi-mid);return 130}
+function colored(text,v,sc){if(v==null||isNaN(v))return "—";return h("span",{class:"cv",style:"color:hsl("+Math.round(hue(v,sc))+" 80% var(--cl))"},text)}
+const num=x=>x==null||x===""?null:parseFloat(String(x).replace(",","."));
+function td(label){const k=Array.prototype.slice.call(arguments,1);return h("td",{"data-label":label},k)}
 function lolTable(rows){
  $("thead").replaceChildren(h("tr",{},...["Joueur","Rang solo/duo","Victoires solo (%)","KDA solo (20 dernières)","Rang flex","Victoires flex (%)","KDA flex (20 dernières)","Champions favoris","Évolution du rang","Profil"].map(x=>h("th",{},x))));
  $("tbody").replaceChildren(...rows.map(p=>{const e=p.games.lol,d=e.d||{},s=d.solo||{},f=d.flex||{};
   return h("tr",{},
-   h("td",{},h("div",{class:"who"},img("profileicon",d.icon,"Icône d’invocateur"),p.name)),
-   rankCell(s),h("td",{},pct(s.wr)),h("td",{},dash(s.kda)),
-   rankCell(f),h("td",{},pct(f.wr)),h("td",{},dash(f.kda)),
-   h("td",{},(d.champs&&d.champs.length)?h("div",{class:"champs"},...d.champs.map(c=>img("champion",c.id,c.name+" ("+c.n+" parties)"))):"—"),
-   h("td",{},spark((hist[p.name]||{}).lol)),profil(e))}));
+   td("Joueur",h("div",{class:"who"},img("profileicon",d.icon,"Icône d’invocateur"),p.name)),
+   rankCell(s,"Rang solo/duo"),
+   td("Victoires solo (%)",colored(pct(s.wr),s.wr,SC.wr)),
+   td("KDA solo (20 dernières)",colored(dash(s.kda),num(s.kda),SC.kda)),
+   rankCell(f,"Rang flex"),
+   td("Victoires flex (%)",colored(pct(f.wr),f.wr,SC.wr)),
+   td("KDA flex (20 dernières)",colored(dash(f.kda),num(f.kda),SC.kda)),
+   td("Champions favoris",(d.champs&&d.champs.length)?h("div",{class:"champs"},d.champs.map(c=>img("champion",c.id,c.name+" ("+c.n+" parties)"))):"—"),
+   td("Évolution du rang",spark((hist[p.name]||{}).lol)),profil(e))}));
 }
 function genericTable(g,rows){
  $("thead").replaceChildren(h("tr",{},h("th",{},"Joueur"),...g.f.map(x=>h("th",{},x)),g.trend?h("th",{},g.trend):"",h("th",{},"Profil")));
  $("tbody").replaceChildren(...rows.map(p=>{const e=p.games[game];
-  return h("tr",{},h("td",{},p.name),...g.f.map((_,k)=>h("td",{},(e.f||[])[k]||"—")),g.trend?h("td",{},spark((hist[p.name]||{})[game])):"",profil(e))}));
+  return h("tr",{},td("Joueur",p.name),...g.f.map((lab,k)=>{const v=(e.f||[])[k]||"—";return td(lab,lab.indexOf("Victoires (%)")>=0?colored(v,num(v),SC.wr):v)}),g.trend?td(g.trend,spark((hist[p.name]||{})[game])):"",profil(e))}));
 }
 function render(){
  $("tabs").replaceChildren(...Object.keys(GAMES).map(k=>h("button",{role:"tab","aria-selected":k===game},GAMES[k].n)).map((b,i)=>(b.onclick=()=>{game=Object.keys(GAMES)[i];render()},b)));
