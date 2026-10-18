@@ -47,14 +47,26 @@ nav a[aria-current=page]{color:var(--text);box-shadow:0 2px 0 var(--accent)}
 .bio{color:var(--muted);font-size:.9rem;margin:0}
 .gr{display:flex;align-items:center;gap:.6rem;font-size:.9rem;border-top:1px solid var(--line);padding-top:.65rem}
 .gv{flex:1;display:flex;flex-wrap:wrap;gap:.4rem .9rem;align-items:center}.gr a{color:var(--accent2);font-weight:600;font-size:.85rem}.lb{color:var(--muted);font-size:.78rem}.gv.col{flex-direction:column;align-items:flex-start;gap:.4rem}.ll{display:flex;align-items:center;gap:.6rem}.ll .lb{width:2rem}.gr{align-items:flex-start}.gr>.gi{margin-top:.15rem}
-.rnd{display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:1.25rem}
+.rnd{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(20rem,100%),1fr));gap:1.25rem}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:1rem;padding:1.25rem}.card h3{margin:0 0 1rem;font-size:1.15rem}
 .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.9rem}
 .chip{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--line);border-radius:2rem;padding:.25rem .75rem;font-size:.88rem;cursor:pointer;background:var(--bg)}.chip input{accent-color:var(--accent)}.chip .mini{padding:0 .4rem;border:0}
 .ctl{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-bottom:.9rem}
 .teams{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:.75rem}
 .team{border:1px solid var(--line);border-radius:.8rem;padding:.8rem;background:var(--bg)}.team b{display:block;color:var(--accent2);margin-bottom:.35rem}.team ul{margin:0;padding:0;list-style:none}
-.rnd2{margin-top:1.25rem;grid-template-columns:1fr}@media (min-width:62rem){.rnd2{grid-template-columns:1fr 1.7fr}}.wheelWrap.big{width:min(100%,36rem)}.wres img{width:2.4rem;height:2.4rem;border-radius:.5rem;vertical-align:middle;margin-left:.4rem}
+.txt{max-width:12rem;font:inherit;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:.5rem;padding:.35rem .6rem}
+.dot{display:inline-block;width:.6rem;height:.6rem;border-radius:50%}
+.roller{position:relative;border:1px solid var(--line);border-radius:.9rem;background:var(--bg);height:8.8rem;margin:0 0 1rem;overflow:hidden}
+.rv{height:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.track{display:flex;gap:.6rem;height:100%;align-items:center;padding:0 .3rem;will-change:transform}
+.rc{flex:none;width:6rem;display:flex;flex-direction:column;align-items:center;gap:.25rem;padding:.4rem;border-radius:.7rem;border:2px solid transparent;font-size:.78rem}
+.rc img,.rn0{width:4.6rem;height:4.6rem;border-radius:.6rem;background:var(--surface2);display:grid;place-items:center;font-weight:800;color:var(--accent2)}
+.rc span{max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rc.win{border-color:var(--accent);background:var(--surface2)}
+.mark{position:absolute;top:0;bottom:0;left:50%;width:3px;margin-left:-1.5px;background:var(--accent2);z-index:2;box-shadow:0 0 12px var(--accent)}
+.mark::before{content:"";position:absolute;top:-1px;left:-7px;border:8px solid transparent;border-top-color:var(--accent2)}
+.rmsg{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);pointer-events:none}.rmsg[hidden]{display:none}
+.rnd2{margin-top:1.25rem;grid-template-columns:minmax(0,1fr)}@media (min-width:62rem){.rnd2{grid-template-columns:minmax(0,1fr) minmax(0,1.7fr)}}.rnd>.card{min-width:0}.roller{min-width:0;width:100%}.wheelWrap.big{width:min(100%,36rem)}.wres img{width:2.4rem;height:2.4rem;border-radius:.5rem;vertical-align:middle;margin-left:.4rem}
 .wheelWrap{position:relative;width:min(100%,22rem);margin:0 auto 1rem}.wheelWrap canvas{width:100%;height:auto;display:block}
 .ptr{position:absolute;top:-4px;left:50%;transform:translateX(-50%);border-left:12px solid transparent;border-right:12px solid transparent;border-top:22px solid var(--text)}
 .wres{font-size:1.2rem;font-weight:800;min-height:1.8rem;text-align:center;margin:.5rem 0 0}
@@ -89,7 +101,7 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.88rem}
 <section id="roster" hidden><h2>Roster Armanix</h2><div class="grid" id="rosterGrid"></div></section>
 <section id="random" hidden><h2>RANDOM</h2><div class="rnd">
 <div class="card"><h3>Générateur d’équipes</h3><div class="chips" id="plist"></div>
-<div class="ctl"><button class="mini" id="pAll">Tout cocher</button><button class="mini" id="pNone">Tout décocher</button></div>
+<div class="ctl"><button class="mini" id="pAll">Tout cocher</button><button class="mini" id="pNone">Tout décocher</button><input id="pNew" class="txt" placeholder="Ajouter un joueur" maxlength="24"><button class="mini" id="pAdd">Ajouter</button></div>
 <div class="ctl"><label>Équipes <select id="teamN"><option>2</option><option>3</option><option>4</option></select></label><label class="chip"><input type="checkbox" id="bal"> Équilibrer par rang LoL</label><button class="btn" id="mix">Mélanger</button></div>
 <div class="teams" id="teams" aria-live="polite"></div></div>
 <div class="card"><h3>Roue du jeu</h3><div class="wheelWrap"><canvas id="wheel" width="480" height="480" aria-label="Roue des jeux"></canvas><div class="ptr"></div></div>
@@ -98,10 +110,10 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.88rem}
 <div class="rnd rnd2">
 <div class="card"><h3>Roue des lanes</h3><div class="wheelWrap"><canvas id="laneWheel" width="480" height="480" aria-label="Roue des lanes"></canvas><div class="ptr"></div></div>
 <div class="chips" id="laneList"></div><div class="ctl" style="justify-content:center"><button class="btn" id="laneSpin">Tirer la lane</button></div><p class="wres" id="laneRes" aria-live="polite"></p></div>
-<div class="card"><h3>Roue des champions</h3><p class="sub" id="champHint">Tire d’abord une lane.</p><div class="wheelWrap big"><canvas id="champWheel" width="680" height="680" aria-label="Roue des champions"></canvas><div class="ptr"></div></div>
+<div class="card"><h3>Roue des champions</h3><p class="sub" id="champHint">Tire d’abord une lane.</p><div class="roller"><div class="rv"><div class="track" id="track"></div></div><div class="mark"></div><div class="rmsg" id="rmsg">Tire d’abord une lane</div></div>
 <div class="ctl" style="justify-content:center"><button class="btn" id="champSpin" disabled>Tirer le champion</button></div><p class="wres" id="champRes" aria-live="polite"></p></div></div>
 </section>
-<footer>Armanix, depuis la première partie ensemble. · Version 11</footer></div>
+<footer>Armanix, depuis la première partie ensemble. · Version 13</footer></div>
 <script>
 const GAMES={
  lol:{n:"League of Legends",trend:"Évolution du rang"},
@@ -215,7 +227,14 @@ function renderRoster(){
 // --- générateur d'équipes
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function chk(v){const i=h("input",{type:"checkbox",value:v});i.checked=true;return i}
-function buildPlayers(){$("plist").replaceChildren(...stats.players.map(p=>h("label",{class:"chip"},chk(p.name),p.name)))}
+let xPlayers=[];
+function buildPlayers(){const st={};document.querySelectorAll("#plist input").forEach(x=>{st[x.value]=x.checked});
+ const mk=(n,custom)=>{const c=chk(n);c.checked=st[n]!==false;const lab=h("label",{class:"chip"},c,n);
+  if(custom){const r=h("button",{class:"mini",title:"Retirer","aria-label":"Retirer "+n},"×");r.onclick=e=>{e.preventDefault();xPlayers=xPlayers.filter(y=>y!==n);buildPlayers()};lab.append(r)}return lab};
+ $("plist").replaceChildren(...stats.players.map(p=>mk(p.name,0)),...xPlayers.map(n=>mk(n,1)))}
+function addPlayer(){const v=$("pNew").value.trim().slice(0,24);if(!v)return;
+ if(stats.players.concat(xPlayers.map(n=>({name:n}))).some(p=>p.name.toLowerCase()===v.toLowerCase())){$("pNew").value="";return}
+ xPlayers.push(v);$("pNew").value="";buildPlayers()}
 const pset=f=>document.querySelectorAll("#plist input").forEach(i=>{i.checked=f})
 function sc(name){const p=stats.players.find(x=>x.name===name),d=(p&&p.games.lol&&p.games.lol.d)||{},v=rankVal(d.solo);return v!=null?v:rankVal(d.flex)}
 function mix(){
@@ -230,17 +249,30 @@ function mix(){
  out.replaceChildren(...teams.map((t,i)=>h("div",{class:"team"},h("b",{},"Équipe "+(i+1)),h("ul",{},t.map(x=>h("li",{},x))))))}
 // --- roues (jeu, lane, champion)
 const PAL=["#6a45e0","#8b6cf6","#4f3bb5","#a07bf5","#5b3fd0"];
+function loadImg(urls,cb){const o={ok:false,el:new Image()};let n=0;o.el.onload=()=>{o.ok=true;if(cb)cb()};o.el.onerror=()=>{n++;if(n<urls.length)o.el.src=urls[n]};o.el.src=urls[0];return o}
+function glyph(ctx,g,s){ctx.save();ctx.strokeStyle="#fff";ctx.fillStyle="#fff";ctx.lineWidth=s*.13;ctx.lineCap="round";ctx.lineJoin="round";const q=s*.85;
+ if(g==="TOP"||g==="MIDDLE"||g==="BOTTOM"){ctx.strokeRect(-q,-q,2*q,2*q);ctx.beginPath();
+  if(g==="TOP"){ctx.moveTo(-q,-q);ctx.lineTo(q*.25,-q);ctx.lineTo(-q,q*.25)}
+  else if(g==="BOTTOM"){ctx.moveTo(q,q);ctx.lineTo(-q*.25,q);ctx.lineTo(q,-q*.25)}
+  else{ctx.moveTo(-q,q*.4);ctx.lineTo(-q*.4,q);ctx.lineTo(q,-q*.4);ctx.lineTo(q*.4,-q)}
+  ctx.closePath();ctx.fill()}
+ else if(g==="JUNGLE"){for(const d of[-.55,0,.55]){ctx.beginPath();ctx.moveTo(d*s-s*.25,-s*.85);ctx.quadraticCurveTo(d*s+s*.3,0,d*s-s*.12,s*.85);ctx.stroke()}}
+ else{ctx.beginPath();ctx.ellipse(0,0,s*.95,s*.58,0,0,2*Math.PI);ctx.stroke();ctx.beginPath();ctx.arc(0,0,s*.3,0,2*Math.PI);ctx.fill()}
+ ctx.restore()}
 function makeWheel(o){
  let rot=0,spinning=false,fz=null;const cv=o.cv,ctx=cv.getContext("2d"),W=cv.width,R=W/2-6;
  function draw(){const it=fz||o.get(),N=it.length;ctx.clearRect(0,0,W,W);
   if(!N){ctx.fillStyle="#888";ctx.font="600 "+Math.round(W/22)+"px Manrope,system-ui,sans-serif";ctx.textAlign="center";ctx.fillText(o.empty||"Aucun élément",W/2,W/2);return}
   const seg=2*Math.PI/N,many=N>24,f=s=>"700 "+s+"px Manrope,system-ui,sans-serif";
   it.forEach((x,k)=>{const a0=rot+k*seg;ctx.beginPath();ctx.moveTo(W/2,W/2);ctx.arc(W/2,W/2,R,a0,a0+seg);ctx.closePath();
-   ctx.fillStyle=PAL[(k===N-1&&k%PAL.length===0&&k>0)?1:k%PAL.length];ctx.fill();ctx.strokeStyle="rgba(255,255,255,"+(many?.15:.35)+")";ctx.lineWidth=many?.6:2;ctx.stroke();
-   ctx.save();ctx.translate(W/2,W/2);ctx.rotate(a0+seg/2);ctx.textAlign="right";ctx.fillStyle="#fff";
-   let fs=Math.max(9,Math.min(W*.046,R*.78*seg*.72));const lab=x.n.length>22?x.n.slice(0,21)+"…":x.n;ctx.font=f(fs);
-   while(ctx.measureText(lab).width>R-W*.17&&fs>8){fs--;ctx.font=f(fs)}
-   ctx.fillText(lab,R-W*.037,fs*.32);ctx.restore()});
+   ctx.fillStyle=x.c||PAL[(k===N-1&&k%PAL.length===0&&k>0)?1:k%PAL.length];ctx.fill();ctx.strokeStyle="rgba(255,255,255,"+(many?.15:.35)+")";ctx.lineWidth=many?.6:2;ctx.stroke();
+   ctx.save();ctx.translate(W/2,W/2);ctx.rotate(a0+seg/2);
+   if((x.im&&x.im.ok)||x.g){const rc=R*(N>6?.7:.62),sz=Math.min(R*.46,rc*seg*.8);ctx.translate(rc,0);ctx.rotate(Math.PI/2);
+    if(x.im&&x.im.ok){const e=x.im.el,r=Math.min(sz/e.naturalWidth,sz/e.naturalHeight);ctx.drawImage(e,-e.naturalWidth*r/2,-e.naturalHeight*r/2,e.naturalWidth*r,e.naturalHeight*r)}else glyph(ctx,x.g,sz/2)}
+   else{ctx.textAlign="right";ctx.fillStyle="#fff";let fs=Math.max(9,Math.min(W*.046,R*.78*seg*.72));const lab=x.n.length>22?x.n.slice(0,21)+"…":x.n;ctx.font=f(fs);
+    while(ctx.measureText(lab).width>R-W*.17&&fs>8){fs--;ctx.font=f(fs)}
+    ctx.fillText(lab,R-W*.037,fs*.32)}
+   ctx.restore()});
   ctx.beginPath();ctx.arc(W/2,W/2,many?10:16,0,2*Math.PI);ctx.fillStyle="#fff";ctx.fill()}
  function spin(){const N=o.get().length;if(spinning||!N)return;spinning=true;fz=o.get().slice();o.btn.disabled=true;if(o.start)o.start();
   const start=rot,total=(5+Math.random()*3)*2*Math.PI+Math.random()*2*Math.PI,dur=matchMedia("(prefers-reduced-motion:reduce)").matches?0:4200,t0=performance.now();
@@ -250,7 +282,8 @@ function makeWheel(o){
   (function fr(t){const k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);rot=start+total*e;draw();if(k<1)requestAnimationFrame(fr);else fin()})(t0)}
  o.btn.onclick=spin;return{draw,spin}}
 // roue des jeux
-let wItems=[{n:"League of Legends",on:1},{n:"Counter-Strike 2",on:1},{n:"Rocket League",on:1},{n:"Battlefield 6",on:1}];
+const GL={"League of Legends":"lol","Counter-Strike 2":"cs","Rocket League":"rl","Battlefield 6":"bf"};
+let wItems=Object.keys(GL).map(n=>({n,on:1,im:loadImg([GL[n]+".png",GL[n]+".svg"],()=>gameWheel.draw())}));
 const wOn=()=>wItems.filter(x=>x.on);
 const gameWheel=makeWheel({cv:$("wheel"),btn:$("spin"),get:wOn,empty:"Aucun jeu sélectionné",start:()=>{$("wres").textContent=""},done:w=>{$("wres").textContent="On joue à : "+w.n}});
 function buildWheelList(){$("glist").replaceChildren(...wItems.map((x,k)=>{const c=h("input",{type:"checkbox"});c.checked=!!x.on;c.onchange=()=>{x.on=c.checked;$("wres").textContent="";gameWheel.draw()};
@@ -258,27 +291,55 @@ function buildWheelList(){$("glist").replaceChildren(...wItems.map((x,k)=>{const
  if(x.custom){const r=h("button",{class:"mini",title:"Retirer","aria-label":"Retirer "+x.n},"×");r.onclick=e=>{e.preventDefault();wItems.splice(k,1);buildWheelList();gameWheel.draw()};lab.append(r)}return lab}))}
 function addGame(){const v=$("gNew").value.trim().slice(0,30);if(!v)return;wItems.push({n:v,on:1,custom:1});$("gNew").value="";buildWheelList();gameWheel.draw()}
 // roue des lanes -> roue des champions de la lane tirée
-const LANES=[{n:"Top",k:"TOP",on:1},{n:"Jungle",k:"JUNGLE",on:1},{n:"Mid",k:"MIDDLE",on:1},{n:"ADC",k:"BOTTOM",on:1},{n:"Support",k:"UTILITY",on:1}];
-let lanesData=null,champMap={},curLane=null,champItems=[];
+const CD="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions/icon-position-";
+const LANES=[["Top","TOP","top","top","#c2542d"],["Jungle","JUNGLE","jungle","jungle","#2e9d62"],["Mid","MIDDLE","mid","middle","#3d7be0"],["ADC","BOTTOM","adc","bottom","#d9a21b"],["Support","UTILITY","support","utility","#28a8b8"]]
+ .map(r=>({n:r[0],k:r[1],g:r[1],c:r[4],on:1,im:loadImg(["role-"+r[2]+".png","role-"+r[2]+".svg",CD+r[3]+".png"],()=>laneWheel.draw())}));
+// Listes de secours intégrées (patch 16.3) : la roue fonctionne même sans les fichiers data/lanes.json et data/champions.json
+const SEED_L="1M 2T 3M 4M 5J 6T 7M 8TM 9J 10T 11J 12S 13M 14T 15B 16S 17T 18B 19J 20J 21B 22B 23T 24TJ 25S 26S 27T 28J 29B 30J 31T 32J 33J 34M 35J 36TJ 37S 38M 39TM 40S 41T 42B 43S 44S 45M 48TJ 50S 51B 53S 54TJ 55M 56J 57S 58T 59J 60J 61M 62J 63S 64J 67TB 68T 69M 72J 74T 75T 76J 77J 78S 79T 80S 81B 82T 83T 84TM 85T 86T 89S 90M 91J 92T 96B 98T 99MS 101MS 102J 103M 104J 105M 106TJ 107J 110TB 111S 112M 113J 114T 115B 117S 119B 120J 121J 122T 126TJ 127M 131JM 133T 134M 136M 141J 142M 143S 145B 147S 150T 154J 157TM 161S 163M 164T 166M 200J 201S 202B 203J 221B 222B 223TS 233J 234J 235S 236B 238JM 240T 245JM 246JM 254J 266T 267S 268M 350S 360B 412S 420T 421J 427J 429B 432S 497S 498B 516T 517JM 518S 523B 526S 555S 711M 777TM 799TJ 800MS 804B 875T 876J 887TJ 888S 893M 895B 897T 901B 902S 904T 910M 950M";
+const SEED_C="1 Annie,2 Olaf,3 Galio,4 TwistedFate,5 XinZhao,6 Urgot,7 Leblanc,8 Vladimir,9 Fiddlesticks,10 Kayle,11 MasterYi,12 Alistar,13 Ryze,14 Sion,15 Sivir,16 Soraka,17 Teemo,18 Tristana,19 Warwick,20 Nunu,21 MissFortune,22 Ashe,23 Tryndamere,24 Jax,25 Morgana,26 Zilean,27 Singed,28 Evelynn,29 Twitch,30 Karthus,31 Chogath,32 Amumu,33 Rammus,34 Anivia,35 Shaco,36 DrMundo,37 Sona,38 Kassadin,39 Irelia,40 Janna,41 Gangplank,42 Corki,43 Karma,44 Taric,45 Veigar,48 Trundle,50 Swain,51 Caitlyn,53 Blitzcrank,54 Malphite,55 Katarina,56 Nocturne,57 Maokai,58 Renekton,59 JarvanIV,60 Elise,61 Orianna,62 MonkeyKing,63 Brand,64 LeeSin,67 Vayne,68 Rumble,69 Cassiopeia,72 Skarner,74 Heimerdinger,75 Nasus,76 Nidalee,77 Udyr,78 Poppy,79 Gragas,80 Pantheon,81 Ezreal,82 Mordekaiser,83 Yorick,84 Akali,85 Kennen,86 Garen,89 Leona,90 Malzahar,91 Talon,92 Riven,96 KogMaw,98 Shen,99 Lux,101 Xerath,102 Shyvana,103 Ahri,104 Graves,105 Fizz,106 Volibear,107 Rengar,110 Varus,111 Nautilus,112 Viktor,113 Sejuani,114 Fiora,115 Ziggs,117 Lulu,119 Draven,120 Hecarim,121 Khazix,122 Darius,126 Jayce,127 Lissandra,131 Diana,133 Quinn,134 Syndra,136 AurelionSol,141 Kayn,142 Zoe,143 Zyra,145 Kaisa,147 Seraphine,150 Gnar,154 Zac,157 Yasuo,161 Velkoz,163 Taliyah,164 Camille,166 Akshan,200 Belveth,201 Braum,202 Jhin,203 Kindred,221 Zeri,222 Jinx,223 TahmKench,233 Briar,234 Viego,235 Senna,236 Lucian,238 Zed,240 Kled,245 Ekko,246 Qiyana,254 Vi,266 Aatrox,267 Nami,268 Azir,350 Yuumi,360 Samira,412 Thresh,420 Illaoi,421 RekSai,427 Ivern,429 Kalista,432 Bard,497 Rakan,498 Xayah,516 Ornn,517 Sylas,518 Neeko,523 Aphelios,526 Rell,555 Pyke,711 Vex,777 Yone,799 Ambessa,800 Mel,804 Yunara,875 Sett,876 Lillia,887 Gwen,888 Renata,893 Aurora,895 Nilah,897 KSante,901 Smolder,902 Milio,904 Zaahen,910 Hwei,950 Naafiri";
+const SEED_N={"TwistedFate":"Twisted Fate","XinZhao":"Xin Zhao","Leblanc":"LeBlanc","MasterYi":"Master Yi","Nunu":"Nunu et Willump","MissFortune":"Miss Fortune","Chogath":"Cho'Gath","DrMundo":"Dr. Mundo","JarvanIV":"Jarvan IV","MonkeyKing":"Wukong","LeeSin":"Lee Sin","KogMaw":"Kog'Maw","Khazix":"Kha'Zix","AurelionSol":"Aurelion Sol","Kaisa":"Kai'Sa","Velkoz":"Vel'Koz","Belveth":"Bel'Veth","TahmKench":"Tahm Kench","RekSai":"Rek'Sai","Renata":"Renata Glasc","KSante":"K'Sante"};
+function seedLanes(){const m={T:"TOP",J:"JUNGLE",M:"MIDDLE",B:"BOTTOM",S:"UTILITY"},l={TOP:[],JUNGLE:[],MIDDLE:[],BOTTOM:[],UTILITY:[]};
+ SEED_L.split(" ").forEach(t=>{const k=t.match(/^\d+/)[0];t.slice(k.length).split("").forEach(c=>l[m[c]].push(k))});return{lanes:l}}
+function seedChamps(){const c={};SEED_C.split(",").forEach(t=>{const p=t.split(" ");c[p[0]]={id:p[1],name:SEED_N[p[1]]||p[1]}});return c}
+let lanesData=seedLanes(),champMap=seedChamps(),curLane=null,champItems=[];
 const laneWheel=makeWheel({cv:$("laneWheel"),btn:$("laneSpin"),get:()=>LANES.filter(x=>x.on),empty:"Aucune lane sélectionnée",start:()=>{$("laneRes").textContent="";$("champSpin").disabled=true},
  done:l=>{curLane=l;$("laneRes").textContent="Lane : "+l.n;setChamps()},after:()=>false});
-const champWheel=makeWheel({cv:$("champWheel"),btn:$("champSpin"),get:()=>champItems,empty:"Tire d’abord une lane",start:()=>{$("champRes").replaceChildren()},
- done:c=>{$("champRes").replaceChildren("On joue : "+c.n,img("champion",c.id,c.n))}});
+const roller={run:0,rolling:false};
+function champCard(c){const d=h("div",{class:"rc"}),v=stats.ddragon,ini=()=>h("div",{class:"rn0"},c.n.slice(0,2));
+ if(v){const im=h("img",{src:"https://ddragon.leagueoflegends.com/cdn/"+v+"/img/champion/"+c.id+".png",alt:"",width:88,height:88});im.onerror=()=>im.replaceWith(ini());d.append(im)}else d.append(ini());
+ d.append(h("span",{},c.n));return d}
+function rollerReset(){roller.run++;roller.rolling=false;const t=$("track");t.style.transition="none";t.style.transform="translateX(0)";
+ t.replaceChildren(...champItems.map(champCard));$("rmsg").hidden=champItems.length>0}
+function rollSpin(){
+ if(roller.rolling||!champItems.length)return;
+ const items=champItems,win=items[Math.floor(Math.random()*items.length)],WI=52,seq=[],t=$("track"),pick=()=>items[Math.floor(Math.random()*items.length)];
+ for(let k=0;k<WI+10;k++)seq.push(k===WI?win:pick());
+ t.style.transition="none";t.style.transform="translateX(0)";t.replaceChildren(...seq.map(champCard));
+ $("champRes").replaceChildren();$("champSpin").disabled=true;roller.rolling=true;const id=++roller.run;
+ const tr=t.getBoundingClientRect(),cr=t.children[WI].getBoundingClientRect(),view=t.parentElement.clientWidth;
+ const target=(cr.left-tr.left)+cr.width/2+(Math.random()*.76-.38)*cr.width-view/2,dur=matchMedia("(prefers-reduced-motion:reduce)").matches?0:6500;
+ const fin=()=>{if(id!==roller.run)return;roller.rolling=false;$("champSpin").disabled=false;t.children[WI].classList.add("win");$("champRes").replaceChildren("On joue : "+win.n,img("champion",win.id,win.n))};
+ void t.offsetWidth;
+ if(!dur){t.style.transform="translateX("+(-target)+"px)";fin();return}
+ t.style.transition="transform "+dur+"ms cubic-bezier(.12,.7,.1,1)";t.style.transform="translateX("+(-target)+"px)";
+ t.addEventListener("transitionend",fin,{once:true});setTimeout(fin,dur+400)}
+$("champSpin").onclick=rollSpin;
 function setChamps(){
  const keys=(curLane&&lanesData&&lanesData.lanes&&lanesData.lanes[curLane.k])||[];
  champItems=keys.map(k=>champMap[k]).filter(Boolean).map(c=>({n:c.name,id:c.id})).sort((a,b)=>a.n.localeCompare(b.n,"fr"));
  $("champHint").textContent=!curLane?"Tire d’abord une lane.":champItems.length?"Lane "+curLane.n+" : "+champItems.length+" champions":"Liste des champions indisponible pour le moment.";
- $("champSpin").disabled=!champItems.length;$("champRes").replaceChildren();champWheel.draw()}
-function buildLaneList(){$("laneList").replaceChildren(...LANES.map(x=>{const c=h("input",{type:"checkbox"});c.checked=!!x.on;c.onchange=()=>{x.on=c.checked;$("laneRes").textContent="";laneWheel.draw()};return h("label",{class:"chip"},c,x.n)}))}
+ $("champSpin").disabled=!champItems.length;$("champRes").replaceChildren();rollerReset()}
+function buildLaneList(){$("laneList").replaceChildren(...LANES.map(x=>{const c=h("input",{type:"checkbox"});c.checked=!!x.on;c.onchange=()=>{x.on=c.checked;$("laneRes").textContent="";laneWheel.draw()};return h("label",{class:"chip"},c,h("i",{class:"dot",style:"background:"+x.c}),x.n)}))}
 async function loadChamps(){
- try{lanesData=await (await fetch("data/lanes.json",{cache:"no-cache"})).json()}catch(e){}
+ try{const d=await (await fetch("data/lanes.json",{cache:"no-cache"})).json();if(d&&d.lanes&&Object.values(d.lanes).every(a=>a.length>5))lanesData=d}catch(e){}
  try{const c=await (await fetch("data/champions.json",{cache:"no-cache"})).json();Object.assign(champMap,c.champs||{})}catch(e){}
  try{let v=stats.ddragon;if(!v)v=(await (await fetch("https://ddragon.leagueoflegends.com/api/versions.json")).json())[0];
   const c=await (await fetch("https://ddragon.leagueoflegends.com/cdn/"+v+"/data/fr_FR/champion.json")).json();for(const ch of Object.values(c.data))champMap[ch.key]={id:ch.id,name:ch.name}}catch(e){}
  if(curLane)setChamps()}
-const drawAll=()=>{gameWheel.draw();laneWheel.draw();champWheel.draw()};
+const drawAll=()=>{gameWheel.draw();laneWheel.draw()};
 $("pAll").onclick=()=>pset(true);$("pNone").onclick=()=>pset(false);$("mix").onclick=mix;$("gAdd").onclick=addGame;
 $("gNew").addEventListener("keydown",e=>{if(e.key==="Enter")addGame()});
+$("pAdd").onclick=addPlayer;$("pNew").addEventListener("keydown",e=>{if(e.key==="Enter")addPlayer()});
 async function load(){
  try{stats=await (await fetch("data/stats.json",{cache:"no-cache"})).json();hist=await (await fetch("data/history.json",{cache:"no-cache"})).json()}catch(e){$("note").textContent="Impossible de charger les stats."}
  try{extra=await (await fetch("data/roster.json",{cache:"no-cache"})).json()}catch(e){}
