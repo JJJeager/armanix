@@ -5,49 +5,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Armanix</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#1e1233;--surface:#2c1b4a;--text:#f3ecff;--muted:#b9a8d9;--accent:#ff4d8d;--accent-ink:#1e1233;--line:#45306b;--cl:66%;color-scheme:dark}
-@media (prefers-color-scheme:light){:root{--bg:#f6f0ff;--surface:#ebe0ff;--text:#1e1233;--muted:#5d4a86;--accent:#d6246e;--accent-ink:#fff;--line:#cfbdf2;--cl:32%;color-scheme:light}}
+:root{--bg:#13101f;--surface:#1c1730;--surface2:#262040;--text:#eeeaf8;--muted:#a39dbd;--line:#2f2850;--accent:#8b6cf6;--accent-ink:#fff;--accent2:#c3b3ff;--cl:68%;color-scheme:dark}
+@media (prefers-color-scheme:light){:root{--bg:#f6f4fc;--surface:#fff;--surface2:#efeafb;--text:#1c1733;--muted:#675f86;--line:#e2dcf3;--accent:#6a45e0;--accent2:#5a38c8;--cl:34%;color-scheme:light}}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:1.0625rem;line-height:1.6}
-a{color:inherit}:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:1rem;line-height:1.6;background-image:radial-gradient(60rem 28rem at 50% -8rem,color-mix(in srgb,var(--accent) 22%,transparent),transparent);background-repeat:no-repeat}
+a{color:inherit}:focus-visible{outline:2px solid var(--accent2);outline-offset:3px}
 .wrap{max-width:84rem;margin:0 auto;padding:0 1.5rem}
 nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;gap:1rem;flex-wrap:wrap}
-nav b{font-weight:800;font-size:1.25rem}nav ul{display:flex;gap:1.5rem;list-style:none;margin:0;padding:0}nav a{text-decoration:none;color:var(--muted)}
-.hero{padding:clamp(2.5rem,9vw,5.5rem) 0 clamp(2.5rem,7vw,4rem)}
-h1{font-size:clamp(3.2rem,17vw,11rem);line-height:.9;font-weight:800;letter-spacing:-.05em;margin:0}
+nav b{font-weight:800;font-size:1.1rem;letter-spacing:-.01em}nav b i{font-style:normal;color:var(--accent)}
+nav ul{display:flex;gap:1.75rem;list-style:none;margin:0;padding:0}nav a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem}nav a:hover{color:var(--text)}
+.hero{padding:clamp(3rem,9vw,6rem) 0 clamp(2.5rem,6vw,4rem);animation:rise .7s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2);border:1px solid var(--line);border-radius:2rem;padding:.3rem .85rem;margin-bottom:1.25rem}
+h1{font-size:clamp(3rem,9vw,6.5rem);line-height:1;font-weight:800;letter-spacing:-.045em;margin:0}
 h1 i{font-style:normal;color:var(--accent)}
-.tag{max-width:34rem;margin:1.5rem 0 0;font-size:1.3rem;color:var(--muted)}
-section{padding:3.5rem 0;border-top:1px solid var(--line)}
-h2{font-size:clamp(1.8rem,5vw,2.6rem);letter-spacing:-.03em;margin:0 0 1.25rem;font-weight:800;line-height:1.1}
-.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
-.tabs button{font:inherit;font-weight:600;background:var(--surface);color:var(--muted);border:0;padding:.6rem 1.1rem;border-radius:.5rem;cursor:pointer}
+.tag{max-width:36rem;margin:1.25rem 0 1.75rem;font-size:1.15rem;color:var(--muted)}
+.hero .row{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center}
+.meta{color:var(--muted);font-size:.95rem;margin-left:.5rem}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);font:inherit;font-weight:600;padding:.75rem 1.4rem;border-radius:.65rem;text-decoration:none;transition:filter .15s}
+.btn:hover{filter:brightness(1.12)}
+section{padding:3rem 0}
+h2{font-size:clamp(1.5rem,3.5vw,2rem);letter-spacing:-.025em;margin:0 0 1.25rem;font-weight:800;line-height:1.15}
+.tabs{display:inline-flex;gap:.25rem;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:.8rem;padding:.25rem;margin-bottom:1rem}
+.tabs button{display:inline-flex;align-items:center;gap:.5rem;font:inherit;font-weight:600;font-size:.92rem;background:transparent;color:var(--muted);border:0;padding:.5rem 1rem;border-radius:.6rem;cursor:pointer}
+.tabs button:hover{color:var(--text)}
 .tabs button[aria-selected=true]{background:var(--accent);color:var(--accent-ink)}
-.scroll{overflow-x:auto}table{width:100%;border-collapse:collapse}
-th,td{text-align:left;padding:.7rem .5rem;border-bottom:1px solid var(--line);vertical-align:middle;font-size:.95rem}
-th{color:var(--muted);font-weight:600;font-size:.85rem;line-height:1.25}td:first-child{font-weight:800;font-size:1.05rem;white-space:nowrap}.cv{font-weight:800}
-@media (max-width:76rem){table,thead,tbody,tr,td{display:block}thead{display:none}tr{background:var(--surface);border-radius:.6rem;padding:.4rem .9rem;margin-bottom:1rem}td{display:flex;justify-content:space-between;align-items:center;gap:1rem;border:0;padding:.45rem 0;text-align:right}td::before{content:attr(data-label);color:var(--muted);font-size:.85rem;text-align:left}}
-svg.sp{width:6rem;height:1.7rem;stroke:var(--accent);fill:none;stroke-width:2}
-.who{display:flex;align-items:center;gap:.6rem}.who img{width:2rem;height:2rem;border-radius:50%}.champs{display:flex;gap:.35rem}.champs img{width:2rem;height:2rem;border-radius:.4rem}
+.gi{display:inline-flex}.gi img{width:1.35rem;height:1.35rem;object-fit:contain}.gb{display:inline-grid;place-items:center;min-width:1.5rem;height:1.35rem;padding:0 .3rem;border-radius:.35rem;color:#fff;font-size:.6rem;font-weight:800;letter-spacing:.02em}
+.scroll{overflow-x:auto}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:1rem;padding:.25rem .75rem}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:.7rem .5rem;border-bottom:1px solid var(--line);vertical-align:middle;font-size:.93rem}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:var(--surface2)}
+th{color:var(--muted);font-weight:600;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;line-height:1.3}
+td:first-child{font-weight:800;white-space:nowrap}
+td a{color:var(--accent2);font-weight:600;text-underline-offset:3px}
+.cv{font-weight:800}
+.who{display:flex;align-items:center;gap:.6rem}.who img{width:2rem;height:2rem;border-radius:50%;border:2px solid var(--line)}
+.champs{display:flex;gap:.35rem}.champs img{width:2rem;height:2rem;border-radius:.45rem;border:1px solid var(--line)}
 .rk{display:flex;align-items:center;gap:.5rem}.rk img,.rk svg{width:2rem;height:2rem;flex:none}
-.note{color:var(--muted);font-size:.9rem;margin:1rem 0 0}.err{color:var(--accent)}
-.clips{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:1rem}
-.clip{background:var(--surface);border-radius:.6rem;padding:1rem;text-decoration:none}
-.clip b{display:block}.clip span{color:var(--muted);font-size:.9rem}
-.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);font-weight:600;padding:.8rem 1.5rem;border-radius:.5rem;text-decoration:none}
-footer{padding:2rem 0 3rem;color:var(--muted);border-top:1px solid var(--line);font-size:.95rem}
+svg.sp{width:6rem;height:1.7rem;stroke:var(--accent2);fill:none;stroke-width:2;stroke-linejoin:round}
+.note{color:var(--muted);font-size:.88rem;margin:1rem 0 0}.err{color:var(--accent2);font-weight:600}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.88rem}
+@media (max-width:76rem){.panel{background:none;border:0;padding:0}table,thead,tbody,tr,td{display:block}thead{display:none}tr{background:var(--surface);border:1px solid var(--line);border-radius:.9rem;padding:.4rem .95rem;margin-bottom:.9rem}tbody tr:hover{background:var(--surface)}td{display:flex;justify-content:space-between;align-items:center;gap:1rem;border:0;padding:.45rem 0;text-align:right}td::before{content:attr(data-label);color:var(--muted);font-size:.8rem;text-align:left}}
+@media (prefers-reduced-motion:reduce){.hero{animation:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body><div class="wrap">
-<nav><b>Armanix</b><ul><li><a href="#stats">Stats</a></li><li><a href="#clips">Clips</a></li><li><a href="#rejoindre">Nous rejoindre</a></li></ul></nav>
-<header class="hero"><h1>Arm<i>a</i>nix</h1><p class="tag">Une bande d’amis, un salon vocal, et une partie qui commence toujours « juste une dernière ».</p></header>
+<nav><b>Armanix<i>.</i></b><ul><li><a href="#stats">Stats</a></li></ul></nav>
+<header class="hero"><span class="eyebrow">Équipe · Amis · PC</span><h1>Armanix<i>.</i></h1><p class="tag">Une bande d’amis, un salon vocal, et une partie qui commence toujours « juste une dernière ».</p>
+<div class="row"><a class="btn" href="#stats">Voir les stats</a><span class="meta" id="meta"></span></div></header>
 <section id="stats"><h2>Stats des joueurs</h2><div class="tabs" id="tabs" role="tablist"></div>
-<div class="scroll"><table><thead id="thead"></thead><tbody id="tbody"></tbody></table></div><p class="note" id="note"></p></section>
-<section id="clips"><h2>Clips</h2><div class="clips" id="clipList"></div><p class="note" id="clipNote"></p></section>
-<section id="rejoindre"><h2>Nous rejoindre</h2><a class="btn" href="#">Ouvrir notre Discord</a></section>
-<footer>Armanix, depuis la première partie ensemble. · Version 3 (tableau large)</footer></div>
+<div class="scroll panel"><table><thead id="thead"></thead><tbody id="tbody"></tbody></table></div><p class="note" id="note"></p></section>
+<footer>Armanix, depuis la première partie ensemble. · Version 7</footer></div>
 <script>
 const GAMES={
  lol:{n:"League of Legends",trend:"Évolution du rang"},
@@ -100,8 +113,15 @@ function genericTable(g,rows){
  $("tbody").replaceChildren(...rows.map(p=>{const e=p.games[game];
   return h("tr",{},td("Joueur",p.name),...g.f.map((lab,k)=>{const v=(e.f||[])[k]||"—";return td(lab,lab.indexOf("Victoires (%)")>=0?colored(v,num(v),SC.wr):v)}),g.trend?td(g.trend,spark((hist[p.name]||{})[game])):"",profil(e))}));
 }
+// Logos : dépose lol.png, cs.png, rl.png et bf.png (ou .svg) à côté de index.html ; sinon une pastille s'affiche
+const GI={lol:["LoL","#a9792a"],cs:["CS2","#b9702a"],rl:["RL","#2a6fdb"],bf:["BF6","#4b5563"]},iconOk={};
+function gameIcon(k){const t=GI[k][0],c=GI[k][1],wrap=h("span",{class:"gi"}),badge=()=>h("span",{class:"gb",style:"background:"+c},t);
+ if(iconOk[k]==="badge"){wrap.append(badge());return wrap}
+ const urls=[k+".png",k+".svg"];let n=0;const im=h("img",{alt:"",src:urls[0]});
+ im.addEventListener("error",()=>{n++;if(n<urls.length)im.src=urls[n];else{iconOk[k]="badge";im.replaceWith(badge())}});
+ wrap.append(im);return wrap}
 function render(){
- $("tabs").replaceChildren(...Object.keys(GAMES).map(k=>h("button",{role:"tab","aria-selected":k===game},GAMES[k].n)).map((b,i)=>(b.onclick=()=>{game=Object.keys(GAMES)[i];render()},b)));
+ $("tabs").replaceChildren(...Object.keys(GAMES).map(k=>h("button",{role:"tab","aria-selected":k===game},gameIcon(k),GAMES[k].n)).map((b,i)=>(b.onclick=()=>{game=Object.keys(GAMES)[i];render()},b)));
  const g=GAMES[game],rows=stats.players.filter(p=>p.games[game]);
  if(game==="lol")lolTable(rows);else genericTable(g,rows);
  const errs=rows.filter(p=>p.games[game].error).map(p=>p.name);
@@ -111,9 +131,7 @@ function render(){
 async function load(){
  try{stats=await (await fetch("data/stats.json",{cache:"no-cache"})).json();hist=await (await fetch("data/history.json",{cache:"no-cache"})).json()}catch(e){$("note").textContent="Impossible de charger les stats."}
  render();
- try{const c=await (await fetch("data/clips.json",{cache:"no-cache"})).json();
-  $("clipNote").textContent=c.length?"":"Aucun clip pour l’instant.";
-  $("clipList").replaceChildren(...c.map(x=>h("a",{class:"clip",href:ok(x.url)||"#",target:"_blank",rel:"noopener"},h("b",{},x.title||"Clip"),h("span",{},[x.player,(GAMES[x.game]||{}).n].filter(Boolean).join(" · ")))))}catch(e){}
+ $("meta").textContent=stats.players.length+" joueurs · "+Object.keys(GAMES).length+" jeux";
 }
 load();
 </script></body></html>
