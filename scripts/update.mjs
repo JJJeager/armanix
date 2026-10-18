@@ -30,9 +30,25 @@ async function loadDDragon() {
   try {
     const v = (await getJson("https://ddragon.leagueoflegends.com/api/versions.json"))[0];
     const c = await getJson(`https://ddragon.leagueoflegends.com/cdn/${v}/data/fr_FR/champion.json`);
-    for (const ch of Object.values(c.data)) dd.champs[ch.id.toLowerCase()] = { id: ch.id, name: ch.name };
+    const byKey = {};
+    for (const ch of Object.values(c.data)) { dd.champs[ch.id.toLowerCase()] = { id: ch.id, name: ch.name }; byKey[ch.key] = { id: ch.id, name: ch.name }; }
     dd.version = v;
+    await writeFile("data/champions.json", JSON.stringify({ version: v, champs: byKey }));
   } catch (e) { console.error("Data Dragon : " + e.message); }
+}
+
+
+// Lanes de chaque champion (Meraki Analytics, taux de jeu par poste) pour la roue des champions
+async function loadLanes() {
+  try {
+    let j = null;
+    for (const u of ["https://cdn.merakianalytics.com/riot/lol/resources/latest/en-US/championrates.json", "http://cdn.merakianalytics.com/riot/lol/resources/latest/en-US/championrates.json"]) { try { j = await getJson(u); break; } catch {} }
+    if (!j || !j.data) throw new Error("source indisponible");
+    const L = { TOP: [], JUNGLE: [], MIDDLE: [], BOTTOM: [], UTILITY: [] };
+    for (const [k, r] of Object.entries(j.data)) for (const lane in L) if (r[lane] && r[lane].playRate > 0) L[lane].push(k);
+    if (Object.values(L).some(a => a.length < 15)) throw new Error("données incomplètes");
+    await writeFile("data/lanes.json", JSON.stringify({ patch: j.patch, lanes: L }));
+  } catch (e) { console.error("Lanes : " + e.message); }
 }
 
 // Les parties déjà lues sont gardées en cache : seules les nouvelles sont demandées à Riot
@@ -94,7 +110,8 @@ const history = await readJson("data/history.json", {});
 const cache = await readJson("data/cache.json", {});
 const now = new Date().toISOString();
 const out = [];
-if (RIOT) await loadDDragon();
+await loadDDragon();
+await loadLanes();
 
 for (const p of config.players) {
   const old = prev.players.find(x => x.name === p.name)?.games || {};
