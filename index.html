@@ -86,34 +86,54 @@ td a{color:var(--accent2);font-weight:600;text-underline-offset:3px}
 svg.sp{width:6rem;height:1.7rem;stroke:var(--accent2);fill:none;stroke-width:2;stroke-linejoin:round}
 .note{color:var(--muted);font-size:.88rem;margin:1rem 0 0}.err{color:var(--accent2);font-weight:600}
 footer{padding:2rem 0 3rem;color:var(--muted);font-size:.88rem}
+#bg,#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}#bg{z-index:-1}#fx{z-index:60}
+.ch{display:inline-block;animation:chIn .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--d)*70ms);transition:transform .25s,color .25s}
+.ch:hover{transform:translateY(-8px);color:var(--accent2)}
+@keyframes chIn{from{opacity:0;transform:translateY(45%);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+h1 i{display:inline-block;animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.3)}}
+.js .rev{opacity:0;translate:0 16px}.js .rev.in{opacity:1;translate:0 0}
+.pc,.card,.panel{background-image:radial-gradient(380px circle at var(--mx,-999px) var(--my,-999px),color-mix(in srgb,var(--accent) 18%,transparent),transparent 65%);background-color:var(--surface);transition:border-color .25s,opacity .6s,translate .6s;transition-delay:0s,var(--rd,0s),var(--rd,0s)}
+.pc:hover,.card:hover,.panel:hover{border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
+.pc{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease,border-color .25s,opacity .6s,translate .6s;transition-delay:0s,0s,var(--rd,0s),var(--rd,0s)}
+.btn,.mini,.tabs button{position:relative;overflow:hidden}
+.btn{transition:transform .15s,box-shadow .2s,filter .15s}.btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 8px 22px -8px var(--accent)}.btn:active:not(:disabled){transform:scale(.97)}
+.rp{position:absolute;border-radius:50%;background:rgba(255,255,255,.4);transform:scale(0);animation:rp .6s ease-out forwards;pointer-events:none}
+@keyframes rp{to{transform:scale(1);opacity:0}}
+.vin{animation:viewIn .5s ease both}@keyframes viewIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+tbody tr{animation:rowIn .45s ease both;animation-delay:calc(var(--i,0)*28ms)}@keyframes rowIn{from{opacity:0;translate:0 10px}to{opacity:1;translate:0 0}}
+nav a{transition:color .2s,box-shadow .2s}
+.nofx *,.nofx *::before,.nofx *::after{animation:none!important}
+.nofx .rev{opacity:1!important;translate:none!important;transition:none!important}.nofx .pc{transform:none!important}
+nav ul{align-items:center}
 @media (max-width:84rem){.wrap{padding:0 1rem}th,td{padding:.55rem .3rem}td{font-size:.88rem}.who img,.champs img,.rk img,.rk svg{width:1.6rem;height:1.6rem}.who{gap:.4rem}.rk{gap:.35rem}.champs{gap:.25rem}svg.sp{width:4.5rem}.panel{padding:.25rem .5rem}}
 @media (max-width:66rem){.sortbar{display:flex}.panel{background:none;border:0;padding:0}table,thead,tbody,tr,td{display:block}thead{display:none}tr{background:var(--surface);border:1px solid var(--line);border-radius:.9rem;padding:.4rem .95rem;margin-bottom:.9rem}tbody tr:hover{background:var(--surface)}td{display:flex;justify-content:space-between;align-items:center;gap:1rem;border:0;padding:.45rem 0;text-align:right}td::before{content:attr(data-label);color:var(--muted);font-size:.8rem;text-align:left}}
 @media (prefers-reduced-motion:reduce){.hero{animation:none}html{scroll-behavior:auto}}
 </style>
 </head>
-<body><div class="wrap">
-<nav><b>Armanix<i>.</i></b><ul><li><a href="#stats">Stats</a></li><li><a href="#roster">Roster Armanix</a></li><li><a href="#random">RANDOM</a></li></ul></nav>
-<header class="hero" id="home"><span class="eyebrow">Équipe · Amis · PC</span><h1>Armanix<i>.</i></h1><p class="tag">Doucement le matin, pas trop vite le soir</p>
+<body><canvas id="bg" aria-hidden="true"></canvas><canvas id="fx" aria-hidden="true"></canvas><div class="wrap">
+<nav><b>Armanix<i>.</i></b><ul><li><a href="#stats">Stats</a></li><li><a href="#roster">Roster Armanix</a></li><li><a href="#random">RANDOM</a></li><li><button class="mini" id="fxBtn" aria-pressed="true" title="Activer ou couper les animations de fond">Ambiance</button></li></ul></nav>
+<header class="hero" id="home"><span class="eyebrow">Équipe · Amis · PC</span><h1 aria-label="Armanix"><span class="ch" style="--d:0" aria-hidden="true">A</span><span class="ch" style="--d:1" aria-hidden="true">r</span><span class="ch" style="--d:2" aria-hidden="true">m</span><span class="ch" style="--d:3" aria-hidden="true">a</span><span class="ch" style="--d:4" aria-hidden="true">n</span><span class="ch" style="--d:5" aria-hidden="true">i</span><span class="ch" style="--d:6" aria-hidden="true">x</span><i>.</i></h1><p class="tag">Doucement le matin, pas trop vite le soir</p>
 <div class="row"><a class="btn" href="#stats">Voir les stats</a><span class="meta" id="meta"></span></div></header>
-<section id="stats"><h2>Stats des joueurs</h2><div class="tabs" id="tabs" role="tablist"></div>
+<section id="stats"><h2 class="rev">Stats des joueurs</h2><div class="tabs" id="tabs" role="tablist"></div>
 <div class="sortbar" id="sortbar"><label>Trier par <select id="sortSel"></select></label><button class="sbtn" id="sortDir" hidden></button></div>
-<div class="scroll panel"><table><thead id="thead"></thead><tbody id="tbody"></tbody></table></div><p class="note" id="note"></p></section>
-<section id="roster" hidden><h2>Roster Armanix</h2><div class="grid" id="rosterGrid"></div></section>
-<section id="random" hidden><h2>RANDOM</h2><div class="rnd">
-<div class="card"><h3>Générateur d’équipes</h3><div class="chips" id="plist"></div>
+<div class="scroll panel rev"><table><thead id="thead"></thead><tbody id="tbody"></tbody></table></div><p class="note" id="note"></p></section>
+<section id="roster" hidden><h2 class="rev">Roster Armanix</h2><div class="grid" id="rosterGrid"></div></section>
+<section id="random" hidden><h2 class="rev">RANDOM</h2><div class="rnd">
+<div class="card rev"><h3>Générateur d’équipes</h3><div class="chips" id="plist"></div>
 <div class="ctl"><button class="mini" id="pAll">Tout cocher</button><button class="mini" id="pNone">Tout décocher</button><input id="pNew" class="txt" placeholder="Ajouter un joueur" maxlength="24"><button class="mini" id="pAdd">Ajouter</button></div>
 <div class="ctl"><label>Équipes <select id="teamN"><option>2</option><option>3</option><option>4</option></select></label><label class="chip"><input type="checkbox" id="bal"> Équilibrer par rang LoL</label><button class="btn" id="mix">Mélanger</button></div>
 <div class="teams" id="teams" aria-live="polite"></div></div>
-<div class="card"><h3>Roue du jeu</h3><div class="wheelWrap"><canvas id="wheel" width="480" height="480" aria-label="Roue des jeux"></canvas><div class="ptr"></div></div>
+<div class="card rev"><h3>Roue du jeu</h3><div class="wheelWrap"><canvas id="wheel" width="480" height="480" aria-label="Roue des jeux"></canvas><div class="ptr"></div></div>
 <div class="chips" id="glist"></div><div class="ctl"><input id="gNew" placeholder="Ajouter un jeu" maxlength="30" style="max-width:12rem;font:inherit;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:.5rem;padding:.35rem .6rem"><button class="mini" id="gAdd">Ajouter</button></div>
 <div class="ctl" style="justify-content:center"><button class="btn" id="spin">Tourner la roue</button></div><p class="wres" id="wres" aria-live="polite"></p></div></div>
 <div class="rnd rnd2">
-<div class="card"><h3>Roue des lanes</h3><div class="wheelWrap"><canvas id="laneWheel" width="480" height="480" aria-label="Roue des lanes"></canvas><div class="ptr"></div></div>
+<div class="card rev"><h3>Roue des lanes</h3><div class="wheelWrap"><canvas id="laneWheel" width="480" height="480" aria-label="Roue des lanes"></canvas><div class="ptr"></div></div>
 <div class="chips" id="laneList"></div><div class="ctl" style="justify-content:center"><button class="btn" id="laneSpin">Tirer la lane</button></div><p class="wres" id="laneRes" aria-live="polite"></p></div>
-<div class="card"><h3>Roue des champions</h3><p class="sub" id="champHint">Tire d’abord une lane.</p><div class="roller"><div class="rv"><div class="track" id="track"></div></div><div class="mark"></div><div class="rmsg" id="rmsg">Tire d’abord une lane</div></div>
+<div class="card rev"><h3>Roue des champions</h3><p class="sub" id="champHint">Tire d’abord une lane.</p><div class="roller"><div class="rv"><div class="track" id="track"></div></div><div class="mark"></div><div class="rmsg" id="rmsg">Tire d’abord une lane</div></div>
 <div class="ctl" style="justify-content:center"><button class="btn" id="champSpin" disabled>Tirer le champion</button></div><p class="wres" id="champRes" aria-live="polite"></p></div></div>
 </section>
-<footer>Armanix, depuis la première partie ensemble. · Version 13</footer></div>
+<footer>Armanix, depuis la première partie ensemble. · Version 14</footer></div>
 <script>
 const GAMES={
  lol:{n:"League of Legends",trend:"Évolution du rang"},
@@ -186,7 +206,7 @@ function drawTable(gm,rows){
   const on=st&&st.i===i,ind=on?(c.text?(st.dir==="best"?" A→Z":" Z→A"):(st.dir==="best"?" ▼":" ▲")):"";
   const b=h("button",{class:"sb",title:"Trier cette colonne"},c.l+ind);b.onclick=()=>sortBy(gm,i);
   return h("th",{"aria-sort":on?((st.dir==="best")===!c.text?"descending":"ascending"):"none"},b)})));
- $("tbody").replaceChildren(...rows.map(p=>h("tr",{},...cols.map(c=>c.cell(p)))));
+ $("tbody").replaceChildren(...rows.map((p,ix)=>h("tr",{style:"--i:"+Math.min(ix,14)},...cols.map(c=>c.cell(p)))));
  const sel=$("sortSel");sel.replaceChildren(h("option",{value:""},"Ordre par défaut"),...cols.map((c,i)=>c.v?h("option",{value:i},c.l):"").filter(Boolean));
  sel.value=st?String(st.i):"";sel.onchange=()=>{sorts[gm]=sel.value===""?null:{i:+sel.value,dir:"best"};render()};
  const d=$("sortDir");d.hidden=!st;if(st){const c=cols[st.i];d.textContent=c.text?(st.dir==="best"?"A → Z":"Z → A"):(st.dir==="best"?"Meilleur d’abord":"Moins bon d’abord")}
@@ -212,7 +232,7 @@ const VIEWS=["stats","roster","random"];let lastView=null,extra={};
 function show(){const v=VIEWS.indexOf(location.hash.slice(1))>=0?location.hash.slice(1):"stats";
  VIEWS.forEach(x=>{$(x).hidden=x!==v});$("home").hidden=v!=="stats";
  document.querySelectorAll("nav a").forEach(a=>{if(a.getAttribute("href")==="#"+v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
- if(lastView&&lastView!==v)scrollTo(0,0);lastView=v;if(v==="random")drawAll()}
+ if(lastView&&lastView!==v)scrollTo(0,0);if(lastView&&lastView!==v){const el=$(v);el.classList.remove("vin");void el.offsetWidth;el.classList.add("vin")}lastView=v;if(v==="random")drawAll();reveal()}
 addEventListener("hashchange",show);
 function grow(k,content,link,cls){return h("div",{class:"gr"},gameIcon(k),h("div",{class:"gv "+(cls||"")},content),link||"")}
 function renderRoster(){
@@ -222,7 +242,7 @@ function renderRoster(){
   const rows=Object.keys(GAMES).filter(k=>p.games[k]).map(k=>{const e=p.games[k],l=ok(e.link),lk=l?h("a",{href:l,target:"_blank",rel:"noopener"},"Profil"):"";
    if(k==="lol"){const ch=d.champs||[];return grow(k,[h("div",{class:"ll"},h("span",{class:"lb"},"Solo"),rankBadge(d.solo)),h("div",{class:"ll"},h("span",{class:"lb"},"Flex"),rankBadge(d.flex)),ch.length?h("div",{class:"champs"},ch.map(c=>img("champion",c.id,c.name))):""],lk,"col")}
    const f=e.f||[];return grow(k,k==="cs"?dash(f[0])+" · "+dash(f[1])+" victoires":GAMES[k].f.slice(0,2).map((lab,j)=>lab+" : "+dash(f[j])).join(" · "),lk)});
-  return h("article",{class:"pc"},h("header",{},av,h("div",{},h("h3",{},p.name),ex.role?h("div",{class:"sub"},ex.role):"")),ex.bio?h("p",{class:"bio"},ex.bio):"",rows)}));
+  return h("article",{class:"pc rev"},h("header",{},av,h("div",{},h("h3",{},p.name),ex.role?h("div",{class:"sub"},ex.role):"")),ex.bio?h("p",{class:"bio"},ex.bio):"",rows)}));
  if(!stats.players.length)$("rosterGrid").textContent="Aucun joueur pour l’instant."}
 // --- générateur d'équipes
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
@@ -285,7 +305,7 @@ function makeWheel(o){
 const GL={"League of Legends":"lol","Counter-Strike 2":"cs","Rocket League":"rl","Battlefield 6":"bf"};
 let wItems=Object.keys(GL).map(n=>({n,on:1,im:loadImg([GL[n]+".png",GL[n]+".svg"],()=>gameWheel.draw())}));
 const wOn=()=>wItems.filter(x=>x.on);
-const gameWheel=makeWheel({cv:$("wheel"),btn:$("spin"),get:wOn,empty:"Aucun jeu sélectionné",start:()=>{$("wres").textContent=""},done:w=>{$("wres").textContent="On joue à : "+w.n}});
+const gameWheel=makeWheel({cv:$("wheel"),btn:$("spin"),get:wOn,empty:"Aucun jeu sélectionné",start:()=>{$("wres").textContent=""},done:w=>{$("wres").textContent="On joue à : "+w.n;burstEl("wres")}});
 function buildWheelList(){$("glist").replaceChildren(...wItems.map((x,k)=>{const c=h("input",{type:"checkbox"});c.checked=!!x.on;c.onchange=()=>{x.on=c.checked;$("wres").textContent="";gameWheel.draw()};
  const lab=h("label",{class:"chip"},c,x.n);
  if(x.custom){const r=h("button",{class:"mini",title:"Retirer","aria-label":"Retirer "+x.n},"×");r.onclick=e=>{e.preventDefault();wItems.splice(k,1);buildWheelList();gameWheel.draw()};lab.append(r)}return lab}))}
@@ -303,7 +323,7 @@ function seedLanes(){const m={T:"TOP",J:"JUNGLE",M:"MIDDLE",B:"BOTTOM",S:"UTILIT
 function seedChamps(){const c={};SEED_C.split(",").forEach(t=>{const p=t.split(" ");c[p[0]]={id:p[1],name:SEED_N[p[1]]||p[1]}});return c}
 let lanesData=seedLanes(),champMap=seedChamps(),curLane=null,champItems=[];
 const laneWheel=makeWheel({cv:$("laneWheel"),btn:$("laneSpin"),get:()=>LANES.filter(x=>x.on),empty:"Aucune lane sélectionnée",start:()=>{$("laneRes").textContent="";$("champSpin").disabled=true},
- done:l=>{curLane=l;$("laneRes").textContent="Lane : "+l.n;setChamps()},after:()=>false});
+ done:l=>{curLane=l;$("laneRes").textContent="Lane : "+l.n;setChamps();burstEl("laneRes")},after:()=>false});
 const roller={run:0,rolling:false};
 function champCard(c){const d=h("div",{class:"rc"}),v=stats.ddragon,ini=()=>h("div",{class:"rn0"},c.n.slice(0,2));
  if(v){const im=h("img",{src:"https://ddragon.leagueoflegends.com/cdn/"+v+"/img/champion/"+c.id+".png",alt:"",width:88,height:88});im.onerror=()=>im.replaceWith(ini());d.append(im)}else d.append(ini());
@@ -318,7 +338,7 @@ function rollSpin(){
  $("champRes").replaceChildren();$("champSpin").disabled=true;roller.rolling=true;const id=++roller.run;
  const tr=t.getBoundingClientRect(),cr=t.children[WI].getBoundingClientRect(),view=t.parentElement.clientWidth;
  const target=(cr.left-tr.left)+cr.width/2+(Math.random()*.76-.38)*cr.width-view/2,dur=matchMedia("(prefers-reduced-motion:reduce)").matches?0:6500;
- const fin=()=>{if(id!==roller.run)return;roller.rolling=false;$("champSpin").disabled=false;t.children[WI].classList.add("win");$("champRes").replaceChildren("On joue : "+win.n,img("champion",win.id,win.n))};
+ const fin=()=>{if(id!==roller.run)return;roller.rolling=false;$("champSpin").disabled=false;t.children[WI].classList.add("win");$("champRes").replaceChildren("On joue : "+win.n,img("champion",win.id,win.n));burstEl("champRes")};
  void t.offsetWidth;
  if(!dur){t.style.transform="translateX("+(-target)+"px)";fin();return}
  t.style.transition="transform "+dur+"ms cubic-bezier(.12,.7,.1,1)";t.style.transform="translateX("+(-target)+"px)";
@@ -344,8 +364,59 @@ async function load(){
  try{stats=await (await fetch("data/stats.json",{cache:"no-cache"})).json();hist=await (await fetch("data/history.json",{cache:"no-cache"})).json()}catch(e){$("note").textContent="Impossible de charger les stats."}
  try{extra=await (await fetch("data/roster.json",{cache:"no-cache"})).json()}catch(e){}
  render();
- $("meta").textContent=stats.players.length+" joueurs · "+Object.keys(GAMES).length+" jeux";
- renderRoster();buildPlayers();buildWheelList();buildLaneList();drawAll();loadChamps();
+ countUp($("meta"),stats.players.length,Object.keys(GAMES).length);
+ renderRoster();reveal();buildPlayers();buildWheelList();buildLaneList();drawAll();loadChamps();
 }
+// ===== Ambiance : fumée, poussière, étincelles, interactions =====
+document.documentElement.classList.add("js");
+const FX=(()=>{
+ const bg=$("bg"),fc=$("fx"),b=bg.getContext("2d"),f=fc.getContext("2d"),red=matchMedia("(prefers-reduced-motion:reduce)"),lt=matchMedia("(prefers-color-scheme:light)");
+ let on=!red.matches,W=0,H=0,puffs=[],dust=[],sp=[],spr=[],mx=.5,my=.3,px=.5,py=.3,last=0,raf=0,col={},moved=false,fdirty=false;const S=.38,R=(a,c)=>a+Math.random()*(c-a);
+ try{const v=localStorage.getItem("armanix-fx");if(v)on=v==="on"}catch(e){}
+ function palette(){col=lt.matches?{a:"106,69,224",b:"140,110,250",s:"106,69,224",k:.95,g:.12}:{a:"139,108,246",b:"196,176,255",s:"196,176,255",k:1,g:.13}}
+ function sprite(c){const s=256,o=document.createElement("canvas");o.width=o.height=s;const x=o.getContext("2d");
+  for(let k=0;k<34;k++){const a=R(0,6.283),d=R(0,70),cx=128+Math.cos(a)*d,cy=128+Math.sin(a)*d*.8,r=R(28,64),g=x.createRadialGradient(cx,cy,0,cx,cy,r);
+   g.addColorStop(0,"rgba("+c+","+R(.05,.14)+")");g.addColorStop(1,"rgba("+c+",0)");x.fillStyle=g;x.beginPath();x.arc(cx,cy,r,0,6.283);x.fill()}return o}
+ function size(){W=innerWidth;H=innerHeight;bg.width=Math.round(W*S);bg.height=Math.round(H*S);fc.width=W;fc.height=H}
+ function build(){palette();spr=[sprite(col.a),sprite(col.b)];const n=W<700?5:8;
+  puffs=Array.from({length:n},(_,k)=>({x:R(0,1),y:R(0,1),s:R(.5,1),vx:R(-.014,.014),vy:R(-.008,.008),r:R(0,6.28),vr:R(-.05,.05),a:R(.6,1),ph:R(0,6.28),d:R(.3,1),im:k%2,ix:0,iy:0}));
+  dust=Array.from({length:W<700?22:46},()=>({x:R(0,1),y:R(0,1),r:R(.6,1.8),v:R(.004,.016),ph:R(0,6.28)}))}
+ function frame(t){raf=0;if(!on)return;if(t-last<30){raf=requestAnimationFrame(frame);return}const dt=Math.min(.07,(t-last)/1000||.033);last=t;px+=(mx-px)*.06;py+=(my-py)*.06;
+  b.clearRect(0,0,bg.width,bg.height);const M=Math.max(bg.width,bg.height);
+  for(const p of puffs){p.x+=(p.vx+p.ix)*dt;p.y+=(p.vy+p.iy)*dt;p.ix*=.96;p.iy*=.96;p.r+=p.vr*dt;
+   if(p.x<-.4)p.x=1.4;if(p.x>1.4)p.x=-.4;if(p.y<-.4)p.y=1.4;if(p.y>1.4)p.y=-.4;
+   const sz=p.s*M*.95,al=col.k*(.55+.45*Math.sin(t/4000+p.ph))*p.a*.6;
+   b.save();b.globalAlpha=Math.min(1,al);b.translate(p.x*bg.width+(px-.5)*60*p.d*S,p.y*bg.height+(py-.5)*40*p.d*S);b.rotate(p.r);b.drawImage(spr[p.im],-sz/2,-sz/2,sz,sz);b.restore()}
+  const gx=px*bg.width,gy=py*bg.height,gr=300*S,g=b.createRadialGradient(gx,gy,0,gx,gy,gr);g.addColorStop(0,"rgba("+col.b+","+col.g+")");g.addColorStop(1,"rgba("+col.b+",0)");b.globalAlpha=1;b.fillStyle=g;b.fillRect(gx-gr,gy-gr,gr*2,gr*2);
+  for(const d of dust){d.y-=d.v*dt;d.x+=Math.sin(t/2500+d.ph)*.003*dt*20;if(d.y<-.02){d.y=1.02;d.x=R(0,1)}
+   b.globalAlpha=col.k*(.2+.3*Math.sin(t/900+d.ph));b.fillStyle="rgba("+col.b+",1)";b.beginPath();b.arc(d.x*bg.width,d.y*bg.height,d.r*S*1.8,0,6.283);b.fill()}
+  b.globalAlpha=1;
+  if(sp.length||fdirty)f.clearRect(0,0,fc.width,fc.height);fdirty=sp.length>0;
+  for(let k=sp.length-1;k>=0;k--){const s=sp[k];s.l+=dt;if(s.l>s.life){sp.splice(k,1);continue}s.vy+=420*dt;s.x+=s.vx*dt;s.y+=s.vy*dt;const q=s.l/s.life;
+   f.fillStyle="rgba("+col.s+","+(1-q)+")";f.beginPath();f.arc(s.x,s.y,s.r*(1-q*.5),0,6.283);f.fill()}
+  raf=requestAnimationFrame(frame)}
+ function start(){if(!raf&&on&&!document.hidden){last=performance.now();raf=requestAnimationFrame(frame)}}
+ function stop(){if(raf)cancelAnimationFrame(raf);raf=0}
+ function label(){const bt=$("fxBtn");if(bt){bt.textContent="Ambiance : "+(on?"activée":"coupée");bt.setAttribute("aria-pressed",String(on))}}
+ function set(v){on=v;try{localStorage.setItem("armanix-fx",v?"on":"off")}catch(e){}document.documentElement.classList.toggle("nofx",!v);label();
+  if(v)start();else{stop();b.clearRect(0,0,bg.width,bg.height);f.clearRect(0,0,fc.width,fc.height);sp=[]}}
+ function sparks(x,y,n){if(!on)return;for(let k=0;k<(n||14);k++){const a=R(0,6.283),v=R(70,260);sp.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-80,l:0,life:R(.5,1.1),r:R(1.4,3.2)})}start()}
+ size();build();document.documentElement.classList.toggle("nofx",!on);label();start();
+ addEventListener("resize",()=>{size();build()});lt.addEventListener("change",()=>{palette();build()});
+ document.addEventListener("visibilitychange",()=>{document.hidden?stop():start()});
+ addEventListener("pointermove",e=>{const nx=e.clientX/W,ny=e.clientY/H;if(!moved){mx=px=nx;my=py=ny;moved=true;return}const dx=nx-mx,dy=ny-my;mx=nx;my=ny;
+  for(const p of puffs){const d=Math.hypot(p.x-nx,p.y-ny);if(d<.4){const k=(1-d/.4)*10;p.ix+=dx*k;p.iy+=dy*k}}},{passive:true});
+ return{on:()=>on,set,sparks,count:()=>sp.length}})();
+$("fxBtn").onclick=()=>FX.set(!FX.on());
+function burstEl(id){const r=$(id).getBoundingClientRect();FX.sparks(r.left+r.width/2,r.top+r.height/2,28)}
+function countUp(el,a,c){const t0=performance.now(),d=FX.on()?900:0;(function fr(t){const k=d?Math.min(1,(t-t0)/d):1,e=1-Math.pow(1-k,3);el.textContent=Math.round(a*e)+" joueurs · "+Math.round(c*e)+" jeux";if(k<1)requestAnimationFrame(fr)})(t0)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.06});
+function reveal(){let n=0;document.querySelectorAll(".rev:not(.in)").forEach(el=>{if(!el.dataset.o){el.dataset.o=1;el.style.setProperty("--rd",Math.min(n++,12)*55+"ms");io.observe(el)}})}
+document.addEventListener("pointermove",e=>{const c=e.target.closest&&e.target.closest(".pc,.card,.panel");if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty("--mx",(e.clientX-r.left)+"px");c.style.setProperty("--my",(e.clientY-r.top)+"px");
+ if(c.classList.contains("pc")&&FX.on()){c.style.setProperty("--ry",((e.clientX-r.left)/r.width-.5)*8+"deg");c.style.setProperty("--rx",-((e.clientY-r.top)/r.height-.5)*8+"deg")}},{passive:true});
+document.addEventListener("pointerout",e=>{const c=e.target.closest&&e.target.closest(".pc,.card,.panel");if(c&&!c.contains(e.relatedTarget)){c.style.setProperty("--mx","-999px");c.style.setProperty("--rx","0deg");c.style.setProperty("--ry","0deg")}});
+document.addEventListener("click",e=>{const bt=e.target.closest&&e.target.closest(".btn,.mini,.tabs button");if(!bt||bt.disabled||!FX.on())return;const r=bt.getBoundingClientRect(),s=Math.max(r.width,r.height)*2,rp=document.createElement("span");
+ rp.className="rp";rp.style.cssText="width:"+s+"px;height:"+s+"px;left:"+(e.clientX-r.left-s/2)+"px;top:"+(e.clientY-r.top-s/2)+"px";bt.append(rp);setTimeout(()=>rp.remove(),650);if(bt.classList.contains("btn"))FX.sparks(e.clientX,e.clientY,12)});
+reveal();
 show();load();
 </script></body></html>
