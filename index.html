@@ -37,6 +37,27 @@ h2{font-size:clamp(1.5rem,3.5vw,2rem);letter-spacing:-.025em;margin:0 0 1.25rem;
 .sb{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-transform:inherit;letter-spacing:inherit;text-align:left;line-height:inherit}.sb:hover{color:var(--text)}th[aria-sort=ascending],th[aria-sort=descending]{color:var(--accent2)}
 .sortbar{display:none;gap:.6rem;align-items:center;flex-wrap:wrap;margin:0 0 1rem;color:var(--muted);font-size:.9rem}
 select,.sbtn{font:inherit;font-size:.9rem;background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:.5rem;padding:.4rem .7rem}.sbtn{cursor:pointer}
+.btn{border:0;cursor:pointer}.btn:disabled{opacity:.5;cursor:default}
+nav a[aria-current=page]{color:var(--text);box-shadow:0 2px 0 var(--accent)}
+.mini{font:inherit;font-size:.82rem;background:transparent;border:1px solid var(--line);color:var(--text);border-radius:.5rem;padding:.25rem .7rem;cursor:pointer}.mini:hover{border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(18rem,1fr));gap:1rem}
+.pc{background:var(--surface);border:1px solid var(--line);border-radius:1rem;padding:1.1rem;display:flex;flex-direction:column;gap:.7rem}
+.pc header{display:flex;align-items:center;gap:.8rem}.pc h3{margin:0;font-size:1.1rem}.sub{color:var(--muted);font-size:.85rem}
+.av{width:3rem;height:3rem;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center;background:var(--surface2);font-weight:800;color:var(--accent2)}
+.bio{color:var(--muted);font-size:.9rem;margin:0}
+.gr{display:flex;align-items:center;gap:.6rem;font-size:.9rem;border-top:1px solid var(--line);padding-top:.65rem}
+.gv{flex:1;display:flex;flex-wrap:wrap;gap:.4rem .9rem;align-items:center}.gr a{color:var(--accent2);font-weight:600;font-size:.85rem}.lb{color:var(--muted);font-size:.78rem}.gv.col{flex-direction:column;align-items:flex-start;gap:.4rem}.ll{display:flex;align-items:center;gap:.6rem}.ll .lb{width:2rem}.gr{align-items:flex-start}.gr>.gi{margin-top:.15rem}
+.rnd{display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:1.25rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:1rem;padding:1.25rem}.card h3{margin:0 0 1rem;font-size:1.15rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.9rem}
+.chip{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--line);border-radius:2rem;padding:.25rem .75rem;font-size:.88rem;cursor:pointer;background:var(--bg)}.chip input{accent-color:var(--accent)}.chip .mini{padding:0 .4rem;border:0}
+.ctl{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-bottom:.9rem}
+.teams{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:.75rem}
+.team{border:1px solid var(--line);border-radius:.8rem;padding:.8rem;background:var(--bg)}.team b{display:block;color:var(--accent2);margin-bottom:.35rem}.team ul{margin:0;padding:0;list-style:none}
+.rnd2{margin-top:1.25rem;grid-template-columns:1fr}@media (min-width:62rem){.rnd2{grid-template-columns:1fr 1.7fr}}.wheelWrap.big{width:min(100%,36rem)}.wres img{width:2.4rem;height:2.4rem;border-radius:.5rem;vertical-align:middle;margin-left:.4rem}
+.wheelWrap{position:relative;width:min(100%,22rem);margin:0 auto 1rem}.wheelWrap canvas{width:100%;height:auto;display:block}
+.ptr{position:absolute;top:-4px;left:50%;transform:translateX(-50%);border-left:12px solid transparent;border-right:12px solid transparent;border-top:22px solid var(--text)}
+.wres{font-size:1.2rem;font-weight:800;min-height:1.8rem;text-align:center;margin:.5rem 0 0}
 .scroll{overflow-x:auto}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:1rem;padding:.25rem .75rem}
 table{width:100%;border-collapse:collapse}
@@ -53,18 +74,34 @@ td a{color:var(--accent2);font-weight:600;text-underline-offset:3px}
 svg.sp{width:6rem;height:1.7rem;stroke:var(--accent2);fill:none;stroke-width:2;stroke-linejoin:round}
 .note{color:var(--muted);font-size:.88rem;margin:1rem 0 0}.err{color:var(--accent2);font-weight:600}
 footer{padding:2rem 0 3rem;color:var(--muted);font-size:.88rem}
-@media (max-width:76rem){.sortbar{display:flex}.panel{background:none;border:0;padding:0}table,thead,tbody,tr,td{display:block}thead{display:none}tr{background:var(--surface);border:1px solid var(--line);border-radius:.9rem;padding:.4rem .95rem;margin-bottom:.9rem}tbody tr:hover{background:var(--surface)}td{display:flex;justify-content:space-between;align-items:center;gap:1rem;border:0;padding:.45rem 0;text-align:right}td::before{content:attr(data-label);color:var(--muted);font-size:.8rem;text-align:left}}
+@media (max-width:84rem){.wrap{padding:0 1rem}th,td{padding:.55rem .3rem}td{font-size:.88rem}.who img,.champs img,.rk img,.rk svg{width:1.6rem;height:1.6rem}.who{gap:.4rem}.rk{gap:.35rem}.champs{gap:.25rem}svg.sp{width:4.5rem}.panel{padding:.25rem .5rem}}
+@media (max-width:66rem){.sortbar{display:flex}.panel{background:none;border:0;padding:0}table,thead,tbody,tr,td{display:block}thead{display:none}tr{background:var(--surface);border:1px solid var(--line);border-radius:.9rem;padding:.4rem .95rem;margin-bottom:.9rem}tbody tr:hover{background:var(--surface)}td{display:flex;justify-content:space-between;align-items:center;gap:1rem;border:0;padding:.45rem 0;text-align:right}td::before{content:attr(data-label);color:var(--muted);font-size:.8rem;text-align:left}}
 @media (prefers-reduced-motion:reduce){.hero{animation:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body><div class="wrap">
-<nav><b>Armanix<i>.</i></b><ul><li><a href="#stats">Stats</a></li></ul></nav>
-<header class="hero"><span class="eyebrow">Équipe · Amis · PC</span><h1>Armanix<i>.</i></h1><p class="tag">Doucement le matin, pas trop vite le soir</p>
+<nav><b>Armanix<i>.</i></b><ul><li><a href="#stats">Stats</a></li><li><a href="#roster">Roster Armanix</a></li><li><a href="#random">RANDOM</a></li></ul></nav>
+<header class="hero" id="home"><span class="eyebrow">Équipe · Amis · PC</span><h1>Armanix<i>.</i></h1><p class="tag">Doucement le matin, pas trop vite le soir</p>
 <div class="row"><a class="btn" href="#stats">Voir les stats</a><span class="meta" id="meta"></span></div></header>
 <section id="stats"><h2>Stats des joueurs</h2><div class="tabs" id="tabs" role="tablist"></div>
 <div class="sortbar" id="sortbar"><label>Trier par <select id="sortSel"></select></label><button class="sbtn" id="sortDir" hidden></button></div>
 <div class="scroll panel"><table><thead id="thead"></thead><tbody id="tbody"></tbody></table></div><p class="note" id="note"></p></section>
-<footer>Armanix, depuis la première partie ensemble. · Version 8</footer></div>
+<section id="roster" hidden><h2>Roster Armanix</h2><div class="grid" id="rosterGrid"></div></section>
+<section id="random" hidden><h2>RANDOM</h2><div class="rnd">
+<div class="card"><h3>Générateur d’équipes</h3><div class="chips" id="plist"></div>
+<div class="ctl"><button class="mini" id="pAll">Tout cocher</button><button class="mini" id="pNone">Tout décocher</button></div>
+<div class="ctl"><label>Équipes <select id="teamN"><option>2</option><option>3</option><option>4</option></select></label><label class="chip"><input type="checkbox" id="bal"> Équilibrer par rang LoL</label><button class="btn" id="mix">Mélanger</button></div>
+<div class="teams" id="teams" aria-live="polite"></div></div>
+<div class="card"><h3>Roue du jeu</h3><div class="wheelWrap"><canvas id="wheel" width="480" height="480" aria-label="Roue des jeux"></canvas><div class="ptr"></div></div>
+<div class="chips" id="glist"></div><div class="ctl"><input id="gNew" placeholder="Ajouter un jeu" maxlength="30" style="max-width:12rem;font:inherit;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:.5rem;padding:.35rem .6rem"><button class="mini" id="gAdd">Ajouter</button></div>
+<div class="ctl" style="justify-content:center"><button class="btn" id="spin">Tourner la roue</button></div><p class="wres" id="wres" aria-live="polite"></p></div></div>
+<div class="rnd rnd2">
+<div class="card"><h3>Roue des lanes</h3><div class="wheelWrap"><canvas id="laneWheel" width="480" height="480" aria-label="Roue des lanes"></canvas><div class="ptr"></div></div>
+<div class="chips" id="laneList"></div><div class="ctl" style="justify-content:center"><button class="btn" id="laneSpin">Tirer la lane</button></div><p class="wres" id="laneRes" aria-live="polite"></p></div>
+<div class="card"><h3>Roue des champions</h3><p class="sub" id="champHint">Tire d’abord une lane.</p><div class="wheelWrap big"><canvas id="champWheel" width="680" height="680" aria-label="Roue des champions"></canvas><div class="ptr"></div></div>
+<div class="ctl" style="justify-content:center"><button class="btn" id="champSpin" disabled>Tirer le champion</button></div><p class="wres" id="champRes" aria-live="polite"></p></div></div>
+</section>
+<footer>Armanix, depuis la première partie ensemble. · Version 11</footer></div>
 <script>
 const GAMES={
  lol:{n:"League of Legends",trend:"Évolution du rang"},
@@ -86,12 +123,13 @@ function profil(e){const l=ok(e.link);return td("Profil",l?h("a",{href:l,target:
 const TCOL={IRON:"#6b5b55",BRONZE:"#a0673a",SILVER:"#9aa7b0",GOLD:"#e0b04b",PLATINUM:"#4fb0a8",EMERALD:"#2fbf71",DIAMOND:"#5b8def",MASTER:"#b05bd6",GRANDMASTER:"#d9534f",CHALLENGER:"#f0c75e"};
 function shield(tier){const ns="http://www.w3.org/2000/svg",s=document.createElementNS(ns,"svg");s.setAttribute("viewBox","0 0 24 24");
  const p=document.createElementNS(ns,"path");p.setAttribute("d","M12 2 21 6v7c0 5-4.5 8.5-9 10-4.5-1.5-9-5-9-10V6z");p.setAttribute("fill",TCOL[tier]||"#7a7a8c");p.setAttribute("stroke","rgba(255,255,255,.6)");p.setAttribute("stroke-width","1.2");s.append(p);return s}
-function rankCell(r,label){const t=r&&r.tier,wrap=h("div",{class:"rk"});
+function rankBadge(r){const t=r&&r.tier,wrap=h("div",{class:"rk"});
  if(t){const n=t.toLowerCase(),urls=["https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-shared-components/global/default/"+n+".png","https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-emblem/emblem-"+n+".png"];
   const im=h("img",{alt:t,title:t,width:32,height:32,loading:"lazy",src:urls[0]});let k=0;
   im.addEventListener("error",()=>{k++;if(k<urls.length)im.src=urls[k];else im.replaceWith(shield(t))});wrap.append(im)}
  else wrap.append(shield(null));
- wrap.append(dash(r&&r.rank));return td(label,wrap)}
+ wrap.append(dash(r&&r.rank));return wrap}
+function rankCell(r,label){return td(label,rankBadge(r))}
 // Couleurs : rouge (faible) > jaune (moyenne) > vert (au-dessus). Seuils [rouge, jaune, vert], à ajuster ici.
 const SC={wr:[40,50,60],kda:[1.5,2.5,3.5]};
 function hue(v,s){const lo=s[0],mid=s[1],hi=s[2];if(v<=lo)return 0;if(v<mid)return 55*(v-lo)/(mid-lo);if(v<hi)return 55+75*(v-mid)/(hi-mid);return 130}
@@ -157,10 +195,96 @@ function render(){
  const when=stats.updatedAt?new Date(stats.updatedAt).toLocaleString("fr-FR"):"jamais";
  $("note").replaceChildren("Dernière mise à jour : "+when+". ",errs.length?h("span",{class:"err"},"Échec de mise à jour : "+errs.join(", ")):"");
 }
+// ===== Navigation, Roster, RANDOM =====
+const VIEWS=["stats","roster","random"];let lastView=null,extra={};
+function show(){const v=VIEWS.indexOf(location.hash.slice(1))>=0?location.hash.slice(1):"stats";
+ VIEWS.forEach(x=>{$(x).hidden=x!==v});$("home").hidden=v!=="stats";
+ document.querySelectorAll("nav a").forEach(a=>{if(a.getAttribute("href")==="#"+v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+ if(lastView&&lastView!==v)scrollTo(0,0);lastView=v;if(v==="random")drawAll()}
+addEventListener("hashchange",show);
+function grow(k,content,link,cls){return h("div",{class:"gr"},gameIcon(k),h("div",{class:"gv "+(cls||"")},content),link||"")}
+function renderRoster(){
+ $("rosterGrid").replaceChildren(...stats.players.map(p=>{
+  const L=p.games.lol,d=(L&&L.d)||{},ex=extra[p.name]||{},v=stats.ddragon;
+  const av=(d.icon!=null&&v)?h("img",{class:"av",src:"https://ddragon.leagueoflegends.com/cdn/"+v+"/img/profileicon/"+d.icon+".png",alt:"",loading:"lazy"}):h("div",{class:"av"},p.name.slice(0,2).toUpperCase());
+  const rows=Object.keys(GAMES).filter(k=>p.games[k]).map(k=>{const e=p.games[k],l=ok(e.link),lk=l?h("a",{href:l,target:"_blank",rel:"noopener"},"Profil"):"";
+   if(k==="lol"){const ch=d.champs||[];return grow(k,[h("div",{class:"ll"},h("span",{class:"lb"},"Solo"),rankBadge(d.solo)),h("div",{class:"ll"},h("span",{class:"lb"},"Flex"),rankBadge(d.flex)),ch.length?h("div",{class:"champs"},ch.map(c=>img("champion",c.id,c.name))):""],lk,"col")}
+   const f=e.f||[];return grow(k,k==="cs"?dash(f[0])+" · "+dash(f[1])+" victoires":GAMES[k].f.slice(0,2).map((lab,j)=>lab+" : "+dash(f[j])).join(" · "),lk)});
+  return h("article",{class:"pc"},h("header",{},av,h("div",{},h("h3",{},p.name),ex.role?h("div",{class:"sub"},ex.role):"")),ex.bio?h("p",{class:"bio"},ex.bio):"",rows)}));
+ if(!stats.players.length)$("rosterGrid").textContent="Aucun joueur pour l’instant."}
+// --- générateur d'équipes
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function chk(v){const i=h("input",{type:"checkbox",value:v});i.checked=true;return i}
+function buildPlayers(){$("plist").replaceChildren(...stats.players.map(p=>h("label",{class:"chip"},chk(p.name),p.name)))}
+const pset=f=>document.querySelectorAll("#plist input").forEach(i=>{i.checked=f})
+function sc(name){const p=stats.players.find(x=>x.name===name),d=(p&&p.games.lol&&p.games.lol.d)||{},v=rankVal(d.solo);return v!=null?v:rankVal(d.flex)}
+function mix(){
+ const sel=[...document.querySelectorAll("#plist input:checked")].map(i=>i.value),n=+$("teamN").value,out=$("teams");
+ if(sel.length<n){out.textContent="Sélectionne au moins "+n+" joueurs.";return}
+ let order=shuffle(sel.slice());let teams=Array.from({length:n},()=>[]);
+ if($("bal").checked){const kn=order.map(sc).filter(v=>v!=null),avg=kn.length?kn.reduce((a,b)=>a+b,0)/kn.length:0,val=x=>sc(x)!=null?sc(x):avg,cand=[];
+  for(let r=0;r<300;r++){const o=shuffle(order.slice()),t=Array.from({length:n},()=>[]);o.forEach((x,k)=>t[k%n].push(x));
+   const av=t.map(m=>m.reduce((s,x)=>s+val(x),0)/m.length);cand.push({t,gap:Math.max(...av)-Math.min(...av)})}
+  cand.sort((a,b)=>a.gap-b.gap);const top=cand.slice(0,30);teams=top[Math.floor(Math.random()*top.length)].t}
+ else order.forEach((x,i)=>teams[i%n].push(x));
+ out.replaceChildren(...teams.map((t,i)=>h("div",{class:"team"},h("b",{},"Équipe "+(i+1)),h("ul",{},t.map(x=>h("li",{},x))))))}
+// --- roues (jeu, lane, champion)
+const PAL=["#6a45e0","#8b6cf6","#4f3bb5","#a07bf5","#5b3fd0"];
+function makeWheel(o){
+ let rot=0,spinning=false,fz=null;const cv=o.cv,ctx=cv.getContext("2d"),W=cv.width,R=W/2-6;
+ function draw(){const it=fz||o.get(),N=it.length;ctx.clearRect(0,0,W,W);
+  if(!N){ctx.fillStyle="#888";ctx.font="600 "+Math.round(W/22)+"px Manrope,system-ui,sans-serif";ctx.textAlign="center";ctx.fillText(o.empty||"Aucun élément",W/2,W/2);return}
+  const seg=2*Math.PI/N,many=N>24,f=s=>"700 "+s+"px Manrope,system-ui,sans-serif";
+  it.forEach((x,k)=>{const a0=rot+k*seg;ctx.beginPath();ctx.moveTo(W/2,W/2);ctx.arc(W/2,W/2,R,a0,a0+seg);ctx.closePath();
+   ctx.fillStyle=PAL[(k===N-1&&k%PAL.length===0&&k>0)?1:k%PAL.length];ctx.fill();ctx.strokeStyle="rgba(255,255,255,"+(many?.15:.35)+")";ctx.lineWidth=many?.6:2;ctx.stroke();
+   ctx.save();ctx.translate(W/2,W/2);ctx.rotate(a0+seg/2);ctx.textAlign="right";ctx.fillStyle="#fff";
+   let fs=Math.max(9,Math.min(W*.046,R*.78*seg*.72));const lab=x.n.length>22?x.n.slice(0,21)+"…":x.n;ctx.font=f(fs);
+   while(ctx.measureText(lab).width>R-W*.17&&fs>8){fs--;ctx.font=f(fs)}
+   ctx.fillText(lab,R-W*.037,fs*.32);ctx.restore()});
+  ctx.beginPath();ctx.arc(W/2,W/2,many?10:16,0,2*Math.PI);ctx.fillStyle="#fff";ctx.fill()}
+ function spin(){const N=o.get().length;if(spinning||!N)return;spinning=true;fz=o.get().slice();o.btn.disabled=true;if(o.start)o.start();
+  const start=rot,total=(5+Math.random()*3)*2*Math.PI+Math.random()*2*Math.PI,dur=matchMedia("(prefers-reduced-motion:reduce)").matches?0:4200,t0=performance.now();
+  const fin=()=>{const it=fz,sg=2*Math.PI/it.length,a=(((1.5*Math.PI-rot)%(2*Math.PI))+2*Math.PI)%(2*Math.PI),w=it[Math.min(it.length-1,Math.floor(a/sg))];
+   fz=null;spinning=false;o.btn.disabled=o.after?o.after():false;o.done(w)};
+  if(!dur){rot=start+total;draw();fin();return}
+  (function fr(t){const k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);rot=start+total*e;draw();if(k<1)requestAnimationFrame(fr);else fin()})(t0)}
+ o.btn.onclick=spin;return{draw,spin}}
+// roue des jeux
+let wItems=[{n:"League of Legends",on:1},{n:"Counter-Strike 2",on:1},{n:"Rocket League",on:1},{n:"Battlefield 6",on:1}];
+const wOn=()=>wItems.filter(x=>x.on);
+const gameWheel=makeWheel({cv:$("wheel"),btn:$("spin"),get:wOn,empty:"Aucun jeu sélectionné",start:()=>{$("wres").textContent=""},done:w=>{$("wres").textContent="On joue à : "+w.n}});
+function buildWheelList(){$("glist").replaceChildren(...wItems.map((x,k)=>{const c=h("input",{type:"checkbox"});c.checked=!!x.on;c.onchange=()=>{x.on=c.checked;$("wres").textContent="";gameWheel.draw()};
+ const lab=h("label",{class:"chip"},c,x.n);
+ if(x.custom){const r=h("button",{class:"mini",title:"Retirer","aria-label":"Retirer "+x.n},"×");r.onclick=e=>{e.preventDefault();wItems.splice(k,1);buildWheelList();gameWheel.draw()};lab.append(r)}return lab}))}
+function addGame(){const v=$("gNew").value.trim().slice(0,30);if(!v)return;wItems.push({n:v,on:1,custom:1});$("gNew").value="";buildWheelList();gameWheel.draw()}
+// roue des lanes -> roue des champions de la lane tirée
+const LANES=[{n:"Top",k:"TOP",on:1},{n:"Jungle",k:"JUNGLE",on:1},{n:"Mid",k:"MIDDLE",on:1},{n:"ADC",k:"BOTTOM",on:1},{n:"Support",k:"UTILITY",on:1}];
+let lanesData=null,champMap={},curLane=null,champItems=[];
+const laneWheel=makeWheel({cv:$("laneWheel"),btn:$("laneSpin"),get:()=>LANES.filter(x=>x.on),empty:"Aucune lane sélectionnée",start:()=>{$("laneRes").textContent="";$("champSpin").disabled=true},
+ done:l=>{curLane=l;$("laneRes").textContent="Lane : "+l.n;setChamps()},after:()=>false});
+const champWheel=makeWheel({cv:$("champWheel"),btn:$("champSpin"),get:()=>champItems,empty:"Tire d’abord une lane",start:()=>{$("champRes").replaceChildren()},
+ done:c=>{$("champRes").replaceChildren("On joue : "+c.n,img("champion",c.id,c.n))}});
+function setChamps(){
+ const keys=(curLane&&lanesData&&lanesData.lanes&&lanesData.lanes[curLane.k])||[];
+ champItems=keys.map(k=>champMap[k]).filter(Boolean).map(c=>({n:c.name,id:c.id})).sort((a,b)=>a.n.localeCompare(b.n,"fr"));
+ $("champHint").textContent=!curLane?"Tire d’abord une lane.":champItems.length?"Lane "+curLane.n+" : "+champItems.length+" champions":"Liste des champions indisponible pour le moment.";
+ $("champSpin").disabled=!champItems.length;$("champRes").replaceChildren();champWheel.draw()}
+function buildLaneList(){$("laneList").replaceChildren(...LANES.map(x=>{const c=h("input",{type:"checkbox"});c.checked=!!x.on;c.onchange=()=>{x.on=c.checked;$("laneRes").textContent="";laneWheel.draw()};return h("label",{class:"chip"},c,x.n)}))}
+async function loadChamps(){
+ try{lanesData=await (await fetch("data/lanes.json",{cache:"no-cache"})).json()}catch(e){}
+ try{const c=await (await fetch("data/champions.json",{cache:"no-cache"})).json();Object.assign(champMap,c.champs||{})}catch(e){}
+ try{let v=stats.ddragon;if(!v)v=(await (await fetch("https://ddragon.leagueoflegends.com/api/versions.json")).json())[0];
+  const c=await (await fetch("https://ddragon.leagueoflegends.com/cdn/"+v+"/data/fr_FR/champion.json")).json();for(const ch of Object.values(c.data))champMap[ch.key]={id:ch.id,name:ch.name}}catch(e){}
+ if(curLane)setChamps()}
+const drawAll=()=>{gameWheel.draw();laneWheel.draw();champWheel.draw()};
+$("pAll").onclick=()=>pset(true);$("pNone").onclick=()=>pset(false);$("mix").onclick=mix;$("gAdd").onclick=addGame;
+$("gNew").addEventListener("keydown",e=>{if(e.key==="Enter")addGame()});
 async function load(){
  try{stats=await (await fetch("data/stats.json",{cache:"no-cache"})).json();hist=await (await fetch("data/history.json",{cache:"no-cache"})).json()}catch(e){$("note").textContent="Impossible de charger les stats."}
+ try{extra=await (await fetch("data/roster.json",{cache:"no-cache"})).json()}catch(e){}
  render();
  $("meta").textContent=stats.players.length+" joueurs · "+Object.keys(GAMES).length+" jeux";
+ renderRoster();buildPlayers();buildWheelList();buildLaneList();drawAll();loadChamps();
 }
-load();
+show();load();
 </script></body></html>
