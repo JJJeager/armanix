@@ -34,6 +34,9 @@ h2{font-size:clamp(1.5rem,3.5vw,2rem);letter-spacing:-.025em;margin:0 0 1.25rem;
 .tabs button:hover{color:var(--text)}
 .tabs button[aria-selected=true]{background:var(--accent);color:var(--accent-ink)}
 .gi{display:inline-flex}.gi img{width:1.35rem;height:1.35rem;object-fit:contain}.gb{display:inline-grid;place-items:center;min-width:1.5rem;height:1.35rem;padding:0 .3rem;border-radius:.35rem;color:#fff;font-size:.6rem;font-weight:800;letter-spacing:.02em}
+.sb{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-transform:inherit;letter-spacing:inherit;text-align:left;line-height:inherit}.sb:hover{color:var(--text)}th[aria-sort=ascending],th[aria-sort=descending]{color:var(--accent2)}
+.sortbar{display:none;gap:.6rem;align-items:center;flex-wrap:wrap;margin:0 0 1rem;color:var(--muted);font-size:.9rem}
+select,.sbtn{font:inherit;font-size:.9rem;background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:.5rem;padding:.4rem .7rem}.sbtn{cursor:pointer}
 .scroll{overflow-x:auto}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:1rem;padding:.25rem .75rem}
 table{width:100%;border-collapse:collapse}
@@ -50,17 +53,18 @@ td a{color:var(--accent2);font-weight:600;text-underline-offset:3px}
 svg.sp{width:6rem;height:1.7rem;stroke:var(--accent2);fill:none;stroke-width:2;stroke-linejoin:round}
 .note{color:var(--muted);font-size:.88rem;margin:1rem 0 0}.err{color:var(--accent2);font-weight:600}
 footer{padding:2rem 0 3rem;color:var(--muted);font-size:.88rem}
-@media (max-width:76rem){.panel{background:none;border:0;padding:0}table,thead,tbody,tr,td{display:block}thead{display:none}tr{background:var(--surface);border:1px solid var(--line);border-radius:.9rem;padding:.4rem .95rem;margin-bottom:.9rem}tbody tr:hover{background:var(--surface)}td{display:flex;justify-content:space-between;align-items:center;gap:1rem;border:0;padding:.45rem 0;text-align:right}td::before{content:attr(data-label);color:var(--muted);font-size:.8rem;text-align:left}}
+@media (max-width:76rem){.sortbar{display:flex}.panel{background:none;border:0;padding:0}table,thead,tbody,tr,td{display:block}thead{display:none}tr{background:var(--surface);border:1px solid var(--line);border-radius:.9rem;padding:.4rem .95rem;margin-bottom:.9rem}tbody tr:hover{background:var(--surface)}td{display:flex;justify-content:space-between;align-items:center;gap:1rem;border:0;padding:.45rem 0;text-align:right}td::before{content:attr(data-label);color:var(--muted);font-size:.8rem;text-align:left}}
 @media (prefers-reduced-motion:reduce){.hero{animation:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body><div class="wrap">
 <nav><b>Armanix<i>.</i></b><ul><li><a href="#stats">Stats</a></li></ul></nav>
-<header class="hero"><span class="eyebrow">Équipe · Amis · PC</span><h1>Armanix<i>.</i></h1><p class="tag">Une bande d’amis, un salon vocal, et une partie qui commence toujours « juste une dernière ».</p>
+<header class="hero"><span class="eyebrow">Équipe · Amis · PC</span><h1>Armanix<i>.</i></h1><p class="tag">Doucement le matin, pas trop vite le soir</p>
 <div class="row"><a class="btn" href="#stats">Voir les stats</a><span class="meta" id="meta"></span></div></header>
 <section id="stats"><h2>Stats des joueurs</h2><div class="tabs" id="tabs" role="tablist"></div>
+<div class="sortbar" id="sortbar"><label>Trier par <select id="sortSel"></select></label><button class="sbtn" id="sortDir" hidden></button></div>
 <div class="scroll panel"><table><thead id="thead"></thead><tbody id="tbody"></tbody></table></div><p class="note" id="note"></p></section>
-<footer>Armanix, depuis la première partie ensemble. · Version 7</footer></div>
+<footer>Armanix, depuis la première partie ensemble. · Version 8</footer></div>
 <script>
 const GAMES={
  lol:{n:"League of Legends",trend:"Évolution du rang"},
@@ -94,24 +98,49 @@ function hue(v,s){const lo=s[0],mid=s[1],hi=s[2];if(v<=lo)return 0;if(v<mid)retu
 function colored(text,v,sc){if(v==null||isNaN(v))return "—";return h("span",{class:"cv",style:"color:hsl("+Math.round(hue(v,sc))+" 80% var(--cl))"},text)}
 const num=x=>x==null||x===""?null:parseFloat(String(x).replace(",","."));
 function td(label){const k=Array.prototype.slice.call(arguments,1);return h("td",{"data-label":label},k)}
-function lolTable(rows){
- $("thead").replaceChildren(h("tr",{},...["Joueur","Rang solo/duo","Victoires solo (%)","KDA solo (20 dernières)","Rang flex","Victoires flex (%)","KDA flex (20 dernières)","Champions favoris","Évolution du rang","Profil"].map(x=>h("th",{},x))));
- $("tbody").replaceChildren(...rows.map(p=>{const e=p.games.lol,d=e.d||{},s=d.solo||{},f=d.flex||{};
-  return h("tr",{},
-   td("Joueur",h("div",{class:"who"},img("profileicon",d.icon,"Icône d’invocateur"),p.name)),
-   rankCell(s,"Rang solo/duo"),
-   td("Victoires solo (%)",colored(pct(s.wr),s.wr,SC.wr)),
-   td("KDA solo (20 dernières)",colored(dash(s.kda),num(s.kda),SC.kda)),
-   rankCell(f,"Rang flex"),
-   td("Victoires flex (%)",colored(pct(f.wr),f.wr,SC.wr)),
-   td("KDA flex (20 dernières)",colored(dash(f.kda),num(f.kda),SC.kda)),
-   td("Champions favoris",(d.champs&&d.champs.length)?h("div",{class:"champs"},d.champs.map(c=>img("champion",c.id,c.name+" ("+c.n+" parties)"))):"—"),
-   td("Évolution du rang",spark((hist[p.name]||{}).lol)),profil(e))}));
+const TB={IRON:0,BRONZE:400,SILVER:800,GOLD:1200,PLATINUM:1600,EMERALD:2000,DIAMOND:2400,MASTER:2800,GRANDMASTER:2800,CHALLENGER:2800},DV={IV:0,III:100,II:200,I:300};
+function rankVal(r){if(!r||!(r.tier in TB))return null;const t=String(r.rank),m=t.match(/\b(IV|III|II|I)\b/),lp=t.match(/\((\d+) LP\)/);return TB[r.tier]+(m?DV[m[1]]:0)+(lp?+lp[1]:0)}
+const RLN=[["supersonic",8],["ssl",8],["grand champion",7],["champion",6],["diamant",5],["diamond",5],["platine",4],["platinum",4],["or",3],["gold",3],["argent",2],["silver",2],["bronze",1]];
+function rlRank(s){const t=s.toLowerCase();for(const n of RLN){if(new RegExp("(^|[^a-zé])"+n[0]+"([^a-zé]|$)").test(t)){const d=t.match(/\b(iii|ii|i|[1-3])\b/);return n[1]*10+(d?({i:1,ii:2,iii:3}[d[1]]||+d[1]):0)}}return null}
+const TXT=/favori|favorite|mode|classe|map/i;
+function parseVal(lab,s,gm){if(s==null||s===""||s==="—")return null;const t=String(s);
+ if(gm==="rl"&&/^rang/i.test(lab)){const r=rlRank(t);if(r!=null)return r}
+ if(TXT.test(lab))return t;const m=t.replace(",",".").match(/-?\d+(\.\d+)?/);return m?+m[0]:t}
+const delta=(p,k)=>{const a=(hist[p.name]||{})[k];return a&&a.length>1?a[a.length-1][1]-a[0][1]:null};
+const Lp=p=>p.games.lol.d||{};
+const rkCol=(l,q)=>({l,v:p=>rankVal(Lp(p)[q]),cell:p=>rankCell(Lp(p)[q],l)});
+const pctCol=(l,q)=>({l,v:p=>(Lp(p)[q]||{}).wr,cell:p=>{const x=Lp(p)[q]||{};return td(l,colored(pct(x.wr),x.wr,SC.wr))}});
+const kdaCol=(l,q)=>({l,v:p=>num((Lp(p)[q]||{}).kda),cell:p=>{const x=Lp(p)[q]||{};return td(l,colored(dash(x.kda),num(x.kda),SC.kda))}});
+function colsFor(gm){
+ const prof={l:"Profil",cell:p=>profil(p.games[gm])};
+ if(gm==="lol")return[
+  {l:"Joueur",text:1,v:p=>p.name,cell:p=>td("Joueur",h("div",{class:"who"},img("profileicon",Lp(p).icon,"Icône d’invocateur"),p.name))},
+  rkCol("Rang solo/duo","solo"),pctCol("Victoires solo (%)","solo"),kdaCol("KDA solo (20 dernières)","solo"),
+  rkCol("Rang flex","flex"),pctCol("Victoires flex (%)","flex"),kdaCol("KDA flex (20 dernières)","flex"),
+  {l:"Champions favoris",cell:p=>{const c=Lp(p).champs;return td("Champions favoris",(c&&c.length)?h("div",{class:"champs"},c.map(x=>img("champion",x.id,x.name+" ("+x.n+" parties)"))):"—")}},
+  {l:"Évolution du rang",v:p=>delta(p,"lol"),cell:p=>td("Évolution du rang",spark((hist[p.name]||{}).lol))},prof];
+ const g=GAMES[gm];
+ return[{l:"Joueur",text:1,v:p=>p.name,cell:p=>td("Joueur",p.name)}].concat(
+  g.f.map((lab,k)=>({l:lab,text:TXT.test(lab),v:p=>parseVal(lab,(p.games[gm].f||[])[k],gm),cell:p=>{const v=(p.games[gm].f||[])[k]||"—";return td(lab,lab.indexOf("Victoires (%)")>=0?colored(v,num(v),SC.wr):v)}})),
+  g.trend?[{l:g.trend,v:p=>delta(p,gm),cell:p=>td(g.trend,spark((hist[p.name]||{})[gm]))}]:[],[prof]);
 }
-function genericTable(g,rows){
- $("thead").replaceChildren(h("tr",{},h("th",{},"Joueur"),...g.f.map(x=>h("th",{},x)),g.trend?h("th",{},g.trend):"",h("th",{},"Profil")));
- $("tbody").replaceChildren(...rows.map(p=>{const e=p.games[game];
-  return h("tr",{},td("Joueur",p.name),...g.f.map((lab,k)=>{const v=(e.f||[])[k]||"—";return td(lab,lab.indexOf("Victoires (%)")>=0?colored(v,num(v),SC.wr):v)}),g.trend?td(g.trend,spark((hist[p.name]||{})[game])):"",profil(e))}));
+const sorts={};
+function sortBy(gm,i){const st=sorts[gm];sorts[gm]=!st||st.i!==i?{i,dir:"best"}:st.dir==="best"?{i,dir:"worst"}:null;render()}
+const nz=v=>(v==null||(typeof v==="number"&&isNaN(v)))?null:v;
+function drawTable(gm,rows){
+ const cols=colsFor(gm),st=sorts[gm]||null;
+ if(st){const c=cols[st.i],sg=c.text?(st.dir==="best"?1:-1):(st.dir==="best"?-1:1);
+  rows=rows.slice().sort((a,b)=>{const x=nz(c.v(a)),y=nz(c.v(b));if(x==null&&y==null)return 0;if(x==null)return 1;if(y==null)return -1;
+   return sg*((typeof x==="number"&&typeof y==="number")?x-y:String(x).localeCompare(String(y),"fr"))})}
+ $("thead").replaceChildren(h("tr",{},...cols.map((c,i)=>{if(!c.v)return h("th",{},c.l);
+  const on=st&&st.i===i,ind=on?(c.text?(st.dir==="best"?" A→Z":" Z→A"):(st.dir==="best"?" ▼":" ▲")):"";
+  const b=h("button",{class:"sb",title:"Trier cette colonne"},c.l+ind);b.onclick=()=>sortBy(gm,i);
+  return h("th",{"aria-sort":on?((st.dir==="best")===!c.text?"descending":"ascending"):"none"},b)})));
+ $("tbody").replaceChildren(...rows.map(p=>h("tr",{},...cols.map(c=>c.cell(p)))));
+ const sel=$("sortSel");sel.replaceChildren(h("option",{value:""},"Ordre par défaut"),...cols.map((c,i)=>c.v?h("option",{value:i},c.l):"").filter(Boolean));
+ sel.value=st?String(st.i):"";sel.onchange=()=>{sorts[gm]=sel.value===""?null:{i:+sel.value,dir:"best"};render()};
+ const d=$("sortDir");d.hidden=!st;if(st){const c=cols[st.i];d.textContent=c.text?(st.dir==="best"?"A → Z":"Z → A"):(st.dir==="best"?"Meilleur d’abord":"Moins bon d’abord")}
+ d.onclick=()=>{const s=sorts[gm];if(s){sorts[gm]={i:s.i,dir:s.dir==="best"?"worst":"best"};render()}};
 }
 // Logos : dépose lol.png, cs.png, rl.png et bf.png (ou .svg) à côté de index.html ; sinon une pastille s'affiche
 const GI={lol:["LoL","#a9792a"],cs:["CS2","#b9702a"],rl:["RL","#2a6fdb"],bf:["BF6","#4b5563"]},iconOk={};
@@ -123,7 +152,7 @@ function gameIcon(k){const t=GI[k][0],c=GI[k][1],wrap=h("span",{class:"gi"}),bad
 function render(){
  $("tabs").replaceChildren(...Object.keys(GAMES).map(k=>h("button",{role:"tab","aria-selected":k===game},gameIcon(k),GAMES[k].n)).map((b,i)=>(b.onclick=()=>{game=Object.keys(GAMES)[i];render()},b)));
  const g=GAMES[game],rows=stats.players.filter(p=>p.games[game]);
- if(game==="lol")lolTable(rows);else genericTable(g,rows);
+ drawTable(game,rows);
  const errs=rows.filter(p=>p.games[game].error).map(p=>p.name);
  const when=stats.updatedAt?new Date(stats.updatedAt).toLocaleString("fr-FR"):"jamais";
  $("note").replaceChildren("Dernière mise à jour : "+when+". ",errs.length?h("span",{class:"err"},"Échec de mise à jour : "+errs.join(", ")):"");
