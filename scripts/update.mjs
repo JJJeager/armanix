@@ -119,14 +119,14 @@ function lolEvents(name, o, n) {
   if (!o) return ev;
   for (const q of ["solo", "flex"]) {
     const a = o[q], b = n[q], qn = q === "solo" ? "en solo/duo" : "en flex", la = lvl(a), lb = lvl(b);
-    if (la != null && lb != null && la !== lb) ev.push(lb > la ? { type: "up", p: name, txt: `${name} monte ${label(b)} ${qn}`, big: a.tier !== b.tier } : { type: "down", p: name, txt: `${name} redescend ${label(b)} ${qn}`, big: a.tier !== b.tier });
-    else if (a && la == null && lb != null) ev.push({ type: "up", p: name, txt: `${name} est classé ${label(b)} ${qn}` });
+    if (la != null && lb != null && la !== lb) ev.push(lb > la ? { g: "lol", type: "up", p: name, txt: `${name} monte ${label(b)} ${qn}`, big: a.tier !== b.tier } : { g: "lol", type: "down", p: name, txt: `${name} redescend ${label(b)} ${qn}`, big: a.tier !== b.tier });
+    else if (a && la == null && lb != null) ev.push({ g: "lol", type: "up", p: name, txt: `${name} est classé ${label(b)} ${qn}` });
   }
   if (typeof o.streak === "number") {
     const w = crossed(Math.max(o.streak, 0), n.streak, [3, 5, 7, 10, 15]);
-    if (w) ev.push({ type: "fire", p: name, txt: `${name} enchaîne ${w} victoires d’affilée` });
+    if (w) ev.push({ g: "lol", type: "fire", p: name, txt: `${name} enchaîne ${w} victoires d’affilée` });
     const l = crossed(Math.max(-o.streak, 0), -n.streak, [4, 6, 8, 10]);
-    if (l) ev.push({ type: "tilt", p: name, txt: `${name} est en tilt : ${l} défaites d’affilée` });
+    if (l) ev.push({ g: "lol", type: "tilt", p: name, txt: `${name} est en tilt : ${l} défaites d’affilée` });
   }
   return ev;
 }
@@ -142,11 +142,77 @@ async function cs(p) {
   // FACEIT : niveau et elo (Leetify), victoires sur les matchs FACEIT récents (les égalités ne comptent pas)
   const fm = (j.recent_matches || []).filter(m => m.data_source === "faceit"), fw = fm.filter(m => m.outcome === "win").length, fl = fm.filter(m => m.outcome === "loss").length;
   const num = v => (typeof v === "number" && isFinite(v)) ? v : null;
-  const d = { premier: num(prem), wr, hs: hsP, matches: num(j.total_matches),
+  const rm = (j.recent_matches || []).filter(m => ["win", "loss", "tie"].includes(m.outcome));
+  let streak = 0;
+  for (const m of rm) { if (m.outcome === "tie") break; const w = m.outcome === "win"; if (!streak) streak = w ? 1 : -1; else if ((streak > 0) === w) streak += streak > 0 ? 1 : -1; else break; }
+  const d = { premier: num(prem), wr, hs: hsP, matches: num(j.total_matches), form: rm.slice(0, 10).map(m => m.outcome === "win" ? "W" : m.outcome === "loss" ? "L" : "T").join(""), streak,
     faceit: { lvl: num(j.ranks?.faceit), elo: num(j.ranks?.faceit_elo), n: fw + fl, wr: fw + fl ? Math.round(100 * fw / (fw + fl)) : null },
     // utilitaires : note Leetify (0-100), ennemis aveuglés par flash, dégâts moyens par HE, flashs menant à un kill (%)
     util: { r: num(j.rating?.utility) != null ? Math.round(j.rating.utility) : null, flash: num(j.stats?.flashbang_hit_foe_per_flashbang), he: num(j.stats?.he_foes_damage_avg), fk: num(j.stats?.flashbang_leading_to_kill) } };
   return { f: [prem != null ? `Premier ${prem}` : "—", fmt(wr, " %"), fmt(hsP, " %"), fmt(j.total_matches)], d, score: prem };
+}
+
+// ---------- Battlefield 6 (GameTools, API communautaire publique et sans clé). La réponse brute est gardée dans data/raw/
+const BFC = { Assault: "Assaut", Engineer: "Ingénieur", Support: "Soutien", Recon: "Reconnaissance" };
+const bfId = p => { const m = String(p.bf?.link || "").match(/profile\/(?:[a-z]+\/)?(\d{6,})/i); return m ? m[1] : null; };
+async function bf(p) {
+  const q = p.bf.name ? `name=${encodeURIComponent(p.bf.name)}` : bfId(p) ? `playerid=${bfId(p)}` : null;
+  if (!q) return null;
+  await sleep(800);
+  const j = await getJson(`https://api.gametools.network/bf6/stats/?${q}&platform=${p.bf.platform || "pc"}&skip_battlelog=true&format_values=false&categories=multiplayer&lang=fr-fr`);
+  try { await writeFile(`data/raw/bf-${slug(p.name)}.json`, JSON.stringify(j, null, 1)); } catch {}
+  const n = v => { if (v == null) return null; const x = typeof v === "string" ? parseFloat(v.replace(",", ".").replace(/[^\d.-]/g, "")) : v; return Number.isFinite(x) ? x : null; };
+  const kills = n(j.kills), deaths = n(j.deaths), wins = n(j.wins), loses = n(j.loses ?? j.losses);
+  const lvl = n(j.rank ?? j.level ?? j.rankLevel);
+  const kd = n(j.killDeath ?? j.kd) ?? (kills != null && deaths ? kills / deaths : null);
+  let wr = n(j.winPercent ?? j.winRate);
+  if (wr == null && wins != null && loses != null && wins + loses) wr = 100 * wins / (wins + loses);
+  if (wr != null && wr <= 1 && (wins == null || wins > 1)) wr *= 100;
+  const kpm = n(j.killsPerMinute ?? j.kpm);
+  const matches = n(j.matchesPlayed ?? j.matches) ?? (wins != null && loses != null ? wins + loses : null);
+  let cls = typeof j.bestClass === "string" ? j.bestClass : null;
+  if (!cls && Array.isArray(j.classes) && j.classes.length) { const b = [...j.classes].sort((a, c) => (n(c.kills) || 0) - (n(a.kills) || 0))[0]; cls = b.className || b.characterName || b.name || null; }
+  cls = cls ? (BFC[cls] || cls) : null;
+  if (lvl == null && kd == null && wr == null) throw new Error("GameTools ne renvoie aucune statistique (joueur introuvable ?)");
+  const d = { lvl, kd: kd != null ? Math.round(kd * 100) / 100 : null, kpm: kpm != null ? Math.round(kpm * 100) / 100 : null, wr: wr != null ? Math.round(wr) : null, matches, cls, kills };
+  return { f: [fmt(lvl), fmt(d.kd), fmt(d.wr, " %"), fmt(cls)], d, score: lvl };
+}
+
+// ---------- événements CS, Battlefield 6 et Rocket League
+const fmtN = v => Math.round(v).toLocaleString("fr-FR");
+function csEvents(name, o, n) {
+  const ev = [];
+  if (!o) return ev;
+  const T = [5000, 10000, 15000, 20000, 25000, 30000];
+  if (o.premier != null && n.premier != null) {
+    const up = T.filter(t => o.premier < t && n.premier >= t).pop(), dn = T.filter(t => o.premier >= t && n.premier < t)[0];
+    if (up) ev.push({ g: "cs", type: "up", p: name, txt: `${name} passe la barre des ${fmtN(up)} en Premier` });
+    else if (dn) ev.push({ g: "cs", type: "down", p: name, txt: `${name} repasse sous les ${fmtN(dn)} en Premier` });
+    else if (o.best != null && n.premier >= o.best + 250) ev.push({ g: "cs", type: "up", p: name, txt: `${name} bat son record Premier : ${fmtN(n.premier)}` });
+  }
+  const fo = o.faceit?.lvl, fn = n.faceit?.lvl;
+  if (fo != null && fn != null && fo !== fn) ev.push(fn > fo ? { g: "cs", type: "up", p: name, txt: `${name} passe niveau ${fn} sur FACEIT` } : { g: "cs", type: "down", p: name, txt: `${name} redescend niveau ${fn} sur FACEIT` });
+  if (typeof o.streak === "number" && typeof n.streak === "number") {
+    const w = crossed(Math.max(o.streak, 0), n.streak, [3, 5, 7, 10, 15]);
+    if (w) ev.push({ g: "cs", type: "fire", p: name, txt: `${name} enchaîne ${w} victoires d’affilée sur CS` });
+    const l = crossed(Math.max(-o.streak, 0), -n.streak, [4, 6, 8, 10]);
+    if (l) ev.push({ g: "cs", type: "tilt", p: name, txt: `${name} est en tilt sur CS : ${l} défaites d’affilée` });
+  }
+  return ev;
+}
+function bfEvents(name, o, n) {
+  if (!o || o.lvl == null || n.lvl == null) return [];
+  const m = crossed(o.lvl, n.lvl, Array.from({ length: 50 }, (_, k) => (k + 1) * 10));
+  return m ? [{ g: "bf", type: "up", p: name, txt: `${name} atteint le niveau ${m} sur Battlefield 6` }] : [];
+}
+// rangs Rocket League saisis à la main : ordre pour savoir si ça monte ou si ça descend
+const RLN = [["supersonic", 8], ["ssl", 8], ["grand champion", 7], ["champion", 6], ["diamant", 5], ["diamond", 5], ["platine", 4], ["platinum", 4], ["or", 3], ["gold", 3], ["argent", 2], ["silver", 2], ["bronze", 1]];
+function rlRank(s) { const t = String(s || "").toLowerCase(); for (const [k, v] of RLN) if (new RegExp("(^|[^a-zé])" + k + "([^a-zé]|$)").test(t)) { const d = t.match(/\b(iii|ii|i|[1-3])\b/); return v * 10 + (d ? ({ i: 1, ii: 2, iii: 3 }[d[1]] || +d[1]) : 0); } return null; }
+function rlEvents(name, of, nf) {
+  const a = (of || [])[0], b = (nf || [])[0];
+  if (!a || !b || a === b || a === "—" || b === "—") return [];
+  const ra = rlRank(a), rb = rlRank(b), up = ra != null && rb != null ? rb > ra : true;
+  return [{ g: "rl", type: up ? "up" : "down", p: name, txt: up ? `${name} passe ${b} sur Rocket League` : `${name} redescend ${b} sur Rocket League` }];
 }
 
 // ---------- boucle principale
@@ -170,13 +236,15 @@ for (const p of config.players) {
     if (g === "lol") delete entry.f;
     entry.link = p[g].link || (g === "lol" && !p.lol.riotId.endsWith("#TAG") ? `https://dpm.lol/${encodeURIComponent(p.lol.riotId.split("#")[0])}-${encodeURIComponent(p.lol.riotId.split("#")[1])}` : "");
     try {
-      const r = g === "lol" ? await lol(p, cache) : g === "cs" ? await cs(p) : null;
+      const r = g === "lol" ? await lol(p, cache) : g === "cs" ? await cs(p) : g === "bf" ? await bf(p) : null;
       if (r) {
         if (g === "lol") { newEvents.push(...lolEvents(p.name, old.lol?.d, r.d)); riotUpdated++; }
+        if (g === "cs") { const o = old.cs?.d; r.d.best = Math.max(r.d.premier ?? 0, o?.best ?? 0, o?.premier ?? 0) || null; newEvents.push(...csEvents(p.name, o, r.d)); }
+        if (g === "bf") { newEvents.push(...bfEvents(p.name, old.bf?.d, r.d)); delete entry.manual; }
         if (r.f) entry.f = r.f; if (r.d) entry.d = r.d;
         entry.updated = now; delete entry.error;
         if (r.score != null) { const h = ((history[p.name] ||= {})[g] ||= []); h.push([Date.now(), r.score]); if (h.length > 1500) h.shift(); }
-      } else if (manual[p.name]?.[g]) { entry.f = manual[p.name][g]; entry.manual = true; }
+      } else if (manual[p.name]?.[g]) { if (g === "rl") newEvents.push(...rlEvents(p.name, old.rl?.f, manual[p.name][g])); entry.f = manual[p.name][g]; entry.manual = true; }
     } catch (e) {
       entry.error = String(e.message || e);
       if (g === "lol") { lolErrors++; if (e.status === 401 || e.status === 403) riotState = "refusee"; }
