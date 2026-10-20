@@ -80,6 +80,14 @@ const queueInfo = (e, r) => ({ tier: e ? e.tier : null, div: e ? e.rank : null, 
 async function lol(p, cache) {
   const [name, tag] = p.lol.riotId.split("#");
   if (riotState !== "ok" || !tag || tag === "TAG") return null;
+  try { return await lolFetch(p, cache, name, tag); }
+  catch (e) {
+    // Un identifiant de joueur mémorisé avec une ANCIENNE clé Riot n'est pas lisible avec une nouvelle clé (HTTP 400) : on le redemande une fois
+    if (e.status === 400 && cache[p.lol.riotId]) { console.error(`${p.name}/lol : identifiant périmé, nouvelle demande`); delete cache[p.lol.riotId]; return await lolFetch(p, cache, name, tag); }
+    throw e;
+  }
+}
+async function lolFetch(p, cache, name, tag) {
   let puuid = cache[p.lol.riotId];
   if (!puuid) {
     puuid = (await riot(`https://${ROUTE}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${encodeURIComponent(name)}/${encodeURIComponent(tag)}`)).puuid;
@@ -130,8 +138,15 @@ async function cs(p) {
   await sleep(800);
   const j = await getJson(`https://api-public.cs-prod.leetify.com/v3/profile?steam64_id=${p.cs.steam64}`, LEET ? { Authorization: `Bearer ${LEET}` } : {});
   try { await writeFile(`data/raw/cs-${slug(p.name)}.json`, JSON.stringify(j, null, 1)); } catch {}
-  const prem = j.ranks?.premier ?? null, wr = j.winrate != null ? Math.round(pct(j.winrate)) : null, hs = j.stats?.accuracy_head;
-  return { f: [prem != null ? `Premier ${prem}` : "—", fmt(wr, " %"), fmt(hs != null ? Math.round(pct(hs) * 10) / 10 : null, " %"), fmt(j.total_matches)], score: prem };
+  const prem = j.ranks?.premier ?? null, wr = j.winrate != null ? Math.round(pct(j.winrate)) : null, hs = j.stats?.accuracy_head, hsP = hs != null ? Math.round(pct(hs) * 10) / 10 : null;
+  // FACEIT : niveau et elo (Leetify), victoires sur les matchs FACEIT récents (les égalités ne comptent pas)
+  const fm = (j.recent_matches || []).filter(m => m.data_source === "faceit"), fw = fm.filter(m => m.outcome === "win").length, fl = fm.filter(m => m.outcome === "loss").length;
+  const num = v => (typeof v === "number" && isFinite(v)) ? v : null;
+  const d = { premier: num(prem), wr, hs: hsP, matches: num(j.total_matches),
+    faceit: { lvl: num(j.ranks?.faceit), elo: num(j.ranks?.faceit_elo), n: fw + fl, wr: fw + fl ? Math.round(100 * fw / (fw + fl)) : null },
+    // utilitaires : note Leetify (0-100), ennemis aveuglés par flash, dégâts moyens par HE, flashs menant à un kill (%)
+    util: { r: num(j.rating?.utility) != null ? Math.round(j.rating.utility) : null, flash: num(j.stats?.flashbang_hit_foe_per_flashbang), he: num(j.stats?.he_foes_damage_avg), fk: num(j.stats?.flashbang_leading_to_kill) } };
+  return { f: [prem != null ? `Premier ${prem}` : "—", fmt(wr, " %"), fmt(hsP, " %"), fmt(j.total_matches)], d, score: prem };
 }
 
 // ---------- boucle principale
