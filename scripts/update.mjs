@@ -127,6 +127,7 @@ function lolEvents(name, o, n) {
 const pct = v => v == null ? null : (Math.abs(v) <= 1 ? v * 100 : v);
 async function cs(p) {
   if (!p.cs?.steam64) return null;
+  await sleep(800);
   const j = await getJson(`https://api-public.cs-prod.leetify.com/v3/profile?steam64_id=${p.cs.steam64}`, LEET ? { Authorization: `Bearer ${LEET}` } : {});
   try { await writeFile(`data/raw/cs-${slug(p.name)}.json`, JSON.stringify(j, null, 1)); } catch {}
   const prem = j.ranks?.premier ?? null, wr = j.winrate != null ? Math.round(pct(j.winrate)) : null, hs = j.stats?.accuracy_head;
