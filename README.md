@@ -5,10 +5,12 @@ Site statique hébergé sur GitHub Pages. Le programme `scripts/update.mjs` tour
 ## Ce qui se met à jour tout seul
 - **League of Legends** (API Riot) : rangs solo et flex, % de victoires, KDA sur les 20 dernières parties, champions favoris, forme récente, séries, activité de la semaine, fil d'activité (montées, descentes, séries).
 - **Counter-Strike 2** (Leetify) : Premier, % de victoires, headshots, matchs. La réponse brute de chaque joueur est gardée dans `data/raw/` pour vérifier les champs.
+- **Battlefield 6** (GameTools, API communautaire publique et gratuite) : niveau, K/D, kills par minute, % de victoires, matchs, classe favorite. Le joueur est retrouvé grâce à l'identifiant de son lien tracker.gg dans `players.json`. S'il n'est pas trouvé, ajouter son pseudo EA exact (majuscules comprises) et sa plateforme : `"bf": {"link": "…", "name": "PseudoEA", "platform": "pc"}` (plateformes : `pc`, `ea`, `psn`, `xbox`). La réponse brute est gardée dans `data/raw/bf-*.json`.
+- **Fil d'activité, tous jeux** : LoL (montées, descentes, séries), CS (niveau FACEIT, paliers Premier, records, séries), Battlefield 6 (paliers de 10 niveaux), Rocket League (changement de rang saisi à la main).
 - **Listes de champions par lane** (Meraki Analytics) et **noms des champions** (Data Dragon de Riot), pour les roues de la page RANDOM.
 
 ## Ce qui se remplit à la main
-- **Rocket League et Battlefield 6** : `data/manual.json` (tracker.gg n'ouvre pas d'API). Format : `{"Pseudo": {"rl": ["Rang", "Victoires", "Buts par match", "Mode"], "bf": ["Niveau", "K/D", "55 %", "Classe"]}}`.
+- **Rocket League** : `data/manual.json`, format `{"Pseudo": {"rl": ["Rang", "Victoires", "Buts par match", "Mode"]}}`. Il n'existe pas de source automatique autorisée : pas d'API officielle, tracker.gg interdit l'accès automatisé, et depuis l'arrivée d'Easy Anti-Cheat (28 avril 2026) l'envoi automatique des replays via BakkesMod ne fonctionne plus en ligne. Battlefield 6 peut encore être saisi ici en secours (`"bf": [...]`) si GameTools ne trouve pas un joueur.
 - **Rôle et description des joueurs** : `data/roster.json`, par exemple `{"JJJeager": {"role": "Le stratège", "bio": "…"}}`.
 - **Joueurs suivis** : `players.json` (Riot ID complet `Nom#TAG`, identifiant Steam64 pour CS, liens de profil).
 
