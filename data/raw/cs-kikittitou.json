@@ -1,0 +1,2064 @@
+{
+ "privacy_mode": "public",
+ "winrate": 0.6207,
+ "total_matches": 2300,
+ "first_match_date": "2020-03-12T17:49:38.000Z",
+ "name": "Марц",
+ "bans": [],
+ "steam64_id": "76561198100179839",
+ "id": "49f66799-4866-4267-b7c6-ea48f4ef9a14",
+ "ranks": {
+  "leetify": 2.76,
+  "premier": 24965,
+  "faceit": 10,
+  "faceit_elo": 1685,
+  "wingman": 15,
+  "renown": null,
+  "competitive": [
+   {
+    "map_name": "de_nuke",
+    "rank": 13
+   },
+   {
+    "map_name": "cs_italy",
+    "rank": 0
+   },
+   {
+    "map_name": "de_cache",
+    "rank": 11
+   },
+   {
+    "map_name": "de_dust2",
+    "rank": 0
+   },
+   {
+    "map_name": "de_grail",
+    "rank": 10
+   },
+   {
+    "map_name": "de_mills",
+    "rank": 9
+   },
+   {
+    "map_name": "de_thera",
+    "rank": 11
+   },
+   {
+    "map_name": "de_train",
+    "rank": 13
+   },
+   {
+    "map_name": "cs_agency",
+    "rank": 8
+   },
+   {
+    "map_name": "cs_alpine",
+    "rank": 0
+   },
+   {
+    "map_name": "cs_office",
+    "rank": 0
+   },
+   {
+    "map_name": "de_anubis",
+    "rank": 7
+   },
+   {
+    "map_name": "de_golden",
+    "rank": 0
+   },
+   {
+    "map_name": "de_mirage",
+    "rank": 13
+   },
+   {
+    "map_name": "de_warden",
+    "rank": 0
+   },
+   {
+    "map_name": "de_ancient",
+    "rank": 0
+   },
+   {
+    "map_name": "de_inferno",
+    "rank": 8
+   },
+   {
+    "map_name": "de_palacio",
+    "rank": 0
+   },
+   {
+    "map_name": "de_vertigo",
+    "rank": 0
+   },
+   {
+    "map_name": "de_overpass",
+    "rank": 0
+   },
+   {
+    "map_name": "de_stronghold",
+    "rank": 0
+   }
+  ]
+ },
+ "rating": {
+  "aim": 89.0651,
+  "positioning": 54.3795,
+  "utility": 63.8386,
+  "clutch": 0.1011,
+  "opening": 0.0235,
+  "ct_leetify": 0.0283,
+  "t_leetify": 0.0268
+ },
+ "stats": {
+  "accuracy_enemy_spotted": 36.1039,
+  "accuracy_head": 24.9234,
+  "counter_strafing_good_shots_ratio": 88.3782,
+  "ct_opening_aggression_success_rate": 50.8,
+  "ct_opening_duel_success_percentage": 49.9329,
+  "flashbang_hit_foe_avg_duration": 2.8139,
+  "flashbang_hit_foe_per_flashbang": 0.7221,
+  "flashbang_hit_friend_per_flashbang": 0.2326,
+  "flashbang_leading_to_kill": 5.8413,
+  "flashbang_thrown": 13.5942,
+  "he_foes_damage_avg": 9.0927,
+  "he_friends_damage_avg": 0.5143,
+  "preaim": 7.9289,
+  "reaction_time_ms": 566.1224,
+  "spray_accuracy": 38.9168,
+  "t_opening_aggression_success_rate": 37.7081,
+  "t_opening_duel_success_percentage": 34.1386,
+  "traded_deaths_success_percentage": 53.6211,
+  "trade_kill_opportunities_per_round": 0.2367,
+  "trade_kills_success_percentage": 48.4267,
+  "utility_on_death_avg": 338.7246
+ },
+ "recent_matches": [
+  {
+   "id": "b6c6246e-e9f5-490d-b20e-20016bf43484",
+   "finished_at": "2026-10-19T15:43:18.000Z",
+   "data_source": "matchmaking",
+   "outcome": "tie",
+   "rank": 24965,
+   "rank_type": 11,
+   "map_name": "de_ancient",
+   "leetify_rating": 0.0536,
+   "score": [
+    15,
+    15
+   ],
+   "preaim": 8.58,
+   "reaction_time_ms": 664,
+   "accuracy_enemy_spotted": 37.07,
+   "accuracy_head": 28.92,
+   "spray_accuracy": 60
+  },
+  {
+   "id": "5796906d-7687-48eb-bf2a-876f17c5da96",
+   "finished_at": "2026-10-19T14:59:16.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 24915,
+   "rank_type": 11,
+   "map_name": "de_inferno",
+   "leetify_rating": 0.0431,
+   "score": [
+    13,
+    8
+   ],
+   "preaim": 8.28,
+   "reaction_time_ms": 523,
+   "accuracy_enemy_spotted": 35.38,
+   "accuracy_head": 30.43,
+   "spray_accuracy": 40.48
+  },
+  {
+   "id": "a6219b9b-8b06-45ff-92d5-46323a2585f5",
+   "finished_at": "2026-10-18T22:04:22.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 24554,
+   "rank_type": 11,
+   "map_name": "de_anubis",
+   "leetify_rating": -0.0086,
+   "score": [
+    13,
+    1
+   ],
+   "preaim": 16.76,
+   "reaction_time_ms": 484,
+   "accuracy_enemy_spotted": 43.69,
+   "accuracy_head": 20.45,
+   "spray_accuracy": 38.1
+  },
+  {
+   "id": "a3e11109-67de-43c5-8b10-052ebe46bd7c",
+   "finished_at": "2026-10-18T21:29:00.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 24190,
+   "rank_type": 11,
+   "map_name": "de_nuke",
+   "leetify_rating": 0.0235,
+   "score": [
+    13,
+    7
+   ],
+   "preaim": 7.79,
+   "reaction_time_ms": 906,
+   "accuracy_enemy_spotted": 35.11,
+   "accuracy_head": 18.18,
+   "spray_accuracy": 28.57
+  },
+  {
+   "id": "d4b42741-4fd5-463f-a208-9b5722c2342e",
+   "finished_at": "2026-10-12T20:31:10.000Z",
+   "data_source": "faceit",
+   "outcome": "loss",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_dust2",
+   "leetify_rating": -0.0181,
+   "score": [
+    11,
+    13
+   ],
+   "preaim": 4.57,
+   "reaction_time_ms": 594,
+   "accuracy_enemy_spotted": 25.44,
+   "accuracy_head": 28.57,
+   "spray_accuracy": 21.88
+  },
+  {
+   "id": "4635e049-211f-4ead-ad80-dafe64fe46ea",
+   "finished_at": "2026-10-12T19:09:20.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 23856,
+   "rank_type": 11,
+   "map_name": "de_anubis",
+   "leetify_rating": 0.0207,
+   "score": [
+    6,
+    13
+   ],
+   "preaim": 15.12,
+   "reaction_time_ms": 688,
+   "accuracy_enemy_spotted": 41.35,
+   "accuracy_head": 22.45,
+   "spray_accuracy": 39.47
+  },
+  {
+   "id": "0e221253-441f-4dc5-accf-27bddb6aa1a4",
+   "finished_at": "2026-10-11T18:54:50.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 24203,
+   "rank_type": 11,
+   "map_name": "de_dust2",
+   "leetify_rating": -0.0169,
+   "score": [
+    10,
+    13
+   ],
+   "preaim": 3.68,
+   "reaction_time_ms": 594,
+   "accuracy_enemy_spotted": 35.51,
+   "accuracy_head": 26.19,
+   "spray_accuracy": 34.62
+  },
+  {
+   "id": "28d74b1a-2a55-489f-8f12-11615b49c60c",
+   "finished_at": "2026-10-10T21:39:23.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 24578,
+   "rank_type": 11,
+   "map_name": "de_cache",
+   "leetify_rating": 0.0309,
+   "score": [
+    13,
+    9
+   ],
+   "preaim": 6.87,
+   "reaction_time_ms": 664,
+   "accuracy_enemy_spotted": 40,
+   "accuracy_head": 15.63,
+   "spray_accuracy": 50
+  },
+  {
+   "id": "76c09a28-ffe7-4e83-9cf6-bb4d8b590a66",
+   "finished_at": "2026-10-10T20:58:51.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 24310,
+   "rank_type": 11,
+   "map_name": "de_inferno",
+   "leetify_rating": 0.0302,
+   "score": [
+    11,
+    13
+   ],
+   "preaim": 5.77,
+   "reaction_time_ms": 484,
+   "accuracy_enemy_spotted": 40,
+   "accuracy_head": 22.73,
+   "spray_accuracy": 30
+  },
+  {
+   "id": "941652a1-e7b3-41a6-8a3d-3c5421eff341",
+   "finished_at": "2026-10-09T22:04:54.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 24879,
+   "rank_type": 11,
+   "map_name": "de_inferno",
+   "leetify_rating": 0.0395,
+   "score": [
+    6,
+    13
+   ],
+   "preaim": 9.36,
+   "reaction_time_ms": 688,
+   "accuracy_enemy_spotted": 36.09,
+   "accuracy_head": 21.57,
+   "spray_accuracy": 38.71
+  },
+  {
+   "id": "feb9aab2-4609-4b9b-b11d-647a3860df16",
+   "finished_at": "2026-10-09T21:34:03.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 25000,
+   "rank_type": 11,
+   "map_name": "de_mirage",
+   "leetify_rating": -0.0337,
+   "score": [
+    2,
+    13
+   ],
+   "preaim": 7.81,
+   "reaction_time_ms": 500,
+   "accuracy_enemy_spotted": 35,
+   "accuracy_head": 35.48,
+   "spray_accuracy": 17.65
+  },
+  {
+   "id": "7b17aedd-4494-4b30-bc3e-998d0abeb9ef",
+   "finished_at": "2026-10-09T16:52:19.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 25102,
+   "rank_type": 11,
+   "map_name": "de_mirage",
+   "leetify_rating": 0.0324,
+   "score": [
+    13,
+    9
+   ],
+   "preaim": 8.27,
+   "reaction_time_ms": 547,
+   "accuracy_enemy_spotted": 37.37,
+   "accuracy_head": 16.67,
+   "spray_accuracy": 42.86
+  },
+  {
+   "id": "9e2e39b0-1c3b-4fde-9811-89015597dbb4",
+   "finished_at": "2026-10-05T20:27:21.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 24999,
+   "rank_type": 11,
+   "map_name": "de_nuke",
+   "leetify_rating": 0.0227,
+   "score": [
+    13,
+    5
+   ],
+   "preaim": 5.46,
+   "reaction_time_ms": 563,
+   "accuracy_enemy_spotted": 27.72,
+   "accuracy_head": 33.33,
+   "spray_accuracy": 31.58
+  },
+  {
+   "id": "d9ce7c95-7e05-42ab-9aa6-6912633696cb",
+   "finished_at": "2026-09-30T20:44:24.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_mirage",
+   "leetify_rating": 0.0327,
+   "score": [
+    13,
+    7
+   ],
+   "preaim": 5.16,
+   "reaction_time_ms": 609,
+   "accuracy_enemy_spotted": 30.69,
+   "accuracy_head": 21.21,
+   "spray_accuracy": 40
+  },
+  {
+   "id": "f49549a1-5916-4dc0-932b-84f6e225d9ec",
+   "finished_at": "2026-09-30T20:06:40.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_inferno",
+   "leetify_rating": 0.1126,
+   "score": [
+    13,
+    3
+   ],
+   "preaim": 8.52,
+   "reaction_time_ms": 484,
+   "accuracy_enemy_spotted": 39.81,
+   "accuracy_head": 23.26,
+   "spray_accuracy": 42.31
+  },
+  {
+   "id": "9031defb-ec2f-4a48-adba-8dee841fdafb",
+   "finished_at": "2026-09-30T19:32:42.000Z",
+   "data_source": "faceit",
+   "outcome": "loss",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_dust2",
+   "leetify_rating": -0.0106,
+   "score": [
+    1,
+    12
+   ],
+   "preaim": 2.36,
+   "reaction_time_ms": 500,
+   "accuracy_enemy_spotted": 26.92,
+   "accuracy_head": 25,
+   "spray_accuracy": 26.67
+  },
+  {
+   "id": "82193820-8541-43a8-99c1-73868cd00e01",
+   "finished_at": "2026-09-29T20:25:11.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_dust2",
+   "leetify_rating": 0.0565,
+   "score": [
+    13,
+    7
+   ],
+   "preaim": 3.71,
+   "reaction_time_ms": 547,
+   "accuracy_enemy_spotted": 40.98,
+   "accuracy_head": 33.33,
+   "spray_accuracy": 41.67
+  },
+  {
+   "id": "fafd62e9-a931-40ab-97e3-5c45e33e92a5",
+   "finished_at": "2026-09-29T19:09:27.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 24777,
+   "rank_type": 11,
+   "map_name": "de_mirage",
+   "leetify_rating": -0.0013,
+   "score": [
+    13,
+    10
+   ],
+   "preaim": 6.44,
+   "reaction_time_ms": 414,
+   "accuracy_enemy_spotted": 36.45,
+   "accuracy_head": 19.51,
+   "spray_accuracy": 30.77
+  },
+  {
+   "id": "1c8e0468-33a4-4412-a46d-5a3216e55359",
+   "finished_at": "2026-09-28T19:54:57.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 24407,
+   "rank_type": 11,
+   "map_name": "de_inferno",
+   "leetify_rating": 0.0232,
+   "score": [
+    9,
+    13
+   ],
+   "preaim": 9.33,
+   "reaction_time_ms": 414,
+   "accuracy_enemy_spotted": 30.36,
+   "accuracy_head": 26.32,
+   "spray_accuracy": 48
+  },
+  {
+   "id": "229922a2-1561-47bf-8af9-b85a871a2443",
+   "finished_at": "2026-09-28T19:17:26.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 24658,
+   "rank_type": 11,
+   "map_name": "de_inferno",
+   "leetify_rating": 0.095,
+   "score": [
+    13,
+    7
+   ],
+   "preaim": 10.26,
+   "reaction_time_ms": 547,
+   "accuracy_enemy_spotted": 42.5,
+   "accuracy_head": 32.14,
+   "spray_accuracy": 50
+  },
+  {
+   "id": "dd0bd9e5-ef2a-4771-aacf-15bb0a81eeb4",
+   "finished_at": "2026-09-27T19:48:41.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 24306,
+   "rank_type": 11,
+   "map_name": "de_mirage",
+   "leetify_rating": 0.0393,
+   "score": [
+    13,
+    9
+   ],
+   "preaim": 9.45,
+   "reaction_time_ms": 734,
+   "accuracy_enemy_spotted": 38.84,
+   "accuracy_head": 18.03,
+   "spray_accuracy": 35.9
+  },
+  {
+   "id": "b58d8325-e74e-41c7-90e3-a9c6db5de842",
+   "finished_at": "2026-09-27T19:16:09.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23948,
+   "rank_type": 11,
+   "map_name": "de_nuke",
+   "leetify_rating": 0.0363,
+   "score": [
+    13,
+    6
+   ],
+   "preaim": 8.85,
+   "reaction_time_ms": 563,
+   "accuracy_enemy_spotted": 38.96,
+   "accuracy_head": 37.5,
+   "spray_accuracy": 33.33
+  },
+  {
+   "id": "78111664-d5b8-49ab-878e-62eab8edf6a5",
+   "finished_at": "2026-09-27T18:42:27.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23592,
+   "rank_type": 11,
+   "map_name": "de_inferno",
+   "leetify_rating": 0.1383,
+   "score": [
+    13,
+    3
+   ],
+   "preaim": 11.61,
+   "reaction_time_ms": 391,
+   "accuracy_enemy_spotted": 43.3,
+   "accuracy_head": 17.39,
+   "spray_accuracy": 65
+  },
+  {
+   "id": "6af522c5-e107-455d-b121-5df06a55b299",
+   "finished_at": "2026-09-27T13:34:10.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 23285,
+   "rank_type": 11,
+   "map_name": "de_cache",
+   "leetify_rating": -0.0201,
+   "score": [
+    13,
+    16
+   ],
+   "preaim": 7.42,
+   "reaction_time_ms": 438,
+   "accuracy_enemy_spotted": 33.72,
+   "accuracy_head": 46.67,
+   "spray_accuracy": 33.33
+  },
+  {
+   "id": "896f29db-4fe8-4d30-b25d-8cf46587aa7b",
+   "finished_at": "2026-09-27T12:51:28.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23650,
+   "rank_type": 11,
+   "map_name": "de_cache",
+   "leetify_rating": 0.0962,
+   "score": [
+    13,
+    11
+   ],
+   "preaim": 5.17,
+   "reaction_time_ms": 547,
+   "accuracy_enemy_spotted": 30.92,
+   "accuracy_head": 23.53,
+   "spray_accuracy": 25
+  },
+  {
+   "id": "3e9382c5-0ddb-4602-a8bc-2b69cb5793d7",
+   "finished_at": "2026-09-26T20:38:58.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 23334,
+   "rank_type": 11,
+   "map_name": "de_inferno",
+   "leetify_rating": 0.0235,
+   "score": [
+    10,
+    13
+   ],
+   "preaim": 9.24,
+   "reaction_time_ms": 500,
+   "accuracy_enemy_spotted": 44.44,
+   "accuracy_head": 20,
+   "spray_accuracy": 57.14
+  },
+  {
+   "id": "2c9f1d8d-d133-48aa-8824-c1d33f6eadb2",
+   "finished_at": "2026-09-26T20:02:29.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23707,
+   "rank_type": 11,
+   "map_name": "de_mirage",
+   "leetify_rating": 0.0375,
+   "score": [
+    13,
+    8
+   ],
+   "preaim": 5.99,
+   "reaction_time_ms": 484,
+   "accuracy_enemy_spotted": 38.3,
+   "accuracy_head": 16.13,
+   "spray_accuracy": 25
+  },
+  {
+   "id": "2123627f-4b23-4668-9ff0-2f314b21c7af",
+   "finished_at": "2026-09-26T19:29:18.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 23369,
+   "rank_type": 11,
+   "map_name": "de_anubis",
+   "leetify_rating": -0.0366,
+   "score": [
+    6,
+    13
+   ],
+   "preaim": 11.92,
+   "reaction_time_ms": 766,
+   "accuracy_enemy_spotted": 27.05,
+   "accuracy_head": 17.46,
+   "spray_accuracy": 23.33
+  },
+  {
+   "id": "3cd42082-e09f-4b0a-943f-355adafc6ff4",
+   "finished_at": "2026-09-26T17:12:20.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23685,
+   "rank_type": 11,
+   "map_name": "de_nuke",
+   "leetify_rating": -0.0195,
+   "score": [
+    13,
+    11
+   ],
+   "preaim": 8.89,
+   "reaction_time_ms": 531,
+   "accuracy_enemy_spotted": 37.5,
+   "accuracy_head": 28.57,
+   "spray_accuracy": 46.67
+  },
+  {
+   "id": "4a792ae9-6d68-4825-a10e-66c0d3fd594f",
+   "finished_at": "2026-09-24T19:11:47.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23312,
+   "rank_type": 11,
+   "map_name": "de_nuke",
+   "leetify_rating": 0.0249,
+   "score": [
+    13,
+    6
+   ],
+   "preaim": 9.13,
+   "reaction_time_ms": 578,
+   "accuracy_enemy_spotted": 33.81,
+   "accuracy_head": 12,
+   "spray_accuracy": 60.87
+  },
+  {
+   "id": "4c196837-edcb-4b50-8b52-f9f8de060cbf",
+   "finished_at": "2026-09-23T17:04:53.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 23009,
+   "rank_type": 11,
+   "map_name": "de_cache",
+   "leetify_rating": 0.0803,
+   "score": [
+    9,
+    13
+   ],
+   "preaim": 16.05,
+   "reaction_time_ms": 617,
+   "accuracy_enemy_spotted": 30.3,
+   "accuracy_head": 35.29,
+   "spray_accuracy": 60
+  },
+  {
+   "id": "f1c101b0-0569-40f2-87b1-553b6e1d0ebc",
+   "finished_at": "2026-09-21T20:22:06.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_nuke",
+   "leetify_rating": -0.029,
+   "score": [
+    13,
+    10
+   ],
+   "preaim": 9.77,
+   "reaction_time_ms": 578,
+   "accuracy_enemy_spotted": 34.48,
+   "accuracy_head": 30.77,
+   "spray_accuracy": 21.21
+  },
+  {
+   "id": "6f20f3f5-c584-48b3-a047-9874debde95a",
+   "finished_at": "2026-09-21T16:38:41.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 23335,
+   "rank_type": 11,
+   "map_name": "de_nuke",
+   "leetify_rating": 0.0384,
+   "score": [
+    9,
+    13
+   ],
+   "preaim": 4.51,
+   "reaction_time_ms": 477,
+   "accuracy_enemy_spotted": 42.98,
+   "accuracy_head": 28.85,
+   "spray_accuracy": 53.33
+  },
+  {
+   "id": "e11a29da-8f94-4db7-bfbd-42cfdf5ccfc9",
+   "finished_at": "2026-09-20T20:45:30.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 9,
+   "rank_type": null,
+   "map_name": "de_dust2",
+   "leetify_rating": -0.0165,
+   "score": [
+    13,
+    9
+   ],
+   "preaim": 8.24,
+   "reaction_time_ms": 516,
+   "accuracy_enemy_spotted": 31.4,
+   "accuracy_head": 13.33,
+   "spray_accuracy": 34.78
+  },
+  {
+   "id": "ff6007e8-e8f5-4ed0-b779-e9ff50a66acd",
+   "finished_at": "2026-09-20T20:02:45.000Z",
+   "data_source": "faceit",
+   "outcome": "loss",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_vertigo",
+   "leetify_rating": -0.0237,
+   "score": [
+    11,
+    13
+   ],
+   "preaim": 14.83,
+   "reaction_time_ms": 547,
+   "accuracy_enemy_spotted": 45.24,
+   "accuracy_head": 35.9,
+   "spray_accuracy": 26.09
+  },
+  {
+   "id": "caa403d1-6f89-44c4-a595-2a6d4d1dfbfa",
+   "finished_at": "2026-09-17T20:47:30.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 9,
+   "rank_type": null,
+   "map_name": "de_inferno",
+   "leetify_rating": -0.0581,
+   "score": [
+    13,
+    11
+   ],
+   "preaim": 8.75,
+   "reaction_time_ms": 539,
+   "accuracy_enemy_spotted": 24.62,
+   "accuracy_head": 16.67,
+   "spray_accuracy": 17.65
+  },
+  {
+   "id": "d5b24aaa-ba0c-45d9-aedb-396bcd7cf648",
+   "finished_at": "2026-09-17T19:15:03.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23863,
+   "rank_type": 11,
+   "map_name": "de_mirage",
+   "leetify_rating": -0.0331,
+   "score": [
+    13,
+    11
+   ],
+   "preaim": 14.15,
+   "reaction_time_ms": 773,
+   "accuracy_enemy_spotted": 35.11,
+   "accuracy_head": 25,
+   "spray_accuracy": 35
+  },
+  {
+   "id": "08511cd3-f316-4642-aea3-e1280a0da9b8",
+   "finished_at": "2026-09-15T20:11:42.000Z",
+   "data_source": "faceit",
+   "outcome": "loss",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_inferno",
+   "leetify_rating": 0.0425,
+   "score": [
+    8,
+    13
+   ],
+   "preaim": 11.38,
+   "reaction_time_ms": 625,
+   "accuracy_enemy_spotted": 34.02,
+   "accuracy_head": 14.58,
+   "spray_accuracy": 50
+  },
+  {
+   "id": "64222233-1fe9-44be-a5d2-42194e416128",
+   "finished_at": "2026-09-14T20:34:47.000Z",
+   "data_source": "faceit",
+   "outcome": "loss",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_dust2",
+   "leetify_rating": 0.0123,
+   "score": [
+    9,
+    13
+   ],
+   "preaim": 5.92,
+   "reaction_time_ms": 406,
+   "accuracy_enemy_spotted": 37.5,
+   "accuracy_head": 25.81,
+   "spray_accuracy": 35.29
+  },
+  {
+   "id": "eca7a533-b4a9-407c-9ac0-0ea2f85c5f7b",
+   "finished_at": "2026-09-14T19:13:52.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 23522,
+   "rank_type": 11,
+   "map_name": "de_dust2",
+   "leetify_rating": -0.0197,
+   "score": [
+    7,
+    13
+   ],
+   "preaim": 12.34,
+   "reaction_time_ms": 531,
+   "accuracy_enemy_spotted": 33.66,
+   "accuracy_head": 25.53,
+   "spray_accuracy": 23.53
+  },
+  {
+   "id": "fb66b13a-a31f-438e-beb9-90a8afaadb43",
+   "finished_at": "2026-09-13T20:43:50.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 9,
+   "rank_type": null,
+   "map_name": "de_nuke",
+   "leetify_rating": 0.0073,
+   "score": [
+    13,
+    6
+   ],
+   "preaim": 5.65,
+   "reaction_time_ms": 563,
+   "accuracy_enemy_spotted": 31.45,
+   "accuracy_head": 16.98,
+   "spray_accuracy": 35.71
+  },
+  {
+   "id": "1b2f99af-2ceb-43b7-a96e-019031d75bed",
+   "finished_at": "2026-09-13T19:31:39.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 23628,
+   "rank_type": 11,
+   "map_name": "de_cache",
+   "leetify_rating": 0.0314,
+   "score": [
+    9,
+    13
+   ],
+   "preaim": 6.41,
+   "reaction_time_ms": 641,
+   "accuracy_enemy_spotted": 31.85,
+   "accuracy_head": 19.57,
+   "spray_accuracy": 40
+  },
+  {
+   "id": "95a2a5d3-3b33-4c23-a1cc-5ddc3cee3e56",
+   "finished_at": "2026-09-13T17:01:28.000Z",
+   "data_source": "faceit",
+   "outcome": "loss",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_cache",
+   "leetify_rating": -0.0522,
+   "score": [
+    5,
+    13
+   ],
+   "preaim": 7.67,
+   "reaction_time_ms": 375,
+   "accuracy_enemy_spotted": 21.88,
+   "accuracy_head": 37.5,
+   "spray_accuracy": 50
+  },
+  {
+   "id": "40ebdeab-e50a-4ae7-ad8a-948a236a776d",
+   "finished_at": "2026-09-13T16:23:13.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 9,
+   "rank_type": null,
+   "map_name": "de_nuke",
+   "leetify_rating": 0.0203,
+   "score": [
+    19,
+    15
+   ],
+   "preaim": 6.45,
+   "reaction_time_ms": 609,
+   "accuracy_enemy_spotted": 36.17,
+   "accuracy_head": 18.18,
+   "spray_accuracy": 42.22
+  },
+  {
+   "id": "84f58abe-03ba-4907-80ec-e7292c6fef4f",
+   "finished_at": "2026-09-13T14:37:21.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23748,
+   "rank_type": 11,
+   "map_name": "de_inferno",
+   "leetify_rating": 0.0223,
+   "score": [
+    13,
+    10
+   ],
+   "preaim": 12.99,
+   "reaction_time_ms": 547,
+   "accuracy_enemy_spotted": 38.83,
+   "accuracy_head": 15.09,
+   "spray_accuracy": 54.55
+  },
+  {
+   "id": "8b4bb0f2-43b7-416c-8e8b-3763dca6f595",
+   "finished_at": "2026-09-11T21:57:30.000Z",
+   "data_source": "faceit",
+   "outcome": "loss",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_mirage",
+   "leetify_rating": 0.0918,
+   "score": [
+    13,
+    16
+   ],
+   "preaim": 10,
+   "reaction_time_ms": 523,
+   "accuracy_enemy_spotted": 50.74,
+   "accuracy_head": 25.35,
+   "spray_accuracy": 64.52
+  },
+  {
+   "id": "d2ed66c8-4a41-4826-8322-a9da8b9f37d1",
+   "finished_at": "2026-09-11T21:04:44.000Z",
+   "data_source": "faceit",
+   "outcome": "loss",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_nuke",
+   "leetify_rating": 0.0139,
+   "score": [
+    17,
+    19
+   ],
+   "preaim": 10.05,
+   "reaction_time_ms": 531,
+   "accuracy_enemy_spotted": 43.01,
+   "accuracy_head": 22.92,
+   "spray_accuracy": 43.48
+  },
+  {
+   "id": "0769c559-5490-474f-b0a7-d65139074f0e",
+   "finished_at": "2026-09-11T19:59:03.000Z",
+   "data_source": "faceit",
+   "outcome": "loss",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_dust2",
+   "leetify_rating": 0.0131,
+   "score": [
+    11,
+    13
+   ],
+   "preaim": 7.44,
+   "reaction_time_ms": 594,
+   "accuracy_enemy_spotted": 32.99,
+   "accuracy_head": 22.22,
+   "spray_accuracy": 30
+  },
+  {
+   "id": "d3df087c-5a93-4403-b66f-b591288afa32",
+   "finished_at": "2026-09-10T20:38:51.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_cache",
+   "leetify_rating": 0.0558,
+   "score": [
+    13,
+    6
+   ],
+   "preaim": 10.3,
+   "reaction_time_ms": 523,
+   "accuracy_enemy_spotted": 28.21,
+   "accuracy_head": 28.95,
+   "spray_accuracy": 26.09
+  },
+  {
+   "id": "286a0cb1-f7ad-4825-b6a4-f073eb8a537d",
+   "finished_at": "2026-09-10T19:27:57.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 23343,
+   "rank_type": 11,
+   "map_name": "de_mirage",
+   "leetify_rating": 0.0183,
+   "score": [
+    9,
+    13
+   ],
+   "preaim": 6.71,
+   "reaction_time_ms": 688,
+   "accuracy_enemy_spotted": 44.78,
+   "accuracy_head": 17.24,
+   "spray_accuracy": 77.78
+  },
+  {
+   "id": "0bf8f807-5307-4455-bb87-35c06313758c",
+   "finished_at": "2026-09-09T19:51:21.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 24343,
+   "rank_type": 11,
+   "map_name": "de_inferno",
+   "leetify_rating": -0.0129,
+   "score": [
+    11,
+    13
+   ],
+   "preaim": 8.6,
+   "reaction_time_ms": 531,
+   "accuracy_enemy_spotted": 49.43,
+   "accuracy_head": 18.42,
+   "spray_accuracy": 54.55
+  },
+  {
+   "id": "bdacd89c-b9a6-425a-bab8-8c502f1ff42b",
+   "finished_at": "2026-09-09T19:10:44.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 24616,
+   "rank_type": 11,
+   "map_name": "de_cache",
+   "leetify_rating": 0.0692,
+   "score": [
+    13,
+    11
+   ],
+   "preaim": 6.05,
+   "reaction_time_ms": 531,
+   "accuracy_enemy_spotted": 37.19,
+   "accuracy_head": 35.56,
+   "spray_accuracy": 33.33
+  },
+  {
+   "id": "78669d48-fec0-4fbb-974e-34ff3c41e7b1",
+   "finished_at": "2026-09-08T17:07:49.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 24265,
+   "rank_type": 11,
+   "map_name": "de_anubis",
+   "leetify_rating": 0.0144,
+   "score": [
+    13,
+    11
+   ],
+   "preaim": 13.49,
+   "reaction_time_ms": 648,
+   "accuracy_enemy_spotted": 31.13,
+   "accuracy_head": 24.49,
+   "spray_accuracy": 41.67
+  },
+  {
+   "id": "a59ddead-76dc-4a2a-8815-e1ba5d7b2377",
+   "finished_at": "2026-09-07T20:43:19.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 9,
+   "rank_type": null,
+   "map_name": "de_vertigo",
+   "leetify_rating": -0.0479,
+   "score": [
+    13,
+    10
+   ],
+   "preaim": 11.67,
+   "reaction_time_ms": 438,
+   "accuracy_enemy_spotted": 25,
+   "accuracy_head": 27.78,
+   "spray_accuracy": 8
+  },
+  {
+   "id": "8b686436-a0b5-4139-8eda-e97c635e327a",
+   "finished_at": "2026-09-07T19:31:40.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 23905,
+   "rank_type": 11,
+   "map_name": "de_dust2",
+   "leetify_rating": -0.0311,
+   "score": [
+    6,
+    13
+   ],
+   "preaim": 5.72,
+   "reaction_time_ms": 422,
+   "accuracy_enemy_spotted": 24.47,
+   "accuracy_head": 12.5,
+   "spray_accuracy": 18.18
+  },
+  {
+   "id": "7c9c438e-5ad5-473d-8ac5-3bfe9f18e30f",
+   "finished_at": "2026-09-06T20:27:41.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 24224,
+   "rank_type": 11,
+   "map_name": "de_cache",
+   "leetify_rating": 0.0269,
+   "score": [
+    13,
+    11
+   ],
+   "preaim": 6.2,
+   "reaction_time_ms": 578,
+   "accuracy_enemy_spotted": 36.21,
+   "accuracy_head": 22.22,
+   "spray_accuracy": 36.67
+  },
+  {
+   "id": "963c8d44-9d17-4df6-aaeb-2ef61e0bf7d0",
+   "finished_at": "2026-09-06T19:25:39.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 23882,
+   "rank_type": 11,
+   "map_name": "de_dust2",
+   "leetify_rating": -0.0233,
+   "score": [
+    14,
+    16
+   ],
+   "preaim": 6.39,
+   "reaction_time_ms": 500,
+   "accuracy_enemy_spotted": 31.78,
+   "accuracy_head": 18.37,
+   "spray_accuracy": 46.15
+  },
+  {
+   "id": "6be6e63c-32dd-41f5-9014-76268ca87f3d",
+   "finished_at": "2026-09-06T17:05:36.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 24231,
+   "rank_type": 11,
+   "map_name": "de_nuke",
+   "leetify_rating": -0.0051,
+   "score": [
+    13,
+    5
+   ],
+   "preaim": 8.64,
+   "reaction_time_ms": 594,
+   "accuracy_enemy_spotted": 48.35,
+   "accuracy_head": 28.57,
+   "spray_accuracy": 44.44
+  },
+  {
+   "id": "5a06b0d4-e617-44ba-9cf8-29d81a43ae32",
+   "finished_at": "2026-09-06T16:32:33.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23868,
+   "rank_type": 11,
+   "map_name": "de_cache",
+   "leetify_rating": -0.0341,
+   "score": [
+    12,
+    4
+   ],
+   "preaim": 11.58,
+   "reaction_time_ms": 797,
+   "accuracy_enemy_spotted": 24.36,
+   "accuracy_head": 14.29,
+   "spray_accuracy": 27.03
+  },
+  {
+   "id": "82f18aa9-ce6a-46cb-a8d6-46d1c1bac203",
+   "finished_at": "2026-09-05T23:06:00.000Z",
+   "data_source": "matchmaking_wingman",
+   "outcome": "loss",
+   "rank": 15,
+   "rank_type": 7,
+   "map_name": "de_debris",
+   "leetify_rating": -0.1472,
+   "score": [
+    3,
+    9
+   ],
+   "preaim": 13.85,
+   "reaction_time_ms": 656,
+   "accuracy_enemy_spotted": 28.21,
+   "accuracy_head": 27.27,
+   "spray_accuracy": 21.43
+  },
+  {
+   "id": "ba86dd67-e520-4659-9eb6-c38eb18081ae",
+   "finished_at": "2026-09-05T22:51:13.000Z",
+   "data_source": "matchmaking_wingman",
+   "outcome": "loss",
+   "rank": 16,
+   "rank_type": 7,
+   "map_name": "de_poseidon",
+   "leetify_rating": -0.0243,
+   "score": [
+    5,
+    9
+   ],
+   "preaim": 4.18,
+   "reaction_time_ms": 523,
+   "accuracy_enemy_spotted": 45.45,
+   "accuracy_head": 40,
+   "spray_accuracy": 33.33
+  },
+  {
+   "id": "78775037-c0f6-42d6-a08a-9e899f60ab6f",
+   "finished_at": "2026-09-05T22:38:18.000Z",
+   "data_source": "matchmaking_wingman",
+   "outcome": "win",
+   "rank": 16,
+   "rank_type": 7,
+   "map_name": "de_overpass",
+   "leetify_rating": 0.1641,
+   "score": [
+    9,
+    5
+   ],
+   "preaim": 16.76,
+   "reaction_time_ms": 797,
+   "accuracy_enemy_spotted": 38.37,
+   "accuracy_head": 36.84,
+   "spray_accuracy": 38.89
+  },
+  {
+   "id": "6261910f-5980-4821-9831-a6da21ef2e5d",
+   "finished_at": "2026-09-04T20:59:23.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23510,
+   "rank_type": 11,
+   "map_name": "de_inferno",
+   "leetify_rating": -0.0221,
+   "score": [
+    13,
+    8
+   ],
+   "preaim": 5.18,
+   "reaction_time_ms": 406,
+   "accuracy_enemy_spotted": 33.71,
+   "accuracy_head": 36,
+   "spray_accuracy": 40.74
+  },
+  {
+   "id": "d796094e-7250-4d51-96af-df8343a873d2",
+   "finished_at": "2026-09-03T19:27:18.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 23377,
+   "rank_type": 11,
+   "map_name": "de_nuke",
+   "leetify_rating": 0.0001,
+   "score": [
+    6,
+    13
+   ],
+   "preaim": 6.58,
+   "reaction_time_ms": 555,
+   "accuracy_enemy_spotted": 37.86,
+   "accuracy_head": 25,
+   "spray_accuracy": 54.05
+  },
+  {
+   "id": "753dff47-2519-40dc-8c83-d9c07756a592",
+   "finished_at": "2026-08-28T17:16:56.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23785,
+   "rank_type": 11,
+   "map_name": "de_cache",
+   "leetify_rating": 0.097,
+   "score": [
+    13,
+    8
+   ],
+   "preaim": 14.84,
+   "reaction_time_ms": 656,
+   "accuracy_enemy_spotted": 32.38,
+   "accuracy_head": 37.5,
+   "spray_accuracy": 50
+  },
+  {
+   "id": "08832f9b-ecd5-4428-afe6-5eba015ab985",
+   "finished_at": "2026-08-28T16:41:51.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 23437,
+   "rank_type": 11,
+   "map_name": "de_anubis",
+   "leetify_rating": 0.0533,
+   "score": [
+    2,
+    13
+   ],
+   "preaim": 10.27,
+   "reaction_time_ms": 516,
+   "accuracy_enemy_spotted": 43.02,
+   "accuracy_head": 47.37,
+   "spray_accuracy": 62.5
+  },
+  {
+   "id": "097e28d3-7608-4a13-bc39-538ee8a686a5",
+   "finished_at": "2026-08-27T20:05:33.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23771,
+   "rank_type": 11,
+   "map_name": "de_nuke",
+   "leetify_rating": 0.0084,
+   "score": [
+    13,
+    9
+   ],
+   "preaim": 8.68,
+   "reaction_time_ms": 523,
+   "accuracy_enemy_spotted": 33.33,
+   "accuracy_head": 27.5,
+   "spray_accuracy": 20.59
+  },
+  {
+   "id": "2c3217fd-6b9a-41fe-8736-9da7cb25f9b9",
+   "finished_at": "2026-08-27T19:32:18.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23405,
+   "rank_type": 11,
+   "map_name": "de_mirage",
+   "leetify_rating": -0.0339,
+   "score": [
+    13,
+    6
+   ],
+   "preaim": 8.51,
+   "reaction_time_ms": 734,
+   "accuracy_enemy_spotted": 36.62,
+   "accuracy_head": 20.69,
+   "spray_accuracy": 16.67
+  },
+  {
+   "id": "5f8652d9-4d3c-4e9b-b777-22556a5a925e",
+   "finished_at": "2026-08-26T20:19:39.000Z",
+   "data_source": "faceit",
+   "outcome": "loss",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_mirage",
+   "leetify_rating": 0.0323,
+   "score": [
+    8,
+    13
+   ],
+   "preaim": 10.42,
+   "reaction_time_ms": 508,
+   "accuracy_enemy_spotted": 33.67,
+   "accuracy_head": 27.27,
+   "spray_accuracy": 17.39
+  },
+  {
+   "id": "bf6ed277-c08d-46dc-a662-49a983ebb8c9",
+   "finished_at": "2026-08-26T19:38:54.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_nuke",
+   "leetify_rating": 0.0787,
+   "score": [
+    13,
+    7
+   ],
+   "preaim": 6.73,
+   "reaction_time_ms": 523,
+   "accuracy_enemy_spotted": 38.1,
+   "accuracy_head": 42.31,
+   "spray_accuracy": 22.22
+  },
+  {
+   "id": "0146c446-1556-42f4-a1f2-d008036fd2fa",
+   "finished_at": "2026-08-26T16:54:00.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 23093,
+   "rank_type": 11,
+   "map_name": "de_inferno",
+   "leetify_rating": -0.0892,
+   "score": [
+    2,
+    13
+   ],
+   "preaim": 5.12,
+   "reaction_time_ms": 617,
+   "accuracy_enemy_spotted": 38.33,
+   "accuracy_head": 22.73,
+   "spray_accuracy": 16.67
+  },
+  {
+   "id": "53cfebcf-9d1a-43b2-8a5b-46c6bc42a773",
+   "finished_at": "2026-08-25T21:36:38.000Z",
+   "data_source": "faceit",
+   "outcome": "loss",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_dust2",
+   "leetify_rating": 0.1294,
+   "score": [
+    8,
+    13
+   ],
+   "preaim": 6.76,
+   "reaction_time_ms": 578,
+   "accuracy_enemy_spotted": 43.44,
+   "accuracy_head": 27.45,
+   "spray_accuracy": 43.75
+  },
+  {
+   "id": "abc272bf-d32e-41e7-bf0e-050efa1b5cea",
+   "finished_at": "2026-08-25T20:58:05.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 9,
+   "rank_type": null,
+   "map_name": "de_vertigo",
+   "leetify_rating": 0.1462,
+   "score": [
+    13,
+    2
+   ],
+   "preaim": 10.84,
+   "reaction_time_ms": 641,
+   "accuracy_enemy_spotted": 34.38,
+   "accuracy_head": 30.95,
+   "spray_accuracy": 35.71
+  },
+  {
+   "id": "498b7195-ed9b-4090-a6ff-283543804dc1",
+   "finished_at": "2026-08-25T19:58:28.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23483,
+   "rank_type": 11,
+   "map_name": "de_inferno",
+   "leetify_rating": 0.0838,
+   "score": [
+    13,
+    2
+   ],
+   "preaim": 7.43,
+   "reaction_time_ms": 406,
+   "accuracy_enemy_spotted": 50.7,
+   "accuracy_head": 25.93,
+   "spray_accuracy": 33.33
+  },
+  {
+   "id": "4f575046-f6bb-45d4-91a5-a7a1529cf245",
+   "finished_at": "2026-08-24T19:03:56.000Z",
+   "data_source": "matchmaking",
+   "outcome": "tie",
+   "rank": 23143,
+   "rank_type": 11,
+   "map_name": "de_inferno",
+   "leetify_rating": 0.0178,
+   "score": [
+    15,
+    15
+   ],
+   "preaim": 10.47,
+   "reaction_time_ms": 594,
+   "accuracy_enemy_spotted": 33.54,
+   "accuracy_head": 26.98,
+   "spray_accuracy": 30
+  },
+  {
+   "id": "70504dcb-ac1a-4e0c-b008-866c75b1d49b",
+   "finished_at": "2026-08-23T21:00:31.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 9,
+   "rank_type": null,
+   "map_name": "de_inferno",
+   "leetify_rating": 0.027,
+   "score": [
+    22,
+    19
+   ],
+   "preaim": 9.76,
+   "reaction_time_ms": 477,
+   "accuracy_enemy_spotted": 42.51,
+   "accuracy_head": 11.11,
+   "spray_accuracy": 38.27
+  },
+  {
+   "id": "b0b701a2-c10c-4d90-a214-f4b73afab844",
+   "finished_at": "2026-08-23T19:05:41.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 23081,
+   "rank_type": 11,
+   "map_name": "de_dust2",
+   "leetify_rating": -0.019,
+   "score": [
+    7,
+    13
+   ],
+   "preaim": 6.17,
+   "reaction_time_ms": 594,
+   "accuracy_enemy_spotted": 39.68,
+   "accuracy_head": 39.29,
+   "spray_accuracy": 30.77
+  },
+  {
+   "id": "100ac425-1e2f-45ef-bdb8-9aaec12dae6e",
+   "finished_at": "2026-08-23T15:17:55.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 23455,
+   "rank_type": 11,
+   "map_name": "de_dust2",
+   "leetify_rating": 0.0005,
+   "score": [
+    13,
+    16
+   ],
+   "preaim": 2.76,
+   "reaction_time_ms": 453,
+   "accuracy_enemy_spotted": 35.71,
+   "accuracy_head": 25,
+   "spray_accuracy": 28.57
+  },
+  {
+   "id": "4b56b041-cd3a-4173-841f-2faa03ecf75f",
+   "finished_at": "2026-08-23T14:39:35.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23766,
+   "rank_type": 11,
+   "map_name": "de_nuke",
+   "leetify_rating": 0.0231,
+   "score": [
+    13,
+    8
+   ],
+   "preaim": 4.56,
+   "reaction_time_ms": 484,
+   "accuracy_enemy_spotted": 51.52,
+   "accuracy_head": 25.64,
+   "spray_accuracy": 41.67
+  },
+  {
+   "id": "cc2d3906-49dd-476d-9a5d-826129d92e1c",
+   "finished_at": "2026-08-20T21:06:18.000Z",
+   "data_source": "faceit",
+   "outcome": "loss",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_nuke",
+   "leetify_rating": 0.0111,
+   "score": [
+    8,
+    13
+   ],
+   "preaim": 12.41,
+   "reaction_time_ms": 523,
+   "accuracy_enemy_spotted": 35.05,
+   "accuracy_head": 29.73,
+   "spray_accuracy": 63.64
+  },
+  {
+   "id": "0e51c281-d609-4a36-a3c6-7a8b59b7003f",
+   "finished_at": "2026-08-20T20:29:30.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 9,
+   "rank_type": null,
+   "map_name": "de_dust2",
+   "leetify_rating": 0.0142,
+   "score": [
+    13,
+    3
+   ],
+   "preaim": 7.77,
+   "reaction_time_ms": 570,
+   "accuracy_enemy_spotted": 34.55,
+   "accuracy_head": 33.33,
+   "spray_accuracy": 50
+  },
+  {
+   "id": "ac9d967f-165c-4bf0-ba3f-55e086171f33",
+   "finished_at": "2026-08-20T19:15:55.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 23411,
+   "rank_type": 11,
+   "map_name": "de_cache",
+   "leetify_rating": -0.0486,
+   "score": [
+    10,
+    13
+   ],
+   "preaim": 7.2,
+   "reaction_time_ms": 648,
+   "accuracy_enemy_spotted": 34.74,
+   "accuracy_head": 20.59,
+   "spray_accuracy": 47.62
+  },
+  {
+   "id": "f10a66e7-efe2-4352-91a3-d59c5ab5d21b",
+   "finished_at": "2026-08-20T18:22:20.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23757,
+   "rank_type": 11,
+   "map_name": "de_inferno",
+   "leetify_rating": 0.075,
+   "score": [
+    16,
+    12
+   ],
+   "preaim": 10.12,
+   "reaction_time_ms": 469,
+   "accuracy_enemy_spotted": 45.83,
+   "accuracy_head": 16.67,
+   "spray_accuracy": 81.82
+  },
+  {
+   "id": "0db43c7a-fd60-48b2-aca4-9cdd0cb374c8",
+   "finished_at": "2026-08-19T20:45:58.000Z",
+   "data_source": "faceit",
+   "outcome": "loss",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_dust2",
+   "leetify_rating": -0.0071,
+   "score": [
+    17,
+    19
+   ],
+   "preaim": 7.98,
+   "reaction_time_ms": 461,
+   "accuracy_enemy_spotted": 38.36,
+   "accuracy_head": 14.29,
+   "spray_accuracy": 46.15
+  },
+  {
+   "id": "be18f77d-8850-4f2e-b145-545ab4ab4519",
+   "finished_at": "2026-08-19T17:30:34.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 9,
+   "rank_type": null,
+   "map_name": "de_inferno",
+   "leetify_rating": 0.0388,
+   "score": [
+    16,
+    12
+   ],
+   "preaim": 5.53,
+   "reaction_time_ms": 484,
+   "accuracy_enemy_spotted": 42.54,
+   "accuracy_head": 18.18,
+   "spray_accuracy": 43.14
+  },
+  {
+   "id": "a233dcb5-00f6-4c82-aff5-1bcc3270698c",
+   "finished_at": "2026-08-18T20:42:49.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 9,
+   "rank_type": null,
+   "map_name": "de_cache",
+   "leetify_rating": -0.0086,
+   "score": [
+    13,
+    7
+   ],
+   "preaim": 8.58,
+   "reaction_time_ms": 531,
+   "accuracy_enemy_spotted": 31.79,
+   "accuracy_head": 18.52,
+   "spray_accuracy": 20.75
+  },
+  {
+   "id": "cf1d429a-bf55-4338-8540-1e811f518631",
+   "finished_at": "2026-08-18T19:48:56.000Z",
+   "data_source": "faceit",
+   "outcome": "loss",
+   "rank": 9,
+   "rank_type": null,
+   "map_name": "de_vertigo",
+   "leetify_rating": 0.0158,
+   "score": [
+    9,
+    13
+   ],
+   "preaim": 7.6,
+   "reaction_time_ms": 484,
+   "accuracy_enemy_spotted": 47.83,
+   "accuracy_head": 15,
+   "spray_accuracy": 50
+  },
+  {
+   "id": "347b9f45-5da5-4339-8bd0-5b11c83f81fc",
+   "finished_at": "2026-08-17T19:54:41.000Z",
+   "data_source": "faceit",
+   "outcome": "loss",
+   "rank": 10,
+   "rank_type": null,
+   "map_name": "de_nuke",
+   "leetify_rating": 0.0451,
+   "score": [
+    9,
+    13
+   ],
+   "preaim": 8.01,
+   "reaction_time_ms": 711,
+   "accuracy_enemy_spotted": 42.57,
+   "accuracy_head": 18.18,
+   "spray_accuracy": 47.06
+  },
+  {
+   "id": "05446c93-cf93-4272-a137-950e7b64a5f3",
+   "finished_at": "2026-08-16T19:54:24.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23403,
+   "rank_type": 11,
+   "map_name": "de_nuke",
+   "leetify_rating": -0.0425,
+   "score": [
+    16,
+    12
+   ],
+   "preaim": 5.29,
+   "reaction_time_ms": 563,
+   "accuracy_enemy_spotted": 37.38,
+   "accuracy_head": 17.02,
+   "spray_accuracy": 30
+  },
+  {
+   "id": "678af70a-33bb-4d4c-ae6b-7d51a92bd7b4",
+   "finished_at": "2026-08-16T14:10:24.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 23078,
+   "rank_type": 11,
+   "map_name": "de_mirage",
+   "leetify_rating": 0.0146,
+   "score": [
+    10,
+    13
+   ],
+   "preaim": 5.34,
+   "reaction_time_ms": 453,
+   "accuracy_enemy_spotted": 47.31,
+   "accuracy_head": 10,
+   "spray_accuracy": 47.37
+  },
+  {
+   "id": "15f8b077-6c43-418e-bb88-a5d0dfe4953f",
+   "finished_at": "2026-08-16T13:58:19.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23360,
+   "rank_type": 11,
+   "map_name": "de_cache",
+   "leetify_rating": 0.0714,
+   "score": [
+    6,
+    1
+   ],
+   "preaim": 4.15,
+   "reaction_time_ms": 609,
+   "accuracy_enemy_spotted": 32,
+   "accuracy_head": 12.5,
+   "spray_accuracy": 61.54
+  },
+  {
+   "id": "621df106-bfbd-42f7-8fcc-ab158f81b9bf",
+   "finished_at": "2026-08-16T00:08:48.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23009,
+   "rank_type": 11,
+   "map_name": "de_inferno",
+   "leetify_rating": 0.1468,
+   "score": [
+    13,
+    3
+   ],
+   "preaim": 13.67,
+   "reaction_time_ms": 500,
+   "accuracy_enemy_spotted": 42.86,
+   "accuracy_head": 46.43,
+   "spray_accuracy": 66.67
+  },
+  {
+   "id": "e00dd3fa-2992-4608-ba10-7b2a41ec7128",
+   "finished_at": "2026-08-15T23:36:31.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 22650,
+   "rank_type": 11,
+   "map_name": "de_dust2",
+   "leetify_rating": -0.0532,
+   "score": [
+    5,
+    13
+   ],
+   "preaim": 3.25,
+   "reaction_time_ms": 719,
+   "accuracy_enemy_spotted": 42.19,
+   "accuracy_head": 42.86,
+   "spray_accuracy": 58.33
+  },
+  {
+   "id": "4ed4d9c6-b78e-45d3-a030-2ae2f370a635",
+   "finished_at": "2026-08-14T22:57:50.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 9,
+   "rank_type": null,
+   "map_name": "de_dust2",
+   "leetify_rating": 0.0492,
+   "score": [
+    13,
+    8
+   ],
+   "preaim": 4.98,
+   "reaction_time_ms": 484,
+   "accuracy_enemy_spotted": 40.54,
+   "accuracy_head": 23.08,
+   "spray_accuracy": 45.45
+  },
+  {
+   "id": "5f2e2be4-39c7-477c-b906-0fba303fea84",
+   "finished_at": "2026-08-14T22:08:58.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 9,
+   "rank_type": null,
+   "map_name": "de_cache",
+   "leetify_rating": 0.0346,
+   "score": [
+    13,
+    11
+   ],
+   "preaim": 11.46,
+   "reaction_time_ms": 500,
+   "accuracy_enemy_spotted": 42.86,
+   "accuracy_head": 14.93,
+   "spray_accuracy": 27.5
+  },
+  {
+   "id": "aea375a2-ce1b-48e6-831d-e134895cfd15",
+   "finished_at": "2026-08-14T21:24:56.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 9,
+   "rank_type": null,
+   "map_name": "de_inferno",
+   "leetify_rating": -0.0226,
+   "score": [
+    13,
+    11
+   ],
+   "preaim": 7.31,
+   "reaction_time_ms": 594,
+   "accuracy_enemy_spotted": 36.08,
+   "accuracy_head": 24.39,
+   "spray_accuracy": 46.15
+  },
+  {
+   "id": "1ce67e3e-27f5-4373-8685-f2bc6e329bb6",
+   "finished_at": "2026-08-14T19:58:19.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 23014,
+   "rank_type": 11,
+   "map_name": "de_mirage",
+   "leetify_rating": 0.1863,
+   "score": [
+    13,
+    2
+   ],
+   "preaim": 5.34,
+   "reaction_time_ms": 555,
+   "accuracy_enemy_spotted": 50.54,
+   "accuracy_head": 15.91,
+   "spray_accuracy": 73.91
+  },
+  {
+   "id": "fd307341-367c-4a15-b197-feb6b37a5e6e",
+   "finished_at": "2026-08-13T21:15:04.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 9,
+   "rank_type": null,
+   "map_name": "de_cache",
+   "leetify_rating": -0.0492,
+   "score": [
+    13,
+    7
+   ],
+   "preaim": 7.18,
+   "reaction_time_ms": 688,
+   "accuracy_enemy_spotted": 48.08,
+   "accuracy_head": 24.14,
+   "spray_accuracy": 40
+  },
+  {
+   "id": "1e25b8f8-be85-43fb-8ece-bb97dd302772",
+   "finished_at": "2026-08-13T20:28:00.000Z",
+   "data_source": "faceit",
+   "outcome": "win",
+   "rank": 9,
+   "rank_type": null,
+   "map_name": "de_inferno",
+   "leetify_rating": -0.0207,
+   "score": [
+    13,
+    5
+   ],
+   "preaim": 10.62,
+   "reaction_time_ms": 500,
+   "accuracy_enemy_spotted": 40,
+   "accuracy_head": 22.73,
+   "spray_accuracy": 60
+  },
+  {
+   "id": "71b2ee8a-20d9-4e21-a1ab-d052b6a96fcf",
+   "finished_at": "2026-08-13T19:46:32.000Z",
+   "data_source": "faceit",
+   "outcome": "loss",
+   "rank": 9,
+   "rank_type": null,
+   "map_name": "de_mirage",
+   "leetify_rating": -0.0303,
+   "score": [
+    11,
+    13
+   ],
+   "preaim": 5.43,
+   "reaction_time_ms": 516,
+   "accuracy_enemy_spotted": 38.54,
+   "accuracy_head": 13.16,
+   "spray_accuracy": 65
+  }
+ ],
+ "recent_teammates": [
+  {
+   "steam64_id": "76561198097655934",
+   "recent_matches_count": 42
+  },
+  {
+   "steam64_id": "76561198142568665",
+   "recent_matches_count": 46
+  },
+  {
+   "steam64_id": "76561198002469129",
+   "recent_matches_count": 77
+  },
+  {
+   "steam64_id": "76561198081776591",
+   "recent_matches_count": 67
+  },
+  {
+   "steam64_id": "76561198811687263",
+   "recent_matches_count": 49
+  },
+  {
+   "steam64_id": "76561198089042448",
+   "recent_matches_count": 13
+  }
+ ]
+}

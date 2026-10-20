@@ -1,9 +1,9 @@
 {
- "updatedAt": "2026-10-20T12:20:16.746Z",
+ "updatedAt": "2026-10-20T17:38:40.573Z",
  "status": {
-  "riot": "refusee",
+  "riot": "ok",
   "riotMaj": 0,
-  "at": "2026-10-20T12:20:16.746Z"
+  "at": "2026-10-20T17:38:40.573Z"
  },
  "ddragon": "16.20.1",
  "players": [
@@ -45,7 +45,7 @@
        }
       ]
      },
-     "error": "HTTP 401 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/Bn6mqwcGm00k59KX3EJjo21sKjzr6LtwAdjPwUKKkAlXmWXvJNFtGF8rV9oBICkfMa_yxk0x_gQz0Q"
+     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/Bn6mqwcGm00k59KX3EJjo21sKjzr6LtwAdjPwUKKkAlXmWXvJNFtGF8rV9oBICkfMa_yxk0x_gQz0Q"
     },
     "rl": {
      "f": [
@@ -105,7 +105,7 @@
        }
       ]
      },
-     "error": "HTTP 401 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/Tb1xO0Gx3mfmwhhpeZyWcQ6CjvJZLTGKWcoF4SFfm8zNx30WWgfD96KpJC63Hf5EFPRC2P2OCItU4Q"
+     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/Tb1xO0Gx3mfmwhhpeZyWcQ6CjvJZLTGKWcoF4SFfm8zNx30WWgfD96KpJC63Hf5EFPRC2P2OCItU4Q"
     },
     "rl": {
      "f": [
@@ -165,7 +165,7 @@
        }
       ]
      },
-     "error": "HTTP 401 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/GRV_B3bzkjnsU8PaYe_kcU3yP4whFYRH6JjjmmazDy3VN7op00dU26YZOpQ9O8F3UYsX5Gx4_BS0bw"
+     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/GRV_B3bzkjnsU8PaYe_kcU3yP4whFYRH6JjjmmazDy3VN7op00dU26YZOpQ9O8F3UYsX5Gx4_BS0bw"
     },
     "rl": {
      "f": [
@@ -225,7 +225,7 @@
        }
       ]
      },
-     "error": "HTTP 401 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/CzCIrl740dt16BTN7d5FSR3QuaufQ-ayiARflNppkq4tQn7y-SDaUrFAutDrDnehTJTbDEJfy4DKXA"
+     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/CzCIrl740dt16BTN7d5FSR3QuaufQ-ayiARflNppkq4tQn7y-SDaUrFAutDrDnehTJTbDEJfy4DKXA"
     },
     "rl": {
      "f": [
@@ -285,7 +285,7 @@
        }
       ]
      },
-     "error": "HTTP 401 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/jIWtgIpzMbIdqtKBAAEtv4vuW2_KDb8oHemC0IxnYRbIMWJR1C0uHQivuV-5Sgd48Fee2vExE-f7OA"
+     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/jIWtgIpzMbIdqtKBAAEtv4vuW2_KDb8oHemC0IxnYRbIMWJR1C0uHQivuV-5Sgd48Fee2vExE-f7OA"
     },
     "bf": {
      "f": [
@@ -336,17 +336,17 @@
        }
       ]
      },
-     "error": "HTTP 401 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/fziMAQqf4VIbiuUnVuiux-PUyV733c9tpBSk4Onvv784LSjWVXe11QeXDV4-fXzvrTOE8KEZxh4YnQ"
+     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/fziMAQqf4VIbiuUnVuiux-PUyV733c9tpBSk4Onvv784LSjWVXe11QeXDV4-fXzvrTOE8KEZxh4YnQ"
     },
     "cs": {
      "f": [
-      "—",
-      "—",
-      "—",
-      "—"
+      "Premier 24965",
+      "62 %",
+      "24.9 %",
+      "2300"
      ],
      "link": "https://leetify.com/@kikittitou",
-     "error": "ENOENT: no such file or directory, open 'data/raw/cs-kikittitou.json'"
+     "updated": "2026-10-20T17:38:40.573Z"
     },
     "rl": {
      "f": [
@@ -397,7 +397,7 @@
        }
       ]
      },
-     "error": "HTTP 401 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/jPzpM9ZxDJF4n2Wy8J80xDVB64Ay7r1ibmIF_i8UogOCIX12BgNLx6IBTWcaHOOGwYeheepRC8y84g"
+     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/jPzpM9ZxDJF4n2Wy8J80xDVB64Ay7r1ibmIF_i8UogOCIX12BgNLx6IBTWcaHOOGwYeheepRC8y84g"
     },
     "rl": {
      "f": [
@@ -438,17 +438,17 @@
        }
       ]
      },
-     "error": "HTTP 401 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/5bYHhi0X71VwvTsUZ338ZB_q5M0b1KUJSXvNbEMR3XNAD3Xs-CRW89yyhcoORe-4tFPt1WIFEbLDtQ"
+     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/5bYHhi0X71VwvTsUZ338ZB_q5M0b1KUJSXvNbEMR3XNAD3Xs-CRW89yyhcoORe-4tFPt1WIFEbLDtQ"
     },
     "cs": {
      "f": [
-      "—",
-      "—",
-      "—",
-      "—"
+      "Premier 25112",
+      "59 %",
+      "28.5 %",
+      "2498"
      ],
      "link": "https://leetify.com/app/profile/76561198002469129",
-     "error": "ENOENT: no such file or directory, open 'data/raw/cs-mazelbob.json'"
+     "updated": "2026-10-20T17:38:40.573Z"
     },
     "rl": {
      "f": [
@@ -499,17 +499,17 @@
        }
       ]
      },
-     "error": "HTTP 401 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/9lYeT5YCZpiHDi4bMpf8WAIa9-MEn_JCafjYbi42iNufwFhjyv4bCA9sKjSttRrMmG06HcdWO_e3Tg"
+     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/9lYeT5YCZpiHDi4bMpf8WAIa9-MEn_JCafjYbi42iNufwFhjyv4bCA9sKjSttRrMmG06HcdWO_e3Tg"
     },
     "cs": {
      "f": [
-      "—",
-      "—",
-      "—",
-      "—"
+      "Premier 22635",
+      "57 %",
+      "11.8 %",
+      "1298"
      ],
      "link": "https://leetify.com/app/profile/76561198097655934",
-     "error": "ENOENT: no such file or directory, open 'data/raw/cs-frozhy.json'"
+     "updated": "2026-10-20T17:38:40.573Z"
     },
     "rl": {
      "f": [
@@ -555,17 +555,17 @@
        }
       ]
      },
-     "error": "HTTP 401 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/8VnDW7cRi99a3sTUyg9jgu36Z5MslhgnMWyj2q0EqfaagrQiDwR2SbNONW8wkwDmbZUs7pL1WJmjiA"
+     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/8VnDW7cRi99a3sTUyg9jgu36Z5MslhgnMWyj2q0EqfaagrQiDwR2SbNONW8wkwDmbZUs7pL1WJmjiA"
     },
     "cs": {
      "f": [
-      "—",
-      "—",
-      "—",
-      "—"
+      "Premier 23237",
+      "62 %",
+      "21.1 %",
+      "1356"
      ],
      "link": "https://leetify.com/@valkai",
-     "error": "ENOENT: no such file or directory, open 'data/raw/cs-valkai.json'"
+     "updated": "2026-10-20T17:38:40.573Z"
     }
    }
   },
@@ -607,17 +607,17 @@
        }
       ]
      },
-     "error": "HTTP 401 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/EOACcIRsrgGSM8XV3qGIOJADAyboqtVcXwTF7otnKqr4fHbT33nTGFn_yDrN3hoDIfw6sritZMa21g"
+     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/EOACcIRsrgGSM8XV3qGIOJADAyboqtVcXwTF7otnKqr4fHbT33nTGFn_yDrN3hoDIfw6sritZMa21g"
     },
     "cs": {
      "f": [
-      "—",
-      "—",
-      "—",
-      "—"
+      "Premier 22327",
+      "62 %",
+      "21.9 %",
+      "1190"
      ],
      "link": "https://leetify.com/app/profile/76561198142568665",
-     "error": "ENOENT: no such file or directory, open 'data/raw/cs-gorf.json'"
+     "updated": "2026-10-20T17:38:40.573Z"
     },
     "rl": {
      "f": [
@@ -668,7 +668,7 @@
        }
       ]
      },
-     "error": "HTTP 401 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/aIKb056-GtuHXr5giIIRiY9RfOrqv9zTdz7XNaUA4pgI1O5rlRXpP6HysmkioQUTB2eqYOOINFq4_g"
+     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/aIKb056-GtuHXr5giIIRiY9RfOrqv9zTdz7XNaUA4pgI1O5rlRXpP6HysmkioQUTB2eqYOOINFq4_g"
     }
    }
   },
@@ -710,7 +710,7 @@
        }
       ]
      },
-     "error": "HTTP 401 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/CN-cjQgRUgm6CiOBwmWSuxlynRBSupyXOTLydwmC408PpA2NBvT83F-T6hzwACf4_3OYVwxsS5e5Mw"
+     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/CN-cjQgRUgm6CiOBwmWSuxlynRBSupyXOTLydwmC408PpA2NBvT83F-T6hzwACf4_3OYVwxsS5e5Mw"
     }
    }
   },
@@ -752,7 +752,7 @@
        }
       ]
      },
-     "error": "HTTP 401 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/vhAYcbkVNab6o4ByolkIBRHOWGuxV2KsijGA741Aip6bpw-4sb6k0RwFV9hcfqDWQ6kwO7EQABQEOw"
+     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/vhAYcbkVNab6o4ByolkIBRHOWGuxV2KsijGA741Aip6bpw-4sb6k0RwFV9hcfqDWQ6kwO7EQABQEOw"
     }
    }
   },
@@ -761,13 +761,13 @@
    "games": {
     "cs": {
      "f": [
-      "—",
-      "—",
-      "—",
-      "—"
+      "Premier 22727",
+      "66 %",
+      "20.2 %",
+      "1832"
      ],
      "link": "https://leetify.com/app/profile/76561198081776591",
-     "error": "ENOENT: no such file or directory, open 'data/raw/cs-joker.json'"
+     "updated": "2026-10-20T17:38:40.573Z"
     }
    }
   }
