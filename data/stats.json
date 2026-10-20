@@ -1,9 +1,9 @@
 {
- "updatedAt": "2026-10-20T17:49:32.163Z",
+ "updatedAt": "2026-10-20T18:03:26.459Z",
  "status": {
   "riot": "ok",
-  "riotMaj": 0,
-  "at": "2026-10-20T17:49:32.163Z"
+  "riotMaj": 14,
+  "at": "2026-10-20T18:03:26.459Z"
  },
  "ddragon": "16.20.1",
  "players": [
@@ -12,20 +12,28 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/Allo%20Central-SoS",
-     "updated": "2026-10-18T12:13:08.218Z",
+     "updated": "2026-10-20T18:03:26.459Z",
      "d": {
       "icon": 3607,
       "solo": {
        "tier": null,
+       "div": null,
+       "lp": null,
        "rank": "Non classé",
        "wr": null,
-       "kda": "7.67"
+       "kda": "7.67",
+       "n": 1,
+       "score": null
       },
       "flex": {
        "tier": "EMERALD",
+       "div": "IV",
+       "lp": 24,
        "rank": "Émeraude IV (24 LP)",
        "wr": 52,
-       "kda": "5.77"
+       "kda": "5.77",
+       "n": 20,
+       "score": 2024
       },
       "champs": [
        {
@@ -43,9 +51,12 @@
         "name": "Poppy",
         "n": 3
        }
-      ]
-     },
-     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/Bn6mqwcGm00k59KX3EJjo21sKjzr6LtwAdjPwUKKkAlXmWXvJNFtGF8rV9oBICkfMa_yxk0x_gQz0Q"
+      ],
+      "form": "LLLWLWWWWL",
+      "streak": -3,
+      "week": 0,
+      "last": 1791654035293
+     }
     },
     "rl": {
      "f": [
@@ -72,20 +83,28 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/Biyul%20Seupain-FRA",
-     "updated": "2026-10-18T12:13:08.218Z",
+     "updated": "2026-10-20T18:03:26.459Z",
      "d": {
       "icon": 7289,
       "solo": {
        "tier": "GOLD",
+       "div": "IV",
+       "lp": 10,
        "rank": "Or IV (10 LP)",
        "wr": 40,
-       "kda": "2.38"
+       "kda": "2.38",
+       "n": 20,
+       "score": 1210
       },
       "flex": {
        "tier": "GOLD",
+       "div": "I",
+       "lp": 11,
        "rank": "Or I (11 LP)",
        "wr": 50,
-       "kda": "3.46"
+       "kda": "3.46",
+       "n": 20,
+       "score": 1511
       },
       "champs": [
        {
@@ -103,9 +122,12 @@
         "name": "Séraphine",
         "n": 2
        }
-      ]
-     },
-     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/Tb1xO0Gx3mfmwhhpeZyWcQ6CjvJZLTGKWcoF4SFfm8zNx30WWgfD96KpJC63Hf5EFPRC2P2OCItU4Q"
+      ],
+      "form": "LLLWLWWWWL",
+      "streak": -3,
+      "week": 0,
+      "last": 1791654035293
+     }
     },
     "rl": {
      "f": [
@@ -132,20 +154,28 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/LucasLePlot-EUW",
-     "updated": "2026-10-18T12:13:08.218Z",
+     "updated": "2026-10-20T18:03:26.459Z",
      "d": {
       "icon": 6498,
       "solo": {
        "tier": "GOLD",
+       "div": "II",
+       "lp": 97,
        "rank": "Or II (97 LP)",
        "wr": 49,
-       "kda": "2.21"
+       "kda": "2.21",
+       "n": 20,
+       "score": 1497
       },
       "flex": {
        "tier": "PLATINUM",
-       "rank": "Platine II (75 LP)",
+       "div": "II",
+       "lp": 39,
+       "rank": "Platine II (39 LP)",
        "wr": 53,
-       "kda": "2.54"
+       "kda": "2.48",
+       "n": 20,
+       "score": 1839
       },
       "champs": [
        {
@@ -163,9 +193,12 @@
         "name": "Tristana",
         "n": 4
        }
-      ]
-     },
-     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/GRV_B3bzkjnsU8PaYe_kcU3yP4whFYRH6JjjmmazDy3VN7op00dU26YZOpQ9O8F3UYsX5Gx4_BS0bw"
+      ],
+      "form": "LLLLLLWWWW",
+      "streak": -6,
+      "week": 7,
+      "last": 1792335765161
+     }
     },
     "rl": {
      "f": [
@@ -192,20 +225,28 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/Bords%20De%20Vienne-1312",
-     "updated": "2026-10-18T12:13:08.218Z",
+     "updated": "2026-10-20T18:03:26.459Z",
      "d": {
       "icon": 7289,
       "solo": {
        "tier": "SILVER",
+       "div": "IV",
+       "lp": 0,
        "rank": "Argent IV (0 LP)",
        "wr": 33,
-       "kda": "2.15"
+       "kda": "2.15",
+       "n": 6,
+       "score": 800
       },
       "flex": {
        "tier": "PLATINUM",
+       "div": "III",
+       "lp": 28,
        "rank": "Platine III (28 LP)",
        "wr": 53,
-       "kda": "2.78"
+       "kda": "2.78",
+       "n": 20,
+       "score": 1728
       },
       "champs": [
        {
@@ -223,9 +264,12 @@
         "name": "Séraphine",
         "n": 3
        }
-      ]
-     },
-     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/CzCIrl740dt16BTN7d5FSR3QuaufQ-ayiARflNppkq4tQn7y-SDaUrFAutDrDnehTJTbDEJfy4DKXA"
+      ],
+      "form": "LWWLLWLWWW",
+      "streak": -1,
+      "week": 0,
+      "last": 1791587822941
+     }
     },
     "rl": {
      "f": [
@@ -252,20 +296,28 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/Glorbo%20Florbo-KEK",
-     "updated": "2026-10-18T12:13:08.218Z",
+     "updated": "2026-10-20T18:03:26.459Z",
      "d": {
       "icon": 3890,
       "solo": {
        "tier": "BRONZE",
+       "div": "III",
+       "lp": 30,
        "rank": "Bronze III (30 LP)",
        "wr": 40,
-       "kda": "3.28"
+       "kda": "3.28",
+       "n": 20,
+       "score": 530
       },
       "flex": {
        "tier": "GOLD",
+       "div": "IV",
+       "lp": 17,
        "rank": "Or IV (17 LP)",
        "wr": 51,
-       "kda": "3.30"
+       "kda": "3.30",
+       "n": 20,
+       "score": 1217
       },
       "champs": [
        {
@@ -283,9 +335,12 @@
         "name": "Nocturne",
         "n": 4
        }
-      ]
-     },
-     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/jIWtgIpzMbIdqtKBAAEtv4vuW2_KDb8oHemC0IxnYRbIMWJR1C0uHQivuV-5Sgd48Fee2vExE-f7OA"
+      ],
+      "form": "LLLWWWLWLW",
+      "streak": -3,
+      "week": 0,
+      "last": 1791590626832
+     }
     },
     "bf": {
      "f": [
@@ -303,26 +358,34 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/Kikittitou-6667",
-     "updated": "2026-10-18T12:13:08.218Z",
+     "updated": "2026-10-20T18:03:26.459Z",
      "d": {
       "icon": 3865,
       "solo": {
        "tier": "BRONZE",
+       "div": "I",
+       "lp": 87,
        "rank": "Bronze I (87 LP)",
        "wr": 75,
-       "kda": "3.13"
+       "kda": "3.13",
+       "n": 20,
+       "score": 787
       },
       "flex": {
        "tier": "GOLD",
-       "rank": "Or III (39 LP)",
-       "wr": 51,
-       "kda": "4.01"
+       "div": "III",
+       "lp": 1,
+       "rank": "Or III (1 LP)",
+       "wr": 49,
+       "kda": "3.71",
+       "n": 20,
+       "score": 1301
       },
       "champs": [
        {
         "id": "Sejuani",
         "name": "Sejuani",
-        "n": 25
+        "n": 24
        },
        {
         "id": "Ivern",
@@ -334,9 +397,12 @@
         "name": "Rakan",
         "n": 3
        }
-      ]
-     },
-     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/fziMAQqf4VIbiuUnVuiux-PUyV733c9tpBSk4Onvv784LSjWVXe11QeXDV4-fXzvrTOE8KEZxh4YnQ"
+      ],
+      "form": "LLWLLLWWWW",
+      "streak": -2,
+      "week": 3,
+      "last": 1792335765161
+     }
     },
     "cs": {
      "f": [
@@ -346,7 +412,25 @@
       "2300"
      ],
      "link": "https://leetify.com/@kikittitou",
-     "updated": "2026-10-20T17:49:32.163Z"
+     "updated": "2026-10-20T18:03:26.459Z",
+     "d": {
+      "premier": 24965,
+      "wr": 62,
+      "hs": 24.9,
+      "matches": 2300,
+      "faceit": {
+       "lvl": 10,
+       "elo": 1685,
+       "n": 37,
+       "wr": 57
+      },
+      "util": {
+       "r": 64,
+       "flash": 0.7221,
+       "he": 9.0927,
+       "fk": 5.8413
+      }
+     }
     },
     "rl": {
      "f": [
@@ -364,20 +448,28 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/Emmanuel%20Micron-1312",
-     "updated": "2026-10-18T12:13:08.218Z",
+     "updated": "2026-10-20T18:03:26.459Z",
      "d": {
       "icon": 3369,
       "solo": {
        "tier": "GOLD",
+       "div": "IV",
+       "lp": 29,
        "rank": "Or IV (29 LP)",
        "wr": 49,
-       "kda": "2.12"
+       "kda": "2.44",
+       "n": 20,
+       "score": 1229
       },
       "flex": {
        "tier": "SILVER",
-       "rank": "Argent IV (65 LP)",
-       "wr": 54,
-       "kda": "1.94"
+       "div": "IV",
+       "lp": 25,
+       "rank": "Argent IV (25 LP)",
+       "wr": 53,
+       "kda": "1.84",
+       "n": 20,
+       "score": 825
       },
       "champs": [
        {
@@ -391,13 +483,16 @@
         "n": 4
        },
        {
-        "id": "Ashe",
-        "name": "Ashe",
+        "id": "Jinx",
+        "name": "Jinx",
         "n": 2
        }
-      ]
-     },
-     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/jPzpM9ZxDJF4n2Wy8J80xDVB64Ay7r1ibmIF_i8UogOCIX12BgNLx6IBTWcaHOOGwYeheepRC8y84g"
+      ],
+      "form": "LWLWLLLLLL",
+      "streak": -1,
+      "week": 13,
+      "last": 1792506761430
+     }
     },
     "rl": {
      "f": [
@@ -415,20 +510,28 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/Mazelbob-0420",
-     "updated": "2026-10-18T12:13:08.218Z",
+     "updated": "2026-10-20T18:03:26.459Z",
      "d": {
       "icon": 5371,
       "solo": {
        "tier": null,
+       "div": null,
+       "lp": null,
        "rank": "Non classé",
        "wr": null,
-       "kda": "2.78"
+       "kda": "2.78",
+       "n": 1,
+       "score": null
       },
       "flex": {
        "tier": null,
+       "div": null,
+       "lp": null,
        "rank": "Non classé",
        "wr": null,
-       "kda": null
+       "kda": null,
+       "n": 0,
+       "score": null
       },
       "champs": [
        {
@@ -436,9 +539,12 @@
         "name": "Miss Fortune",
         "n": 1
        }
-      ]
-     },
-     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/5bYHhi0X71VwvTsUZ338ZB_q5M0b1KUJSXvNbEMR3XNAD3Xs-CRW89yyhcoORe-4tFPt1WIFEbLDtQ"
+      ],
+      "form": "W",
+      "streak": 1,
+      "week": 0,
+      "last": 1746543654467
+     }
     },
     "cs": {
      "f": [
@@ -448,7 +554,25 @@
       "2498"
      ],
      "link": "https://leetify.com/app/profile/76561198002469129",
-     "updated": "2026-10-20T17:49:32.163Z"
+     "updated": "2026-10-20T18:03:26.459Z",
+     "d": {
+      "premier": 25112,
+      "wr": 59,
+      "hs": 28.5,
+      "matches": 2498,
+      "faceit": {
+       "lvl": 10,
+       "elo": 1866,
+       "n": 32,
+       "wr": 66
+      },
+      "util": {
+       "r": 63,
+       "flash": 0.7488,
+       "he": 9.1523,
+       "fk": 13.098
+      }
+     }
     },
     "rl": {
      "f": [
@@ -466,40 +590,51 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/FrozhY-EUW",
-     "updated": "2026-10-18T12:13:08.218Z",
+     "updated": "2026-10-20T18:03:26.459Z",
      "d": {
       "icon": 29,
       "solo": {
        "tier": "GOLD",
-       "rank": "Or IV (67 LP)",
+       "div": "IV",
+       "lp": 66,
+       "rank": "Or IV (66 LP)",
        "wr": 49,
-       "kda": "2.09"
+       "kda": "1.72",
+       "n": 20,
+       "score": 1266
       },
       "flex": {
        "tier": "SILVER",
+       "div": "I",
+       "lp": 0,
        "rank": "Argent I (0 LP)",
        "wr": 52,
-       "kda": "1.68"
+       "kda": "1.68",
+       "n": 20,
+       "score": 1100
       },
       "champs": [
-       {
-        "id": "Jinx",
-        "name": "Jinx",
-        "n": 4
-       },
        {
         "id": "Garen",
         "name": "Garen",
         "n": 3
        },
        {
-        "id": "Olaf",
-        "name": "Olaf",
+        "id": "Kayle",
+        "name": "Kayle",
+        "n": 2
+       },
+       {
+        "id": "Malzahar",
+        "name": "Malzahar",
         "n": 2
        }
-      ]
-     },
-     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/9lYeT5YCZpiHDi4bMpf8WAIa9-MEn_JCafjYbi42iNufwFhjyv4bCA9sKjSttRrMmG06HcdWO_e3Tg"
+      ],
+      "form": "LLLWWWLLWW",
+      "streak": -3,
+      "week": 22,
+      "last": 1792519207258
+     }
     },
     "cs": {
      "f": [
@@ -509,7 +644,25 @@
       "1298"
      ],
      "link": "https://leetify.com/app/profile/76561198097655934",
-     "updated": "2026-10-20T17:49:32.163Z"
+     "updated": "2026-10-20T18:03:26.459Z",
+     "d": {
+      "premier": 22635,
+      "wr": 57,
+      "hs": 11.8,
+      "matches": 1298,
+      "faceit": {
+       "lvl": 7,
+       "elo": 1339,
+       "n": 25,
+       "wr": 60
+      },
+      "util": {
+       "r": 71,
+       "flash": 0.6129,
+       "he": 13.6122,
+       "fk": 8.0784
+      }
+     }
     },
     "rl": {
      "f": [
@@ -527,20 +680,28 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/L%C3%A9cheur2culotte-ARMX",
-     "updated": "2026-10-18T12:13:08.218Z",
+     "updated": "2026-10-20T18:03:26.459Z",
      "d": {
-      "icon": 7033,
+      "icon": 7289,
       "solo": {
        "tier": null,
+       "div": null,
+       "lp": null,
        "rank": "Non classé",
        "wr": null,
-       "kda": null
+       "kda": null,
+       "n": 0,
+       "score": null
       },
       "flex": {
        "tier": "BRONZE",
+       "div": "II",
+       "lp": 7,
        "rank": "Bronze II (7 LP)",
        "wr": 39,
-       "kda": "1.59"
+       "kda": "1.59",
+       "n": 20,
+       "score": 607
       },
       "champs": [
        {
@@ -553,9 +714,12 @@
         "name": "Malphite",
         "n": 3
        }
-      ]
-     },
-     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/8VnDW7cRi99a3sTUyg9jgu36Z5MslhgnMWyj2q0EqfaagrQiDwR2SbNONW8wkwDmbZUs7pL1WJmjiA"
+      ],
+      "form": "WLLWLWWLLL",
+      "streak": 1,
+      "week": 0,
+      "last": 1789914710106
+     }
     },
     "cs": {
      "f": [
@@ -565,7 +729,25 @@
       "1356"
      ],
      "link": "https://leetify.com/@valkai",
-     "updated": "2026-10-20T17:49:32.163Z"
+     "updated": "2026-10-20T18:03:26.459Z",
+     "d": {
+      "premier": 23237,
+      "wr": 62,
+      "hs": 21.1,
+      "matches": 1356,
+      "faceit": {
+       "lvl": 10,
+       "elo": 1491,
+       "n": 43,
+       "wr": 67
+      },
+      "util": {
+       "r": 53,
+       "flash": 0.6758,
+       "he": 9.4511,
+       "fk": 4.1636
+      }
+     }
     }
    }
   },
@@ -574,20 +756,28 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/4FPS-FREU",
-     "updated": "2026-10-18T12:13:08.218Z",
+     "updated": "2026-10-20T18:03:26.459Z",
      "d": {
       "icon": 3367,
       "solo": {
        "tier": null,
+       "div": null,
+       "lp": null,
        "rank": "Non classé",
        "wr": null,
-       "kda": "4.65"
+       "kda": "4.65",
+       "n": 4,
+       "score": null
       },
       "flex": {
        "tier": "SILVER",
+       "div": "II",
+       "lp": 61,
        "rank": "Argent II (61 LP)",
        "wr": 70,
-       "kda": "2.45"
+       "kda": "2.45",
+       "n": 14,
+       "score": 1061
       },
       "champs": [
        {
@@ -605,9 +795,12 @@
         "name": "Rell",
         "n": 1
        }
-      ]
-     },
-     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/EOACcIRsrgGSM8XV3qGIOJADAyboqtVcXwTF7otnKqr4fHbT33nTGFn_yDrN3hoDIfw6sritZMa21g"
+      ],
+      "form": "WWWLWLWWWL",
+      "streak": 3,
+      "week": 0,
+      "last": 1789427614792
+     }
     },
     "cs": {
      "f": [
@@ -617,7 +810,25 @@
       "1190"
      ],
      "link": "https://leetify.com/app/profile/76561198142568665",
-     "updated": "2026-10-20T17:49:32.163Z"
+     "updated": "2026-10-20T18:03:26.459Z",
+     "d": {
+      "premier": 22327,
+      "wr": 62,
+      "hs": 21.9,
+      "matches": 1190,
+      "faceit": {
+       "lvl": 8,
+       "elo": 1450,
+       "n": 50,
+       "wr": 52
+      },
+      "util": {
+       "r": 77,
+       "flash": 0.8725,
+       "he": 12.0085,
+       "fk": 4.3031
+      }
+     }
     },
     "rl": {
      "f": [
@@ -635,20 +846,28 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/Smorvix-666HL",
-     "updated": "2026-10-18T12:13:08.218Z",
+     "updated": "2026-10-20T18:03:26.459Z",
      "d": {
       "icon": 7147,
       "solo": {
        "tier": "BRONZE",
+       "div": "II",
+       "lp": 75,
        "rank": "Bronze II (75 LP)",
        "wr": 62,
-       "kda": "2.83"
+       "kda": "2.83",
+       "n": 19,
+       "score": 675
       },
       "flex": {
        "tier": "SILVER",
+       "div": "III",
+       "lp": 36,
        "rank": "Argent III (36 LP)",
        "wr": 51,
-       "kda": "2.73"
+       "kda": "2.73",
+       "n": 20,
+       "score": 936
       },
       "champs": [
        {
@@ -666,9 +885,12 @@
         "name": "Shen",
         "n": 3
        }
-      ]
-     },
-     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/aIKb056-GtuHXr5giIIRiY9RfOrqv9zTdz7XNaUA4pgI1O5rlRXpP6HysmkioQUTB2eqYOOINFq4_g"
+      ],
+      "form": "LLLLWWWWWL",
+      "streak": -4,
+      "week": 6,
+      "last": 1792009005855
+     }
     }
    }
   },
@@ -677,20 +899,28 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/Piesang-EUW",
-     "updated": "2026-10-18T12:13:08.218Z",
+     "updated": "2026-10-20T18:03:26.459Z",
      "d": {
       "icon": 7185,
       "solo": {
        "tier": null,
+       "div": null,
+       "lp": null,
        "rank": "Non classé",
        "wr": null,
-       "kda": "2.49"
+       "kda": "2.49",
+       "n": 12,
+       "score": null
       },
       "flex": {
        "tier": "BRONZE",
+       "div": "IV",
+       "lp": 96,
        "rank": "Bronze IV (96 LP)",
        "wr": 40,
-       "kda": "2.39"
+       "kda": "2.39",
+       "n": 14,
+       "score": 496
       },
       "champs": [
        {
@@ -708,9 +938,12 @@
         "name": "Caitlyn",
         "n": 2
        }
-      ]
-     },
-     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/CN-cjQgRUgm6CiOBwmWSuxlynRBSupyXOTLydwmC408PpA2NBvT83F-T6hzwACf4_3OYVwxsS5e5Mw"
+      ],
+      "form": "WLLWLWWLLL",
+      "streak": 1,
+      "week": 0,
+      "last": 1768603652675
+     }
     }
    }
   },
@@ -719,20 +952,28 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/JibaxLaMenax-EUW",
-     "updated": "2026-10-18T12:13:08.218Z",
+     "updated": "2026-10-20T18:03:26.459Z",
      "d": {
-      "icon": 6083,
+      "icon": 7144,
       "solo": {
        "tier": "GOLD",
+       "div": "II",
+       "lp": 25,
        "rank": "Or II (25 LP)",
        "wr": 15,
-       "kda": "1.20"
+       "kda": "1.20",
+       "n": 15,
+       "score": 1425
       },
       "flex": {
-       "tier": "EMERALD",
-       "rank": "Émeraude IV (0 LP)",
-       "wr": 45,
-       "kda": "2.11"
+       "tier": "PLATINUM",
+       "div": "I",
+       "lp": 29,
+       "rank": "Platine I (29 LP)",
+       "wr": 43,
+       "kda": "2.03",
+       "n": 20,
+       "score": 1929
       },
       "champs": [
        {
@@ -746,13 +987,16 @@
         "n": 3
        },
        {
-        "id": "Singed",
-        "name": "Singed",
-        "n": 3
+        "id": "Lux",
+        "name": "Lux",
+        "n": 2
        }
-      ]
-     },
-     "error": "HTTP 400 sur https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/vhAYcbkVNab6o4ByolkIBRHOWGuxV2KsijGA741Aip6bpw-4sb6k0RwFV9hcfqDWQ6kwO7EQABQEOw"
+      ],
+      "form": "LLLLLLLLLW",
+      "streak": -9,
+      "week": 2,
+      "last": 1792335765161
+     }
     }
    }
   },
@@ -767,7 +1011,25 @@
       "1833"
      ],
      "link": "https://leetify.com/app/profile/76561198081776591",
-     "updated": "2026-10-20T17:49:32.163Z"
+     "updated": "2026-10-20T18:03:26.459Z",
+     "d": {
+      "premier": 22944,
+      "wr": 66,
+      "hs": 20.2,
+      "matches": 1833,
+      "faceit": {
+       "lvl": 9,
+       "elo": 1565,
+       "n": 43,
+       "wr": 65
+      },
+      "util": {
+       "r": 66,
+       "flash": 0.6329,
+       "he": 13.8954,
+       "fk": 9.8515
+      }
+     }
     }
    }
   }
