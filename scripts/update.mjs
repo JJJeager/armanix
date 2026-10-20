@@ -1,5 +1,5 @@
 // Armanix : met à jour data/stats.json, history.json, matches.json et events.json (Node 22+, aucune dépendance)
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile, writeFile, mkdir } from "node:fs/promises";
 const PLATFORM = process.env.RIOT_PLATFORM || "euw1", ROUTE = process.env.RIOT_ROUTE || "europe";
 const RIOT = process.env.RIOT_API_KEY, LEET = process.env.LEETIFY_API_KEY;
 const NMATCH = 20; // parties récentes lues par file (solo et flex)
@@ -128,12 +128,13 @@ const pct = v => v == null ? null : (Math.abs(v) <= 1 ? v * 100 : v);
 async function cs(p) {
   if (!p.cs?.steam64) return null;
   const j = await getJson(`https://api-public.cs-prod.leetify.com/v3/profile?steam64_id=${p.cs.steam64}`, LEET ? { Authorization: `Bearer ${LEET}` } : {});
-  await writeFile(`data/raw/cs-${slug(p.name)}.json`, JSON.stringify(j, null, 1));
+  try { await writeFile(`data/raw/cs-${slug(p.name)}.json`, JSON.stringify(j, null, 1)); } catch {}
   const prem = j.ranks?.premier ?? null, wr = j.winrate != null ? Math.round(pct(j.winrate)) : null, hs = j.stats?.accuracy_head;
   return { f: [prem != null ? `Premier ${prem}` : "—", fmt(wr, " %"), fmt(hs != null ? Math.round(pct(hs) * 10) / 10 : null, " %"), fmt(j.total_matches)], score: prem };
 }
 
 // ---------- boucle principale
+await mkdir("data/raw", { recursive: true }); // Git ne garde pas les dossiers vides : on le recrée
 const prev = await readJson("data/stats.json", { players: [] });
 const config = await readJson("players.json", { players: [] });
 const manual = await readJson("data/manual.json", {});
