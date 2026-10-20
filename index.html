@@ -129,6 +129,9 @@ nav ul{align-items:center}
 @media (prefers-color-scheme:light){.pr>span{color:color-mix(in srgb,var(--c) 62%,#1c1733)}.fl{color:color-mix(in srgb,var(--c) 62%,#1c1733)!important}}
 .fc{display:flex;align-items:center;gap:.55rem}.fl{flex:none;width:1.75rem;height:1.75rem;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.8rem;border:2px solid var(--c);color:var(--c);box-shadow:0 0 10px -3px var(--c)}
 .fc b{display:block;font-size:.9rem}.fc small,.ut small{display:block;color:var(--muted);font-size:.74rem;font-weight:400;white-space:normal}
+.ev .et{display:inline-flex;align-items:center;gap:.5rem}.ev .gi img,.ev .gb{width:1.15rem;height:1.15rem;min-width:1.15rem;font-size:.5rem;padding:0}
+.fm i.t{background:var(--muted)}.lv{display:inline-block;font-weight:800;padding:.1rem .55rem;border-radius:.35rem;background:var(--surface2);border:1px solid var(--line);font-variant-numeric:tabular-nums}
+.gv .fc small{display:inline}
 @media (max-width:84rem){.wrap{padding:0 1rem}th,td{padding:.55rem .3rem}td{font-size:.88rem}.who img,.champs img,.rk img,.rk svg{width:1.6rem;height:1.6rem}.who{gap:.4rem}.rk{gap:.35rem}.champs{gap:.25rem}svg.sp{width:4.5rem}.panel{padding:.25rem .5rem}}
 @media (max-width:66rem){.sortbar{display:flex}.panel{background:none;border:0;padding:0}table,thead,tbody,tr,td{display:block}thead{display:none}tr{background:var(--surface);border:1px solid var(--line);border-radius:.9rem;padding:.4rem .95rem;margin-bottom:.9rem}tbody tr:hover{background:var(--surface)}td{display:flex;justify-content:space-between;align-items:center;gap:1rem;border:0;padding:.45rem 0;text-align:right}td::before{content:attr(data-label);color:var(--muted);font-size:.8rem;text-align:left}}
 @media (prefers-reduced-motion:reduce){.hero{animation:none}html{scroll-behavior:auto}}
@@ -157,7 +160,7 @@ nav ul{align-items:center}
 <div class="card rev"><h3>Roue des champions</h3><p class="sub" id="champHint">Tire d’abord une lane.</p><div class="roller"><div class="rv"><div class="track" id="track"></div></div><div class="mark"></div><div class="rmsg" id="rmsg">Tire d’abord une lane</div></div>
 <div class="ctl" style="justify-content:center"><button class="btn" id="champSpin" disabled>Tirer le champion</button></div><p class="wres" id="champRes" aria-live="polite"></p></div></div>
 </section>
-<footer>Armanix, depuis la première partie ensemble. · Version 20</footer></div>
+<footer>Armanix, depuis la première partie ensemble. · Version 21</footer></div>
 <script>
 const GAMES={
  lol:{n:"League of Legends",trend:"Évolution du rang"},
@@ -187,7 +190,7 @@ function rankBadge(r){const t=r&&r.tier,wrap=h("div",{class:"rk"});
  wrap.append(dash(r&&r.rank));return wrap}
 function rankCell(r,label){return td(label,rankBadge(r))}
 // Couleurs : rouge (faible) > jaune (moyenne) > vert (au-dessus). Seuils [rouge, jaune, vert], à ajuster ici.
-const SC={wr:[40,50,60],kda:[1.5,2.5,3.5],util:[35,50,65]};
+const SC={wr:[40,50,60],kda:[1.5,2.5,3.5],util:[35,50,65],kd2:[.7,1,1.4]};
 function hue(v,s){const lo=s[0],mid=s[1],hi=s[2];if(v<=lo)return 0;if(v<mid)return 55*(v-lo)/(mid-lo);if(v<hi)return 55+75*(v-mid)/(hi-mid);return 130}
 function colored(text,v,sc){if(v==null||isNaN(v))return "—";return h("span",{class:"cv",style:"color:hsl("+Math.round(hue(v,sc))+" 80% var(--cl))"},text)}
 const num=x=>x==null||x===""?null:parseFloat(String(x).replace(",","."));
@@ -215,13 +218,25 @@ function faceitCell(f){if(!f||f.lvl==null)return"—";return h("div",{class:"fc"
 function utilCell(u){if(!u||u.r==null)return"—";const t=[];if(u.flash!=null)t.push(u.flash.toFixed(2).replace(".",",")+" aveuglé/flash");if(u.he!=null)t.push(Math.round(u.he)+" dégâts/HE");
  return h("div",{class:"ut",title:"Note utilitaires Leetify sur 100"+(u.fk!=null?" · "+Math.round(u.fk)+" % des flashs mènent à un kill":"")},colored(String(u.r),u.r,SC.util),h("small",{},t.join(" · ")))}
 function csCols(prof){const D=p=>csd(p);return[
- {l:"Joueur",text:1,v:p=>p.name,cell:p=>td("Joueur",p.name)},
+ {l:"Joueur",text:1,v:p=>p.name,cell:p=>td("Joueur",h("div",{class:"nm"},p.name,formDots(D(p).form)))},
  {l:"Premier",v:p=>D(p).premier,cell:p=>td("Premier",premierBadge(D(p).premier))},
  {l:"FACEIT",v:p=>(D(p).faceit||{}).elo,cell:p=>td("FACEIT",faceitCell(D(p).faceit))},
  {l:"Victoires (%)",v:p=>D(p).wr,cell:p=>td("Victoires (%)",colored(pct(D(p).wr),D(p).wr,SC.wr))},
  {l:"Headshots (%)",v:p=>D(p).hs,cell:p=>td("Headshots (%)",D(p).hs!=null?D(p).hs.toString().replace(".",",")+" %":"—")},
  {l:"Utilitaires",v:p=>(D(p).util||{}).r,cell:p=>td("Utilitaires",utilCell(D(p).util))},
  {l:"Matchs",v:p=>D(p).matches,cell:p=>td("Matchs",D(p).matches!=null?D(p).matches.toLocaleString("fr-FR"):"—")},prof]}
+// ===== Battlefield 6 =====
+function bfd(p){const e=p.games.bf||{};if(e.d)return e.d;const f=e.f||[],n=x=>{const v=parseFloat(String(x||"").replace(",",".").replace(/[^\d.-]/g,""));return isNaN(v)?null:v};return{lvl:n(f[0]),kd:n(f[1]),wr:n(f[2]),cls:f[3]&&f[3]!=="—"?f[3]:null}}
+const fr2=v=>v!=null?v.toFixed(2).replace(".",","):"—";
+function bfCols(prof){const D=bfd;return[
+ {l:"Joueur",text:1,v:p=>p.name,cell:p=>td("Joueur",p.name)},
+ {l:"Niveau",v:p=>D(p).lvl,cell:p=>td("Niveau",D(p).lvl!=null?h("span",{class:"lv"},String(D(p).lvl)):"—")},
+ {l:"K/D",v:p=>D(p).kd,cell:p=>td("K/D",colored(fr2(D(p).kd),D(p).kd,SC.kd2))},
+ {l:"Kills/min",v:p=>D(p).kpm,cell:p=>td("Kills/min",fr2(D(p).kpm))},
+ {l:"Victoires (%)",v:p=>D(p).wr,cell:p=>td("Victoires (%)",colored(pct(D(p).wr),D(p).wr,SC.wr))},
+ {l:"Matchs",v:p=>D(p).matches,cell:p=>td("Matchs",D(p).matches!=null?D(p).matches.toLocaleString("fr-FR"):"—")},
+ {l:"Classe favorite",text:1,v:p=>D(p).cls,cell:p=>td("Classe favorite",dash(D(p).cls))},prof]}
+function bfLine(p){const d=bfd(p);return[d.lvl!=null?h("span",{class:"lv"},"Niv. "+d.lvl):"",d.kd!=null?h("span",{},"K/D "+fr2(d.kd)):"",d.wr!=null?h("span",{class:"sub"},d.wr+" % de victoires"):"",d.cls?h("span",{class:"sub"},d.cls):""]}
 function colsFor(gm){
  const prof={l:"Profil",cell:p=>profil(p.games[gm])};
  if(gm==="lol")return[
@@ -231,6 +246,7 @@ function colsFor(gm){
   {l:"Champions favoris",cell:p=>{const c=Lp(p).champs;return td("Champions favoris",(c&&c.length)?h("div",{class:"champs"},c.map(x=>img("champion",x.id,x.name+" ("+x.n+" parties)"))):"—")}},
   {l:"Évolution du rang",v:p=>delta(p,"lol"),cell:p=>td("Évolution du rang",spark((hist[p.name]||{}).lol))},prof];
  if(gm==="cs")return csCols(prof);
+ if(gm==="bf")return bfCols(prof);
  const g=GAMES[gm];
  return[{l:"Joueur",text:1,v:p=>p.name,cell:p=>td("Joueur",p.name)}].concat(
   g.f.map((lab,k)=>({l:lab,text:TXT.test(lab),v:p=>parseVal(lab,(p.games[gm].f||[])[k],gm),cell:p=>{const v=(p.games[gm].f||[])[k]||"—";return td(lab,lab.indexOf("Victoires (%)")>=0?colored(v,num(v),SC.wr):v)}})),
@@ -272,11 +288,12 @@ function render(){
 // ===== Temps forts : joueur de la semaine, séries, activité, fil d'événements, fraîcheur des données =====
 let evs=[],HL={};
 function ago(ts){const s=(Date.now()-new Date(ts))/1000;if(s<90)return"à l’instant";const m=s/60;if(m<60)return"il y a "+Math.round(m)+" min";const hh=m/60;if(hh<24)return"il y a "+Math.round(hh)+" h";const d=hh/24;return d<2?"hier":"il y a "+Math.round(d)+" j"}
-function formDots(f){if(!f)return"";return h("span",{class:"fm",title:"Forme récente, la plus récente à gauche","aria-label":"Forme récente : "+f.split("").map(c=>c==="W"?"victoire":"défaite").join(", ")},f.split("").map(c=>h("i",{class:c==="W"?"w":"l"})))}
+function formDots(f){if(!f)return"";return h("span",{class:"fm",title:"Forme récente, la plus récente à gauche","aria-label":"Forme récente : "+f.split("").map(c=>c==="W"?"victoire":c==="T"?"égalité":"défaite").join(", ")},f.split("").map(c=>h("i",{class:c==="W"?"w":c==="T"?"t":"l"})))}
 function weekGain(name){const a=(hist[name]||{}).lol;if(!a||a.length<2)return null;const lim=Date.now()-7*864e5;let base=a[0];for(const x of a){if(x[0]<=lim)base=x;else break}const last=a[a.length-1];return last===base?null:last[1]-base[1]}
 function computeHL(){const L=stats.players.filter(p=>p.games.lol&&p.games.lol.d);
  const pick=(f,ok)=>{let b=null,bv=null;for(const p of L){const v=f(p);if(v==null||isNaN(v)||(ok&&!ok(v)))continue;if(bv==null||v>bv){bv=v;b=p}}return b?{p:b,v:bv}:null};
- HL={week:pick(p=>weekGain(p.name),v=>v>0),kda:pick(p=>{const s=Lp(p).solo||{};return(s.n==null||s.n>=5)?num(s.kda):null}),fire:pick(p=>Lp(p).streak,v=>v>=3),active:pick(p=>Lp(p).week,v=>v>0)}}
+ HL={week:pick(p=>weekGain(p.name),v=>v>0),kda:pick(p=>{const s=Lp(p).solo||{};return(s.n==null||s.n>=5)?num(s.kda):null}),fire:null,active:pick(p=>Lp(p).week,v=>v>0)};
+ for(const p of stats.players)for(const g of["lol","cs"]){const s=((p.games[g]||{}).d||{}).streak;if(typeof s==="number"&&s>=3&&(!HL.fire||s>HL.fire.v))HL.fire={p,v:s,g}}}
 function hlCard(label,x,val,hint,cls){const d=x?Lp(x.p):{},v=stats.ddragon;
  return h("div",{class:"hc rev "+(cls||"")},h("span",{class:"hk"},label),
   x?h("div",{class:"hw"},(d.icon!=null&&v)?h("img",{class:"av",src:"https://ddragon.leagueoflegends.com/cdn/"+v+"/img/profileicon/"+d.icon+".png",alt:"",loading:"lazy"}):h("div",{class:"av"},x.p.name.slice(0,2).toUpperCase()),h("div",{},h("b",{},x.p.name),h("span",{class:"hv"},val))):h("p",{class:"sub"},hint))}
@@ -284,17 +301,17 @@ function renderHL(){computeHL();
  $("hl").replaceChildren(
   hlCard("Joueur de la semaine",HL.week,HL.week?"+"+HL.week.v+" LP en solo/duo":"","Il faut quelques jours de données pour mesurer la progression.","gold"),
   hlCard("Meilleur KDA",HL.kda,HL.kda?"KDA "+HL.kda.v.toFixed(2)+" en solo/duo":"","Pas encore assez de parties."),
-  hlCard("En feu",HL.fire,HL.fire?HL.fire.v+" victoires d’affilée":"","Personne n’enchaîne 3 victoires pour l’instant.","fire"),
+  hlCard("En feu",HL.fire,HL.fire?HL.fire.v+" victoires d’affilée sur "+(HL.fire.g==="cs"?"CS":"LoL"):"","Personne n’enchaîne 3 victoires pour l’instant.","fire"),
   hlCard("Le plus actif",HL.active,HL.active?HL.active.v+" parties classées en 7 jours":"","Aucune partie classée cette semaine."));
- $("feed").replaceChildren(...(evs.length?evs.slice(0,8).map(e=>h("li",{class:"e-"+(e.type||"x")},h("span",{class:"et"},e.txt),h("time",{datetime:e.t},ago(e.t)))):[h("li",{class:"sub"},"Le fil se remplira au fil des mises à jour : montées de rang, séries de victoires, tilts…")]));
+ $("feed").replaceChildren(...(evs.length?evs.slice(0,8).map(e=>h("li",{class:"e-"+(e.type||"x")},h("span",{class:"et"},gameIcon(e.g||"lol"),h("span",{},e.txt)),h("time",{datetime:e.t},ago(e.t)))):[h("li",{class:"sub"},"Le fil se remplira au fil des mises à jour : montées de rang, séries de victoires, tilts…")]));
  const ups=stats.players.map(p=>p.games.lol&&p.games.lol.updated).filter(Boolean).map(t=>+new Date(t)),last=ups.length?Math.max(...ups):null,st=(stats.status||{}).riot,since=last?" depuis "+ago(last).replace("il y a ",""):"";
  const msg=st==="refusee"?"La clé Riot a été refusée ou a expiré : les stats LoL ne se mettent plus à jour"+since+". Génère une nouvelle clé et remets-la dans le secret RIOT_API_KEY sur GitHub."
   :st==="absente"?"Aucune clé Riot n’est configurée : les stats LoL ne peuvent pas se mettre à jour."
   :(last&&Date.now()-last>14*3600e3)?"Les stats LoL n’ont pas été mises à jour"+since+" : la mise à jour automatique semble bloquée.":"";
  $("alert").hidden=!msg;$("alert").textContent=msg}
-function badges(p){const is=k=>HL[k]&&HL[k].p===p,s=(p.games.lol&&p.games.lol.d||{}).streak,b=[];
+function badges(p){const is=k=>HL[k]&&HL[k].p===p,ss=["lol","cs"].map(g=>((p.games[g]||{}).d||{}).streak).filter(x=>typeof x==="number"),b=[];
  if(is("week"))b.push(["Joueur de la semaine","gold"]);if(is("kda"))b.push(["Meilleur KDA","kda"]);if(is("active"))b.push(["Le plus actif",""]);
- if(s>=3)b.push(["En feu","fire"]);if(s<=-3)b.push(["En tilt","tilt"]);
+ if(ss.some(x=>x>=3))b.push(["En feu","fire"]);if(ss.some(x=>x<=-3))b.push(["En tilt","tilt"]);
  return b.length?h("div",{class:"bdg"},b.map(x=>h("span",{class:"bd "+x[1]},x[0]))):""}
 function formRow(p){const d=p.games.lol&&p.games.lol.d;if(!d||!d.form)return"";const s=d.streak||0,t=[];
  if(s>=2)t.push(s+" victoires d’affilée");else if(s<=-2)t.push((-s)+" défaites d’affilée");if(d.week)t.push(d.week+" parties en 7 jours");
@@ -313,7 +330,7 @@ function renderRoster(){
   const av=(d.icon!=null&&v)?h("img",{class:"av",src:"https://ddragon.leagueoflegends.com/cdn/"+v+"/img/profileicon/"+d.icon+".png",alt:"",loading:"lazy"}):h("div",{class:"av"},p.name.slice(0,2).toUpperCase());
   const rows=Object.keys(GAMES).filter(k=>p.games[k]).map(k=>{const e=p.games[k],l=ok(e.link),lk=l?h("a",{href:l,target:"_blank",rel:"noopener"},"Profil"):"";
    if(k==="lol"){const ch=d.champs||[];return grow(k,[h("div",{class:"ll"},h("span",{class:"lb"},"Solo"),rankBadge(d.solo)),h("div",{class:"ll"},h("span",{class:"lb"},"Flex"),rankBadge(d.flex)),ch.length?h("div",{class:"champs"},ch.map(c=>img("champion",c.id,c.name))):""],lk,"col")}
-   const f=e.f||[];return grow(k,k==="cs"?[premierBadge(csd(p).premier),(csd(p).faceit||{}).lvl!=null?h("span",{},"FACEIT niv. "+csd(p).faceit.lvl):"",csd(p).wr!=null?h("span",{class:"sub"},csd(p).wr+" % de victoires"):""]:GAMES[k].f.slice(0,2).map((lab,j)=>lab+" : "+dash(f[j])).join(" · "),lk)});
+   const f=e.f||[];return grow(k,k==="cs"?[premierBadge(csd(p).premier),faceitCell(csd(p).faceit),csd(p).wr!=null?h("span",{class:"sub"},csd(p).wr+" % de victoires (carrière)"):""]:k==="bf"?bfLine(p):GAMES[k].f.slice(0,2).map((lab,j)=>lab+" : "+dash(f[j])).join(" · "),lk)});
   return h("article",{class:"pc rev"},h("header",{},av,h("div",{},h("h3",{},p.name),ex.role?h("div",{class:"sub"},ex.role):"")),badges(p),ex.bio?h("p",{class:"bio"},ex.bio):"",formRow(p),rows)}));
  if(!stats.players.length)$("rosterGrid").textContent="Aucun joueur pour l’instant."}
 // --- générateur d'équipes
