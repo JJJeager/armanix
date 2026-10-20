@@ -4,6 +4,7 @@ on:
   workflow_dispatch:                    # bouton « Run workflow »
 permissions:
   contents: write
+  pages: write                         # pour redemander la publication du site
 concurrency:                            # jamais deux mises à jour en même temps
   group: stats
   cancel-in-progress: false
@@ -29,6 +30,11 @@ jobs:
           git commit -m "Stats mises à jour"
           git pull --rebase --autostash
           git push
+      - name: Republier le site
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"
       - name: Vérifier la clé Riot
         run: |
           node -e "const s=require('./data/stats.json').status||{};if(s.riot!=='ok'){console.error('Clé Riot : '+(s.riot==='refusee'?'refusée ou expirée':'absente')+'. Les stats LoL ne sont plus mises à jour.');process.exit(1)}console.log('Clé Riot OK, '+s.riotMaj+' joueurs LoL mis à jour.')"
