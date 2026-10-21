@@ -40,7 +40,7 @@ select,.sbtn{font:inherit;font-size:.9rem;background:var(--surface);color:var(--
 .btn{border:0;cursor:pointer}.btn:disabled{opacity:.5;cursor:default}
 nav a[aria-current=page]{color:var(--text);box-shadow:0 2px 0 var(--accent)}
 .mini{font:inherit;font-size:.82rem;background:transparent;border:1px solid var(--line);color:var(--text);border-radius:.5rem;padding:.25rem .7rem;cursor:pointer}.mini:hover{border-color:var(--accent)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(18rem,1fr));gap:1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(21rem,100%),1fr));gap:1rem}
 .pc{background:var(--surface);border:1px solid var(--line);border-radius:1rem;padding:1.1rem;display:flex;flex-direction:column;gap:.7rem}
 .pc header{display:flex;align-items:center;gap:.8rem}.pc h3{margin:0;font-size:1.1rem}.sub{color:var(--muted);font-size:.85rem}
 .av{width:3rem;height:3rem;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center;background:var(--surface2);font-weight:800;color:var(--accent2)}
@@ -132,6 +132,7 @@ nav ul{align-items:center}
 .ev .et{display:inline-flex;align-items:center;gap:.5rem}.ev .gi img,.ev .gb{width:1.15rem;height:1.15rem;min-width:1.15rem;font-size:.5rem;padding:0}
 .fm i.t{background:var(--muted)}.lv{display:inline-block;font-weight:800;padding:.1rem .55rem;border-radius:.35rem;background:var(--surface2);border:1px solid var(--line);font-variant-numeric:tabular-nums}
 .gv .fc small{display:inline}
+.gv.col .ll{display:grid;grid-template-columns:3.4rem minmax(0,1fr) 3.2rem;align-items:center;gap:.5rem;width:100%}.ll .lb{min-width:0}.ll .elo{font-size:.92rem;font-variant-numeric:tabular-nums}.gv.col .ll>*{justify-self:start}.fi{display:flex;align-items:center;gap:.5rem}.gv.col .ll>.wl,.wl{justify-self:end;white-space:nowrap;font-variant-numeric:tabular-nums}
 @media (max-width:84rem){.wrap{padding:0 1rem}th,td{padding:.55rem .3rem}td{font-size:.88rem}.who img,.champs img,.rk img,.rk svg{width:1.6rem;height:1.6rem}.who{gap:.4rem}.rk{gap:.35rem}.champs{gap:.25rem}svg.sp{width:4.5rem}.panel{padding:.25rem .5rem}}
 @media (max-width:66rem){.sortbar{display:flex}.panel{background:none;border:0;padding:0}table,thead,tbody,tr,td{display:block}thead{display:none}tr{background:var(--surface);border:1px solid var(--line);border-radius:.9rem;padding:.4rem .95rem;margin-bottom:.9rem}tbody tr:hover{background:var(--surface)}td{display:flex;justify-content:space-between;align-items:center;gap:1rem;border:0;padding:.45rem 0;text-align:right}td::before{content:attr(data-label);color:var(--muted);font-size:.8rem;text-align:left}}
 @media (prefers-reduced-motion:reduce){.hero{animation:none}html{scroll-behavior:auto}}
@@ -160,7 +161,7 @@ nav ul{align-items:center}
 <div class="card rev"><h3>Roue des champions</h3><p class="sub" id="champHint">Tire d’abord une lane.</p><div class="roller"><div class="rv"><div class="track" id="track"></div></div><div class="mark"></div><div class="rmsg" id="rmsg">Tire d’abord une lane</div></div>
 <div class="ctl" style="justify-content:center"><button class="btn" id="champSpin" disabled>Tirer le champion</button></div><p class="wres" id="champRes" aria-live="polite"></p></div></div>
 </section>
-<footer>Armanix, depuis la première partie ensemble. · Version 21</footer></div>
+<footer>Armanix, depuis la première partie ensemble. · Version 22</footer></div>
 <script>
 const GAMES={
  lol:{n:"League of Legends",trend:"Évolution du rang"},
@@ -226,6 +227,9 @@ function csCols(prof){const D=p=>csd(p);return[
  {l:"Utilitaires",v:p=>(D(p).util||{}).r,cell:p=>td("Utilitaires",utilCell(D(p).util))},
  {l:"Matchs",v:p=>D(p).matches,cell:p=>td("Matchs",D(p).matches!=null?D(p).matches.toLocaleString("fr-FR"):"—")},prof]}
 // ===== Battlefield 6 =====
+function csRows(p){const d=csd(p),f=d.faceit||{};
+ return[h("div",{class:"ll"},h("span",{class:"lb"},"Premier"),premierBadge(d.premier),h("span",{class:"wl",title:d.wr!=null?d.wr+" % de victoires sur toute la carrière CS":""},d.wr!=null?colored(d.wr+" %",d.wr,SC.wr):"")),
+  f.lvl!=null?h("div",{class:"ll"},h("span",{class:"lb"},"FACEIT"),h("span",{class:"fi"},h("span",{class:"fl",style:"--c:"+FLC(f.lvl),title:"Niveau FACEIT "+f.lvl},String(f.lvl)),h("b",{class:"elo"},f.elo!=null?f.elo+" elo":"—")),h("span",{class:"wl",title:f.n?f.wr+" % de victoires sur les "+f.n+" derniers matchs FACEIT":""},f.n?colored(f.wr+" %",f.wr,SC.wr):"")):""]}
 function bfd(p){const e=p.games.bf||{};if(e.d)return e.d;const f=e.f||[],n=x=>{const v=parseFloat(String(x||"").replace(",",".").replace(/[^\d.-]/g,""));return isNaN(v)?null:v};return{lvl:n(f[0]),kd:n(f[1]),wr:n(f[2]),cls:f[3]&&f[3]!=="—"?f[3]:null}}
 const fr2=v=>v!=null?v.toFixed(2).replace(".",","):"—";
 function bfCols(prof){const D=bfd;return[
@@ -329,8 +333,8 @@ function renderRoster(){
   const L=p.games.lol,d=(L&&L.d)||{},ex=extra[p.name]||{},v=stats.ddragon;
   const av=(d.icon!=null&&v)?h("img",{class:"av",src:"https://ddragon.leagueoflegends.com/cdn/"+v+"/img/profileicon/"+d.icon+".png",alt:"",loading:"lazy"}):h("div",{class:"av"},p.name.slice(0,2).toUpperCase());
   const rows=Object.keys(GAMES).filter(k=>p.games[k]).map(k=>{const e=p.games[k],l=ok(e.link),lk=l?h("a",{href:l,target:"_blank",rel:"noopener"},"Profil"):"";
-   if(k==="lol"){const ch=d.champs||[];return grow(k,[h("div",{class:"ll"},h("span",{class:"lb"},"Solo"),rankBadge(d.solo)),h("div",{class:"ll"},h("span",{class:"lb"},"Flex"),rankBadge(d.flex)),ch.length?h("div",{class:"champs"},ch.map(c=>img("champion",c.id,c.name))):""],lk,"col")}
-   const f=e.f||[];return grow(k,k==="cs"?[premierBadge(csd(p).premier),faceitCell(csd(p).faceit),csd(p).wr!=null?h("span",{class:"sub"},csd(p).wr+" % de victoires (carrière)"):""]:k==="bf"?bfLine(p):GAMES[k].f.slice(0,2).map((lab,j)=>lab+" : "+dash(f[j])).join(" · "),lk)});
+   if(k==="lol"){const ch=d.champs||[];const wrS=q=>q&&q.wr!=null?h("span",{class:"wl",title:q.wr+" % de victoires cette saison"},colored(q.wr+" %",q.wr,SC.wr)):h("span",{class:"wl"});return grow(k,[h("div",{class:"ll"},h("span",{class:"lb"},"Solo"),rankBadge(d.solo),wrS(d.solo)),h("div",{class:"ll"},h("span",{class:"lb"},"Flex"),rankBadge(d.flex),wrS(d.flex)),ch.length?h("div",{class:"champs"},ch.map(c=>img("champion",c.id,c.name))):""],lk,"col")}
+   const f=e.f||[];return grow(k,k==="cs"?csRows(p):k==="bf"?bfLine(p):GAMES[k].f.slice(0,2).map((lab,j)=>lab+" : "+dash(f[j])).join(" · "),lk,k==="cs"?"col":"")});
   return h("article",{class:"pc rev"},h("header",{},av,h("div",{},h("h3",{},p.name),ex.role?h("div",{class:"sub"},ex.role):"")),badges(p),ex.bio?h("p",{class:"bio"},ex.bio):"",formRow(p),rows)}));
  if(!stats.players.length)$("rosterGrid").textContent="Aucun joueur pour l’instant."}
 // --- générateur d'équipes
