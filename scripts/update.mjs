@@ -156,10 +156,19 @@ async function cs(p) {
 const BFC = { Assault: "Assaut", Engineer: "Ingénieur", Support: "Soutien", Recon: "Reconnaissance" };
 const bfId = p => { const m = String(p.bf?.link || "").match(/profile\/(?:[a-z]+\/)?(\d{6,})/i); return m ? m[1] : null; };
 async function bf(p) {
-  const q = p.bf.name ? `name=${encodeURIComponent(p.bf.name)}` : bfId(p) ? `playerid=${bfId(p)}` : null;
-  if (!q) return null;
-  await sleep(800);
-  const j = await getJson(`https://api.gametools.network/bf6/stats/?${q}&platform=${p.bf.platform || "pc"}&skip_battlelog=true&format_values=false&categories=multiplayer&lang=fr-fr`);
+  // 1) méthode documentée par GameTools : pseudo EA + plateforme ; 2) sinon, l'identifiant du lien tracker.gg, avec plusieurs variantes
+  const id = bfId(p), base = "https://api.gametools.network/bf6/stats/?skip_battlelog=true&format_values=false&categories=multiplayer&lang=en-us";
+  const tries = [];
+  if (p.bf.name) for (const pl of [p.bf.platform || "pc", "pc", "ea", "psn", "xbox"]) tries.push(`name=${encodeURIComponent(p.bf.name)}&platform=${pl}`);
+  if (id) for (const [k, pl] of [["playerid", p.bf.platform || "pc"], ["playerid", "ea"], ["oid", "pc"], ["nucleus_id", "pc"]]) tries.push(`${k}=${id}&platform=${pl}`);
+  if (!tries.length) return null;
+  let j = null, lastErr = null;
+  for (const q of [...new Set(tries)]) {
+    await sleep(800);
+    try { j = await getJson(`${base}&${q}`); if (j && !j.errors) break; j = null; }
+    catch (e) { lastErr = e; if (e.status !== 404 && e.status !== 400) throw e; }
+  }
+  if (!j) throw new Error(p.bf.name ? `joueur « ${p.bf.name} » introuvable sur GameTools (vérifie le pseudo EA et la plateforme)` : "introuvable sur GameTools avec l’identifiant tracker.gg : ajoute son pseudo EA dans players.json" + (lastErr ? ` (${lastErr.message})` : ""));
   try { await writeFile(`data/raw/bf-${slug(p.name)}.json`, JSON.stringify(j, null, 1)); } catch {}
   const n = v => { if (v == null) return null; const x = typeof v === "string" ? parseFloat(v.replace(",", ".").replace(/[^\d.-]/g, "")) : v; return Number.isFinite(x) ? x : null; };
   const kills = n(j.kills), deaths = n(j.deaths), wins = n(j.wins), loses = n(j.loses ?? j.losses);
