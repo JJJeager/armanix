@@ -1,7 +1,7 @@
 {
  "privacy_mode": "public",
  "winrate": 0.6207,
- "total_matches": 2300,
+ "total_matches": 2301,
  "first_match_date": "2020-03-12T17:49:38.000Z",
  "name": "Марц",
  "bans": [],
@@ -134,6 +134,25 @@
   "utility_on_death_avg": 338.7246
  },
  "recent_matches": [
+  {
+   "id": "a5df1e1a-c76a-4473-9674-3229cacc8b21",
+   "finished_at": "2026-10-27T17:18:59.000Z",
+   "data_source": "matchmaking_wingman",
+   "outcome": "win",
+   "rank": 15,
+   "rank_type": 7,
+   "map_name": "de_inferno",
+   "leetify_rating": 0.1926,
+   "score": [
+    9,
+    3
+   ],
+   "preaim": 11.97,
+   "reaction_time_ms": 578,
+   "accuracy_enemy_spotted": 39.24,
+   "accuracy_head": 42.42,
+   "spray_accuracy": 37.5
+  },
   {
    "id": "b6c6246e-e9f5-490d-b20e-20016bf43484",
    "finished_at": "2026-10-19T15:43:18.000Z",
@@ -1978,42 +1997,24 @@
    "accuracy_enemy_spotted": 40,
    "accuracy_head": 22.73,
    "spray_accuracy": 60
-  },
-  {
-   "id": "71b2ee8a-20d9-4e21-a1ab-d052b6a96fcf",
-   "finished_at": "2026-08-13T19:46:32.000Z",
-   "data_source": "faceit",
-   "outcome": "loss",
-   "rank": 9,
-   "map_name": "de_mirage",
-   "leetify_rating": -0.0303,
-   "score": [
-    11,
-    13
-   ],
-   "preaim": 5.43,
-   "reaction_time_ms": 516,
-   "accuracy_enemy_spotted": 38.54,
-   "accuracy_head": 13.16,
-   "spray_accuracy": 65
   }
  ],
  "recent_teammates": [
   {
    "steam64_id": "76561198097655934",
-   "recent_matches_count": 42
+   "recent_matches_count": 41
   },
   {
    "steam64_id": "76561198142568665",
-   "recent_matches_count": 46
+   "recent_matches_count": 45
   },
   {
    "steam64_id": "76561198002469129",
-   "recent_matches_count": 77
+   "recent_matches_count": 76
   },
   {
    "steam64_id": "76561198081776591",
-   "recent_matches_count": 67
+   "recent_matches_count": 66
   },
   {
    "steam64_id": "76561198811687263",
