@@ -1,9 +1,9 @@
 {
- "updatedAt": "2026-10-27T18:29:48.761Z",
+ "updatedAt": "2026-10-28T00:25:39.150Z",
  "status": {
   "riot": "ok",
   "riotMaj": 14,
-  "at": "2026-10-27T18:29:48.761Z"
+  "at": "2026-10-28T00:25:39.150Z"
  },
  "ddragon": "16.21.1",
  "players": [
@@ -12,7 +12,7 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/Allo%20Central-SoS",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "icon": 3607,
       "solo": {
@@ -84,7 +84,7 @@
       "cls": "All",
       "kills": 8484
      },
-     "updated": "2026-10-27T18:29:48.761Z"
+     "updated": "2026-10-28T00:25:39.150Z"
     }
    }
   },
@@ -93,7 +93,7 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/Biyul%20Seupain-FRA",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "icon": 7289,
       "solo": {
@@ -165,7 +165,7 @@
       "cls": "All",
       "kills": 10313
      },
-     "updated": "2026-10-27T18:29:48.761Z"
+     "updated": "2026-10-28T00:25:39.150Z"
     }
    }
   },
@@ -174,7 +174,7 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/LucasLePlot-EUW",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "icon": 6498,
       "solo": {
@@ -190,12 +190,12 @@
       "flex": {
        "tier": "PLATINUM",
        "div": "II",
-       "lp": 41,
-       "rank": "Platine II (41 LP)",
+       "lp": 62,
+       "rank": "Platine II (62 LP)",
        "wr": 53,
-       "kda": "2.72",
+       "kda": "2.85",
        "n": 20,
-       "score": 1841
+       "score": 1862
       },
       "champs": [
        {
@@ -214,10 +214,10 @@
         "n": 4
        }
       ],
-      "form": "LLLLWLLLLL",
-      "streak": -4,
-      "week": 5,
-      "last": 1793034148689
+      "form": "WLLLLWLLLL",
+      "streak": 1,
+      "week": 6,
+      "last": 1793137391886
      }
     },
     "rl": {
@@ -246,7 +246,7 @@
       "cls": "All",
       "kills": 1817
      },
-     "updated": "2026-10-27T18:29:48.761Z"
+     "updated": "2026-10-28T00:25:39.150Z"
     }
    }
   },
@@ -255,7 +255,7 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/Bords%20De%20Vienne-1312",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "icon": 7289,
       "solo": {
@@ -337,7 +337,7 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/Glorbo%20Florbo-KEK",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "icon": 3890,
       "solo": {
@@ -353,23 +353,23 @@
       "flex": {
        "tier": "GOLD",
        "div": "IV",
-       "lp": 17,
-       "rank": "Or IV (17 LP)",
+       "lp": 38,
+       "rank": "Or IV (38 LP)",
        "wr": 51,
-       "kda": "3.30",
+       "kda": "3.25",
        "n": 20,
-       "score": 1217
+       "score": 1238
       },
       "champs": [
        {
         "id": "Zed",
         "name": "Zed",
-        "n": 11
+        "n": 12
        },
        {
         "id": "Khazix",
         "name": "Kha'Zix",
-        "n": 8
+        "n": 7
        },
        {
         "id": "Nocturne",
@@ -377,10 +377,10 @@
         "n": 4
        }
       ],
-      "form": "LLLWWWLWLW",
-      "streak": -3,
-      "week": 0,
-      "last": 1791590626832
+      "form": "WLLLWWWLWL",
+      "streak": 1,
+      "week": 1,
+      "last": 1793137391886
      }
     },
     "bf": {
@@ -401,7 +401,7 @@
       "kills": 9490
      },
      "updated": "2026-10-26T18:26:24.521Z",
-     "error": "HTTP 500 sur https://api.gametools.network/bf6/stats/"
+     "error": "HTTP 503 sur https://api.gametools.network/bf6/stats/"
     }
    }
   },
@@ -410,7 +410,7 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/Kikittitou-6667",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "icon": 3865,
       "solo": {
@@ -426,18 +426,18 @@
       "flex": {
        "tier": "GOLD",
        "div": "III",
-       "lp": 1,
-       "rank": "Or III (1 LP)",
-       "wr": 49,
-       "kda": "3.71",
+       "lp": 22,
+       "rank": "Or III (22 LP)",
+       "wr": 50,
+       "kda": "3.92",
        "n": 20,
-       "score": 1301
+       "score": 1322
       },
       "champs": [
        {
         "id": "Sejuani",
         "name": "Sejuani",
-        "n": 24
+        "n": 23
        },
        {
         "id": "Ivern",
@@ -450,10 +450,10 @@
         "n": 3
        }
       ],
-      "form": "LLWLLLWWWW",
-      "streak": -2,
-      "week": 0,
-      "last": 1792335765161
+      "form": "WLLWLLLWWW",
+      "streak": 1,
+      "week": 1,
+      "last": 1793137391886
      }
     },
     "cs": {
@@ -461,22 +461,22 @@
       "Premier 24965",
       "62 %",
       "24.9 %",
-      "2301"
+      "2303"
      ],
      "link": "https://leetify.com/@kikittitou",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "premier": 24965,
       "wr": 62,
       "hs": 24.9,
-      "matches": 2301,
-      "form": "WTWWWLLLWL",
-      "streak": 1,
+      "matches": 2303,
+      "form": "TWTWWWLLLW",
+      "streak": 0,
       "faceit": {
        "lvl": 10,
        "elo": 1685,
-       "n": 36,
-       "wr": 58
+       "n": 35,
+       "wr": 57
       },
       "util": {
        "r": 64,
@@ -503,7 +503,7 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/Emmanuel%20Micron-1312",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "icon": 3369,
       "solo": {
@@ -519,12 +519,12 @@
       "flex": {
        "tier": "SILVER",
        "div": "IV",
-       "lp": 25,
-       "rank": "Argent IV (25 LP)",
+       "lp": 45,
+       "rank": "Argent IV (45 LP)",
        "wr": 53,
-       "kda": "1.90",
+       "kda": "2.00",
        "n": 20,
-       "score": 825
+       "score": 845
       },
       "champs": [
        {
@@ -543,10 +543,10 @@
         "n": 2
        }
       ],
-      "form": "LWLLWWLLWL",
-      "streak": -1,
+      "form": "WLWLLWWLLW",
+      "streak": 1,
       "week": 7,
-      "last": 1792964089266
+      "last": 1793137391886
      }
     },
     "rl": {
@@ -565,7 +565,7 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/Mazelbob-0420",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "icon": 5371,
       "solo": {
@@ -609,7 +609,7 @@
       "2503"
      ],
      "link": "https://leetify.com/app/profile/76561198002469129",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "premier": 25713,
       "wr": 59,
@@ -648,38 +648,38 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/FrozhY-EUW",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "icon": 29,
       "solo": {
        "tier": "GOLD",
        "div": "IV",
-       "lp": 18,
-       "rank": "Or IV (18 LP)",
+       "lp": 13,
+       "rank": "Or IV (13 LP)",
        "wr": 49,
        "kda": "1.43",
        "n": 20,
-       "score": 1218
+       "score": 1213
       },
       "flex": {
        "tier": "SILVER",
-       "div": "II",
-       "lp": 96,
-       "rank": "Argent II (96 LP)",
-       "wr": 52,
-       "kda": "1.76",
+       "div": "I",
+       "lp": 14,
+       "rank": "Argent I (14 LP)",
+       "wr": 53,
+       "kda": "1.72",
        "n": 20,
-       "score": 1096
+       "score": 1114
       },
       "champs": [
        {
-        "id": "MissFortune",
-        "name": "Miss Fortune",
-        "n": 2
-       },
-       {
         "id": "Teemo",
         "name": "Teemo",
+        "n": 3
+       },
+       {
+        "id": "MissFortune",
+        "name": "Miss Fortune",
         "n": 2
        },
        {
@@ -688,10 +688,10 @@
         "n": 2
        }
       ],
-      "form": "WLLLLWLWLL",
-      "streak": 1,
-      "week": 9,
-      "last": 1793124955877
+      "form": "WWLLLLWLWL",
+      "streak": 2,
+      "week": 10,
+      "last": 1793137391886
      }
     },
     "cs": {
@@ -702,7 +702,7 @@
       "1298"
      ],
      "link": "https://leetify.com/app/profile/76561198097655934",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "premier": 22635,
       "wr": 57,
@@ -741,7 +741,7 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/L%C3%A9cheur2culotte-ARMX",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "icon": 7289,
       "solo": {
@@ -790,7 +790,7 @@
       "1356"
      ],
      "link": "https://leetify.com/@valkai",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "premier": 23237,
       "wr": 62,
@@ -820,7 +820,7 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/4FPS-FREU",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "icon": 3367,
       "solo": {
@@ -874,7 +874,7 @@
       "1190"
      ],
      "link": "https://leetify.com/app/profile/76561198142568665",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "premier": 22327,
       "wr": 62,
@@ -913,7 +913,7 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/Smorvix-666HL",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "icon": 7147,
       "solo": {
@@ -966,7 +966,7 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/Piesang-EUW",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "icon": 7185,
       "solo": {
@@ -1019,7 +1019,7 @@
    "games": {
     "lol": {
      "link": "https://dpm.lol/JibaxLaMenax-EUW",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "icon": 7144,
       "solo": {
@@ -1078,7 +1078,7 @@
       "1838"
      ],
      "link": "https://leetify.com/app/profile/76561198081776591",
-     "updated": "2026-10-27T18:29:48.761Z",
+     "updated": "2026-10-28T00:25:39.150Z",
      "d": {
       "premier": 23958,
       "wr": 67,
