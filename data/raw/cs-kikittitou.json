@@ -135,6 +135,25 @@
  },
  "recent_matches": [
   {
+   "id": "834cc651-80db-4351-96a1-eeb1d6ccb6da",
+   "finished_at": "2026-10-27T21:46:32.000Z",
+   "data_source": "matchmaking_wingman",
+   "outcome": "loss",
+   "rank": 15,
+   "rank_type": 7,
+   "map_name": "de_nuke",
+   "leetify_rating": -0.001,
+   "score": [
+    6,
+    9
+   ],
+   "preaim": 12.58,
+   "reaction_time_ms": 672,
+   "accuracy_enemy_spotted": 39.8,
+   "accuracy_head": 25,
+   "spray_accuracy": 53.85
+  },
+  {
    "id": "3e7c0605-5f67-4454-b792-3bebe608cbca",
    "finished_at": "2026-10-27T20:06:45.000Z",
    "data_source": "matchmaking_wingman",
@@ -1980,24 +1999,6 @@
    "accuracy_enemy_spotted": 50.54,
    "accuracy_head": 15.91,
    "spray_accuracy": 73.91
-  },
-  {
-   "id": "fd307341-367c-4a15-b197-feb6b37a5e6e",
-   "finished_at": "2026-08-13T21:15:04.000Z",
-   "data_source": "faceit",
-   "outcome": "win",
-   "rank": 9,
-   "map_name": "de_cache",
-   "leetify_rating": -0.0492,
-   "score": [
-    13,
-    7
-   ],
-   "preaim": 7.18,
-   "reaction_time_ms": 688,
-   "accuracy_enemy_spotted": 48.08,
-   "accuracy_head": 24.14,
-   "spray_accuracy": 40
   }
  ],
  "recent_teammates": [
@@ -2007,15 +2008,15 @@
   },
   {
    "steam64_id": "76561198142568665",
-   "recent_matches_count": 44
+   "recent_matches_count": 43
   },
   {
    "steam64_id": "76561198002469129",
-   "recent_matches_count": 75
+   "recent_matches_count": 74
   },
   {
    "steam64_id": "76561198081776591",
-   "recent_matches_count": 65
+   "recent_matches_count": 64
   },
   {
    "steam64_id": "76561198811687263",
