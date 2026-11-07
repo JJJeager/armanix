@@ -1,15 +1,15 @@
 {
  "privacy_mode": "public",
  "winrate": 0.5862,
- "total_matches": 1191,
+ "total_matches": 1192,
  "first_match_date": "2020-04-12T20:29:10.000Z",
  "name": "Gorf",
  "bans": [],
  "steam64_id": "76561198142568665",
  "id": "a0b4a959-bcab-443a-9399-101ea6b7355a",
  "ranks": {
-  "leetify": -0.06999999999999999,
-  "premier": 22206,
+  "leetify": -0.06,
+  "premier": 22586,
   "faceit": 8,
   "faceit_elo": 1450,
   "wingman": null,
@@ -90,38 +90,57 @@
   ]
  },
  "rating": {
-  "aim": 90.3199,
-  "positioning": 64.4309,
-  "utility": 77.5487,
-  "clutch": 0.0736,
-  "opening": 0.013,
-  "ct_leetify": 0.0091,
-  "t_leetify": -0.0103
+  "aim": 90.6582,
+  "positioning": 62.5516,
+  "utility": 77.7558,
+  "clutch": 0.0725,
+  "opening": 0.0043,
+  "ct_leetify": 0.008,
+  "t_leetify": -0.0087
  },
  "stats": {
-  "accuracy_enemy_spotted": 38.7514,
-  "accuracy_head": 21.6329,
-  "counter_strafing_good_shots_ratio": 86.1512,
-  "ct_opening_aggression_success_rate": 54.2772,
-  "ct_opening_duel_success_percentage": 56.2305,
-  "flashbang_hit_foe_avg_duration": 3.1806,
-  "flashbang_hit_foe_per_flashbang": 0.9143,
-  "flashbang_hit_friend_per_flashbang": 0.2616,
-  "flashbang_leading_to_kill": 4.4613,
-  "flashbang_thrown": 19.3206,
-  "he_foes_damage_avg": 11.5663,
-  "he_friends_damage_avg": 0.1297,
-  "preaim": 8.2372,
-  "reaction_time_ms": 527.1559,
-  "spray_accuracy": 41.6173,
-  "t_opening_aggression_success_rate": 39.0583,
-  "t_opening_duel_success_percentage": 42.0165,
-  "traded_deaths_success_percentage": 52.5547,
-  "trade_kill_opportunities_per_round": 0.2918,
-  "trade_kills_success_percentage": 53.8829,
-  "utility_on_death_avg": 290.6559
+  "accuracy_enemy_spotted": 38.7296,
+  "accuracy_head": 21.8798,
+  "counter_strafing_good_shots_ratio": 86.2415,
+  "ct_opening_aggression_success_rate": 52.4354,
+  "ct_opening_duel_success_percentage": 53.9453,
+  "flashbang_hit_foe_avg_duration": 3.189,
+  "flashbang_hit_foe_per_flashbang": 0.922,
+  "flashbang_hit_friend_per_flashbang": 0.2518,
+  "flashbang_leading_to_kill": 4.4547,
+  "flashbang_thrown": 19.4435,
+  "he_foes_damage_avg": 11.4567,
+  "he_friends_damage_avg": 0.1396,
+  "preaim": 8.3143,
+  "reaction_time_ms": 527.8722,
+  "spray_accuracy": 42.262,
+  "t_opening_aggression_success_rate": 40.1757,
+  "t_opening_duel_success_percentage": 40.9269,
+  "traded_deaths_success_percentage": 50.7154,
+  "trade_kill_opportunities_per_round": 0.2913,
+  "trade_kills_success_percentage": 53.9507,
+  "utility_on_death_avg": 291.1615
  },
  "recent_matches": [
+  {
+   "id": "ccdf7d23-9ff0-486b-95bd-0689e66d42ed",
+   "finished_at": "2026-11-07T17:12:22.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 22586,
+   "rank_type": 11,
+   "map_name": "de_nuke",
+   "leetify_rating": 0.004,
+   "score": [
+    13,
+    3
+   ],
+   "preaim": 8.64,
+   "reaction_time_ms": 430,
+   "accuracy_enemy_spotted": 47.89,
+   "accuracy_head": 27.78,
+   "spray_accuracy": 76.92
+  },
   {
    "id": "5e6f010a-065a-4b2c-8793-23f93604eaef",
    "finished_at": "2026-11-04T21:18:10.000Z",
@@ -1954,50 +1973,32 @@
    "accuracy_enemy_spotted": 31.71,
    "accuracy_head": 25.93,
    "spray_accuracy": 36.84
-  },
-  {
-   "id": "44dee31c-6482-4056-ade4-fc3192e578c9",
-   "finished_at": "2026-06-08T20:41:15.000Z",
-   "data_source": "faceit",
-   "outcome": "loss",
-   "rank": 8,
-   "map_name": "de_inferno",
-   "leetify_rating": 0.0283,
-   "score": [
-    11,
-    13
-   ],
-   "preaim": 7.43,
-   "reaction_time_ms": 617,
-   "accuracy_enemy_spotted": 39.42,
-   "accuracy_head": 23.73,
-   "spray_accuracy": 60.87
   }
  ],
  "recent_teammates": [
   {
-   "steam64_id": "76561198002469129",
-   "recent_matches_count": 65
+   "steam64_id": "76561198089042448",
+   "recent_matches_count": 11
   },
   {
-   "steam64_id": "76561198081776591",
-   "recent_matches_count": 67
+   "steam64_id": "76561198097655934",
+   "recent_matches_count": 31
   },
   {
    "steam64_id": "76561198100179839",
    "recent_matches_count": 76
   },
   {
-   "steam64_id": "76561198097655934",
-   "recent_matches_count": 30
+   "steam64_id": "76561198002469129",
+   "recent_matches_count": 64
+  },
+  {
+   "steam64_id": "76561198081776591",
+   "recent_matches_count": 66
   },
   {
    "steam64_id": "76561198811687263",
-   "recent_matches_count": 38
-  },
-  {
-   "steam64_id": "76561198089042448",
-   "recent_matches_count": 10
+   "recent_matches_count": 37
   }
  ]
 }
