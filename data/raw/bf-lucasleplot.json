@@ -1265,7 +1265,8 @@
   {
    "type": "Rifles",
    "weaponName": "Interdictor",
-   "image": "",
+   "image": "https://cdn.gametools.network/weapons/bf6/T_UI_DesertTechHTI_Factory_Icon_MED-03916691.webp",
+   "altImage": "https://cdn.gametools.network/weapons/bf6/white/T_UI_DesertTechHTI_Factory_Icon_MED-03916691.webp",
    "translationId": "ID_WEAPON_HTI",
    "name": "Interdictor",
    "id": "wp_snp_hti",
@@ -2424,7 +2425,7 @@
   },
   {
    "mapName": "Wake Island",
-   "image": "",
+   "image": "https://cdn.gametools.network/maps/bf6/T_UI_Atoll_Large_OPT-73e9e09b.webp",
    "translationId": "ID_MP_LVL_ATOLL_NAME",
    "name": "Wake Island",
    "id": "lvlmpatoll",
