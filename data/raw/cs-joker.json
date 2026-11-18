@@ -1,14 +1,14 @@
 {
  "privacy_mode": "public",
- "winrate": 0.4333,
- "total_matches": 1850,
+ "winrate": 0.4667,
+ "total_matches": 1851,
  "first_match_date": "2020-01-27T13:51:50.000Z",
  "name": "Joker",
  "bans": [],
  "steam64_id": "76561198081776591",
  "id": "45e8b11a-9f6c-4755-b44a-e5445575d4e1",
  "ranks": {
-  "leetify": 1.23,
+  "leetify": 1.55,
   "premier": 22450,
   "faceit": 9,
   "faceit_elo": 1565,
@@ -26,6 +26,10 @@
    {
     "map_name": "de_cache",
     "rank": 11
+   },
+   {
+    "map_name": "de_cbble",
+    "rank": 0
    },
    {
     "map_name": "de_dust2",
@@ -66,38 +70,57 @@
   ]
  },
  "rating": {
-  "aim": 80.5106,
-  "positioning": 51.9939,
-  "utility": 68.9834,
-  "clutch": 0.1184,
-  "opening": 0.0234,
-  "ct_leetify": 0.0175,
-  "t_leetify": 0.0066
+  "aim": 81.594,
+  "positioning": 54.7758,
+  "utility": 68.5586,
+  "clutch": 0.1296,
+  "opening": 0.0283,
+  "ct_leetify": 0.0204,
+  "t_leetify": 0.0105
  },
  "stats": {
-  "accuracy_enemy_spotted": 36.9971,
-  "accuracy_head": 20.2432,
-  "counter_strafing_good_shots_ratio": 83.169,
-  "ct_opening_aggression_success_rate": 45.2935,
-  "ct_opening_duel_success_percentage": 47.5997,
-  "flashbang_hit_foe_avg_duration": 2.8371,
-  "flashbang_hit_foe_per_flashbang": 0.7351,
-  "flashbang_hit_friend_per_flashbang": 0.2291,
-  "flashbang_leading_to_kill": 10.6624,
-  "flashbang_thrown": 6.8355,
-  "he_foes_damage_avg": 14.1629,
-  "he_friends_damage_avg": 0.1432,
-  "preaim": 8.6638,
-  "reaction_time_ms": 588.1744,
-  "spray_accuracy": 37.8873,
-  "t_opening_aggression_success_rate": 47.6744,
-  "t_opening_duel_success_percentage": 44.2972,
-  "traded_deaths_success_percentage": 40.3157,
-  "trade_kill_opportunities_per_round": 0.2375,
-  "trade_kills_success_percentage": 46.6852,
-  "utility_on_death_avg": 319.1163
+  "accuracy_enemy_spotted": 37.4336,
+  "accuracy_head": 20.7463,
+  "counter_strafing_good_shots_ratio": 83.0557,
+  "ct_opening_aggression_success_rate": 48.3853,
+  "ct_opening_duel_success_percentage": 49.461,
+  "flashbang_hit_foe_avg_duration": 2.8122,
+  "flashbang_hit_foe_per_flashbang": 0.7041,
+  "flashbang_hit_friend_per_flashbang": 0.2223,
+  "flashbang_leading_to_kill": 10.8517,
+  "flashbang_thrown": 6.7898,
+  "he_foes_damage_avg": 14.46,
+  "he_friends_damage_avg": 0.1415,
+  "preaim": 8.7201,
+  "reaction_time_ms": 585.0805,
+  "spray_accuracy": 38.0323,
+  "t_opening_aggression_success_rate": 50.7389,
+  "t_opening_duel_success_percentage": 47.4005,
+  "traded_deaths_success_percentage": 41.3301,
+  "trade_kill_opportunities_per_round": 0.2299,
+  "trade_kills_success_percentage": 46.7233,
+  "utility_on_death_avg": 331.5255
  },
  "recent_matches": [
+  {
+   "id": "f32496d4-0072-4b6e-aebf-245654fe6038",
+   "finished_at": "2026-11-18T20:22:33.000Z",
+   "data_source": "matchmaking",
+   "outcome": "win",
+   "rank": 0,
+   "rank_type": 12,
+   "map_name": "de_cbble",
+   "leetify_rating": 0.0751,
+   "score": [
+    13,
+    9
+   ],
+   "preaim": 9.79,
+   "reaction_time_ms": 469,
+   "accuracy_enemy_spotted": 44.54,
+   "accuracy_head": 35.19,
+   "spray_accuracy": 38.1
+  },
   {
    "id": "8e369cb3-b0ad-40ed-bb42-ede10b2d76a9",
    "finished_at": "2026-11-16T20:05:47.000Z",
@@ -142,7 +165,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 9,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": -0.0021,
    "score": [
@@ -161,7 +183,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 9,
-   "rank_type": null,
    "map_name": "de_cache",
    "leetify_rating": -0.0034,
    "score": [
@@ -389,7 +410,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 9,
-   "rank_type": null,
    "map_name": "de_mirage",
    "leetify_rating": -0.0674,
    "score": [
@@ -465,7 +485,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 9,
-   "rank_type": null,
    "map_name": "de_cache",
    "leetify_rating": 0.0201,
    "score": [
@@ -484,7 +503,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 9,
-   "rank_type": null,
    "map_name": "de_mirage",
    "leetify_rating": 0.0261,
    "score": [
@@ -503,7 +521,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 9,
-   "rank_type": null,
    "map_name": "de_inferno",
    "leetify_rating": 0.0766,
    "score": [
@@ -541,7 +558,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 9,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": 0.0462,
    "score": [
@@ -598,7 +614,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 9,
-   "rank_type": null,
    "map_name": "de_mirage",
    "leetify_rating": 0.0273,
    "score": [
@@ -674,7 +689,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 9,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": -0.0091,
    "score": [
@@ -731,7 +745,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": 0.0145,
    "score": [
@@ -750,7 +763,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_mirage",
    "leetify_rating": -0.0512,
    "score": [
@@ -769,7 +781,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_mirage",
    "leetify_rating": 0.0311,
    "score": [
@@ -845,7 +856,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_nuke",
    "leetify_rating": 0.0233,
    "score": [
@@ -883,7 +893,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_cache",
    "leetify_rating": 0.0123,
    "score": [
@@ -921,7 +930,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_nuke",
    "leetify_rating": 0.0616,
    "score": [
@@ -940,7 +948,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": 0.0264,
    "score": [
@@ -978,7 +985,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_nuke",
    "leetify_rating": 0.0007,
    "score": [
@@ -997,7 +1003,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": 0.016,
    "score": [
@@ -1035,7 +1040,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_mirage",
    "leetify_rating": 0.0337,
    "score": [
@@ -1054,7 +1058,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_inferno",
    "leetify_rating": 0.0797,
    "score": [
@@ -1073,7 +1076,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": -0.1257,
    "score": [
@@ -1092,7 +1094,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_inferno",
    "leetify_rating": 0.0029,
    "score": [
@@ -1130,7 +1131,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": 0.0757,
    "score": [
@@ -1434,7 +1434,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_nuke",
    "leetify_rating": -0.061,
    "score": [
@@ -1472,7 +1471,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_inferno",
    "leetify_rating": -0.0037,
    "score": [
@@ -1510,7 +1508,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": 0.023,
    "score": [
@@ -1529,7 +1526,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_vertigo",
    "leetify_rating": 0.0273,
    "score": [
@@ -1586,7 +1582,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_inferno",
    "leetify_rating": 0.0767,
    "score": [
@@ -1662,7 +1657,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_inferno",
    "leetify_rating": 0.0613,
    "score": [
@@ -1719,7 +1713,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_nuke",
    "leetify_rating": 0.0427,
    "score": [
@@ -1776,7 +1769,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_cache",
    "leetify_rating": -0.0034,
    "score": [
@@ -1795,7 +1787,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_nuke",
    "leetify_rating": -0.0236,
    "score": [
@@ -1833,7 +1824,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_anubis",
    "leetify_rating": 0.0026,
    "score": [
@@ -1890,7 +1880,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_cache",
    "leetify_rating": 0.0067,
    "score": [
@@ -1909,7 +1898,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_anubis",
    "leetify_rating": -0.0067,
    "score": [
@@ -1928,7 +1916,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_mirage",
    "leetify_rating": 0.0825,
    "score": [
@@ -1947,7 +1934,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": -0.0312,
    "score": [
@@ -1966,7 +1952,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": 0.1476,
    "score": [
@@ -1978,39 +1963,20 @@
    "accuracy_enemy_spotted": 52.11,
    "accuracy_head": 18.52,
    "spray_accuracy": 55.88
-  },
-  {
-   "id": "fc0df221-722a-41d9-a70b-c533c57311c7",
-   "finished_at": "2026-09-12T20:53:12.000Z",
-   "data_source": "faceit",
-   "outcome": "loss",
-   "rank": 7,
-   "rank_type": null,
-   "map_name": "de_ancient",
-   "leetify_rating": 0.0095,
-   "score": [
-    6,
-    13
-   ],
-   "preaim": 12.13,
-   "reaction_time_ms": 547,
-   "accuracy_enemy_spotted": 37.5,
-   "accuracy_head": 30.77,
-   "spray_accuracy": 57.14
   }
  ],
  "recent_teammates": [
   {
-   "steam64_id": "76561198002469129",
-   "recent_matches_count": 55
-  },
-  {
    "steam64_id": "76561198097655934",
-   "recent_matches_count": 18
+   "recent_matches_count": 19
   },
   {
    "steam64_id": "76561198100179839",
-   "recent_matches_count": 35
+   "recent_matches_count": 36
+  },
+  {
+   "steam64_id": "76561198002469129",
+   "recent_matches_count": 55
   },
   {
    "steam64_id": "76561198811687263",
