@@ -108,7 +108,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 9,
-   "rank_type": null,
    "map_name": "de_inferno",
    "leetify_rating": 0.051,
    "score": [
@@ -184,7 +183,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 9,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": -0.0021,
    "score": [
@@ -203,7 +201,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 9,
-   "rank_type": null,
    "map_name": "de_cache",
    "leetify_rating": -0.0034,
    "score": [
@@ -431,7 +428,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 9,
-   "rank_type": null,
    "map_name": "de_mirage",
    "leetify_rating": -0.0674,
    "score": [
@@ -507,7 +503,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 9,
-   "rank_type": null,
    "map_name": "de_cache",
    "leetify_rating": 0.0201,
    "score": [
@@ -526,7 +521,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 9,
-   "rank_type": null,
    "map_name": "de_mirage",
    "leetify_rating": 0.0261,
    "score": [
@@ -545,7 +539,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 9,
-   "rank_type": null,
    "map_name": "de_inferno",
    "leetify_rating": 0.0766,
    "score": [
@@ -583,7 +576,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 9,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": 0.0462,
    "score": [
@@ -640,7 +632,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 9,
-   "rank_type": null,
    "map_name": "de_mirage",
    "leetify_rating": 0.0273,
    "score": [
@@ -716,7 +707,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 9,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": -0.0091,
    "score": [
@@ -773,7 +763,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": 0.0145,
    "score": [
@@ -792,7 +781,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_mirage",
    "leetify_rating": -0.0512,
    "score": [
@@ -811,7 +799,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_mirage",
    "leetify_rating": 0.0311,
    "score": [
@@ -887,7 +874,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_nuke",
    "leetify_rating": 0.0233,
    "score": [
@@ -925,7 +911,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_cache",
    "leetify_rating": 0.0123,
    "score": [
@@ -963,7 +948,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_nuke",
    "leetify_rating": 0.0616,
    "score": [
@@ -982,7 +966,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": 0.0264,
    "score": [
@@ -1020,7 +1003,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_nuke",
    "leetify_rating": 0.0007,
    "score": [
@@ -1039,7 +1021,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": 0.016,
    "score": [
@@ -1077,7 +1058,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_mirage",
    "leetify_rating": 0.0337,
    "score": [
@@ -1096,7 +1076,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_inferno",
    "leetify_rating": 0.0797,
    "score": [
@@ -1115,7 +1094,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 8,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": -0.1257,
    "score": [
@@ -1134,7 +1112,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_inferno",
    "leetify_rating": 0.0029,
    "score": [
@@ -1172,7 +1149,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": 0.0757,
    "score": [
@@ -1476,7 +1452,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_nuke",
    "leetify_rating": -0.061,
    "score": [
@@ -1514,7 +1489,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_inferno",
    "leetify_rating": -0.0037,
    "score": [
@@ -1552,7 +1526,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": 0.023,
    "score": [
@@ -1571,7 +1544,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_vertigo",
    "leetify_rating": 0.0273,
    "score": [
@@ -1628,7 +1600,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_inferno",
    "leetify_rating": 0.0767,
    "score": [
@@ -1704,7 +1675,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_inferno",
    "leetify_rating": 0.0613,
    "score": [
@@ -1761,7 +1731,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_nuke",
    "leetify_rating": 0.0427,
    "score": [
@@ -1818,7 +1787,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_cache",
    "leetify_rating": -0.0034,
    "score": [
@@ -1837,7 +1805,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_nuke",
    "leetify_rating": -0.0236,
    "score": [
@@ -1875,7 +1842,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_anubis",
    "leetify_rating": 0.0026,
    "score": [
@@ -1932,7 +1898,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_cache",
    "leetify_rating": 0.0067,
    "score": [
@@ -1951,7 +1916,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_anubis",
    "leetify_rating": -0.0067,
    "score": [
@@ -1970,7 +1934,6 @@
    "data_source": "faceit",
    "outcome": "win",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_mirage",
    "leetify_rating": 0.0825,
    "score": [
@@ -1989,7 +1952,6 @@
    "data_source": "faceit",
    "outcome": "loss",
    "rank": 7,
-   "rank_type": null,
    "map_name": "de_dust2",
    "leetify_rating": -0.0312,
    "score": [
